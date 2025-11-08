@@ -39,7 +39,7 @@ A comprehensive tech demo showcasing Data Readiness for AI using AWS technologie
 2. THE Data_Readiness_Platform SHALL load processed concert data into AWS Redshift data warehouse tables
 3. WHEN data quality issues are detected, THE Data_Normalization_Service SHALL flag records and generate quality reports
 4. THE Concert_Data_Pipeline SHALL maintain referential integrity between artists, venues, concerts, and ticket sales
-5. WHERE data transformations fail, THE Data_Readiness_Platform SHALL retry processing up to 3 times before alerting
+5. IF data transformations fail, THEN THE Data_Readiness_Platform SHALL retry processing up to 3 times before sending alerts to administrators
 
 ### Requirement 3
 
@@ -62,7 +62,7 @@ A comprehensive tech demo showcasing Data Readiness for AI using AWS technologie
 1. THE Concert_AI_Chatbot SHALL provide a conversational web interface for querying concert data
 2. WHEN users ask about artist performance history, THE Concert_AI_Chatbot SHALL retrieve and summarize relevant data from the data warehouse
 3. THE Concert_AI_Chatbot SHALL use natural language processing to understand concert-related queries and respond conversationally
-4. WHEN users request recommendations, THE Concert_AI_Chatbot SHALL provide personalized suggestions for concerts, venues, or artists based on historical data
+4. WHEN users request recommendations, THE Concert_AI_Chatbot SHALL provide suggestions for concerts, venues, or artists based on historical attendance patterns and user preferences
 5. THE Concert_AI_Chatbot SHALL maintain conversation context and memory across multiple interactions within a session
 
 ### Requirement 5
@@ -74,7 +74,7 @@ A comprehensive tech demo showcasing Data Readiness for AI using AWS technologie
 1. THE Data_Readiness_Platform SHALL implement AWS LakeFormation for data governance and access control
 2. WHEN data processing jobs execute, THE Concert_Data_Pipeline SHALL emit metrics to AWS CloudWatch
 3. THE Data_Readiness_Platform SHALL provide real-time dashboards showing pipeline health and data quality metrics
-4. WHEN system errors occur, THE AgentCore_Services SHALL send automated alerts to administrators
+4. WHEN system errors occur, THE Data_Readiness_Platform SHALL send automated alerts to administrators
 5. THE Data_Readiness_Platform SHALL maintain data lineage tracking from source to AI model consumption
 
 ### Requirement 6
