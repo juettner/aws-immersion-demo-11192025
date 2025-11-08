@@ -41,14 +41,14 @@ The platform leverages the following AWS services:
 #### 4. AI/ML Models
 - **Venue Popularity Ranking**: Feature engineering and SageMaker model for ranking venues by performance metrics
 - **Ticket Sales Prediction**: Regression model predicting sales with confidence scoring
-- Both models include training pipelines, deployment, and evaluation capabilities
+- **Recommendation Engine**: Collaborative and content-based filtering for personalized concert recommendations
+  - User-based and item-based collaborative filtering
+  - Content-based filtering using artist genres, popularity, and venue characteristics
+  - Hybrid recommendation strategies combining multiple signals
+  - Batch recommendation capabilities for multiple users
+  - Artist and venue similarity scoring
 
 ### 🚧 In Progress / Planned
-
-#### 5. Recommendation Engine
-- Collaborative filtering for concert recommendations
-- Content-based artist and venue matching
-- Personalized recommendation API
 
 #### 6. Model Evaluation & Monitoring
 - Performance metrics and validation pipelines
@@ -150,6 +150,9 @@ python src/services/example_venue_popularity_usage.py
 
 # Ticket sales prediction
 python src/services/example_ticket_sales_prediction_usage.py
+
+# Recommendation engine
+python src/services/example_recommendation_usage.py
 ```
 
 ### Running Tests
@@ -179,6 +182,7 @@ python validate_redshift_implementation.py
 python validate_governance_implementation.py
 python validate_venue_popularity_implementation.py
 python validate_ticket_sales_prediction.py
+python validate_recommendation_engine.py
 ```
 
 ## Data Models
@@ -211,6 +215,13 @@ python validate_ticket_sales_prediction.py
 - **Output**: Predicted sales with confidence score
 - **Use Case**: Forecast ticket sales for upcoming concerts
 
+### Recommendation Engine
+- **Collaborative Filtering**: User-based and item-based approaches using cosine similarity
+- **Content-Based Filtering**: Artist similarity (genre, popularity) and venue similarity (location, capacity, type)
+- **Hybrid Strategies**: Combines multiple recommendation signals with weighted scoring
+- **Output**: Personalized concert, artist, and venue recommendations with confidence scores
+- **Use Case**: Suggest concerts to users based on preferences and historical attendance patterns
+
 ## AWS Services Configuration
 
 ### Required IAM Permissions
@@ -235,7 +246,7 @@ See `.kiro/specs/data-readiness-ai-demo/tasks.md` for detailed implementation pl
 **Current Phase**: AI/ML Enhancement & Chatbot Development
 
 **Next Milestones**:
-1. Complete recommendation engine
+1. Implement model evaluation and monitoring framework
 2. Implement AgentCore chatbot
 3. Build web interface
 4. Deploy infrastructure
