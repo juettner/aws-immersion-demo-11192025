@@ -1,0 +1,6 @@
+artist_id,name,genre,popularity_score,formation_date,members,spotify_id
+art_001,The Rolling Stones,"rock,blues rock",85.5,1962-07-12,"Mick Jagger,Keith Richards,Charlie Watts,Ronnie Wood",22bE4uQ6baNwSHPVcDxLCe
+art_002,Led Zeppelin,"rock,hard rock",92.3,1968-09-07,"Robert Plant,Jimmy Page,John Paul Jones,John Bonham",36QJpDe2go2KgaRleHCDTp
+art_003,Pink Floyd,"progressive rock,psychedelic rock",88.7,1965-01-01,"David Gilmour,Roger Waters,Nick Mason,Richard Wright",0k17h0D3J5VfsdmQ1iZtE9
+art_004,Queen,"rock,pop rock",94.1,1970-06-27,"Freddie Mercury,Brian May,Roger Taylor,John Deacon",1dfeR4HaWDbWqFHLkxsg1d
+art_005,The Beatles,"rock,pop",98.5,1960-08-17,"John Lennon,Paul McCartney,George Harrison,Ringo Starr",3WrFJ7ztbogyGnTHbHJFl2

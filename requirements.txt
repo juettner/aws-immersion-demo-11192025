@@ -1,0 +1,42 @@
+# Core dependencies
+pydantic>=2.0.0,<3.0.0
+python-dateutil>=2.8.0
+
+# AWS SDK and services
+boto3>=1.26.0
+botocore>=1.29.0
+sagemaker>=2.150.0  # For ML model training and deployment
+
+# Database drivers
+psycopg2-binary>=2.9.0  # PostgreSQL driver for local development
+sqlalchemy>=2.0.0       # ORM for database operations
+
+# HTTP clients for external APIs
+httpx>=0.24.0
+requests>=2.28.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Fuzzy matching for data deduplication
+fuzzywuzzy>=0.18.0
+python-levenshtein>=0.27.0
+
+# Logging and monitoring
+structlog>=23.0.0
+
+# Additional dependencies for external API connectors
+httpx>=0.24.0  # Already listed above but ensuring it's available
+
+# Development and testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-mock>=3.10.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+# Optional: FastAPI for web interface (will be used in later tasks)
+fastapi>=0.100.0
+uvicorn>=0.22.0

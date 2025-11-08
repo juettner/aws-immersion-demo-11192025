@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "venue_id": "ven_001",
+      "name": "Madison Square Garden",
+      "location": {
+        "address": "4 Pennsylvania Plaza",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "postal_code": "10001",
+        "latitude": 40.7505,
+        "longitude": -73.9934
+      },
+      "capacity": 20789,
+      "venue_type": "arena",
+      "amenities": ["parking", "concessions", "merchandise", "vip_boxes"],
+      "ticketmaster_id": "KovZpZAEkJ7A"
+    },
+    {
+      "venue_id": "ven_002",
+      "name": "Red Rocks Amphitheatre",
+      "location": {
+        "address": "18300 W Alameda Pkwy",
+        "city": "Morrison",
+        "state": "CO",
+        "country": "USA",
+        "postal_code": "80465",
+        "latitude": 39.6654,
+        "longitude": -105.2057
+      },
+      "capacity": 9525,
+      "venue_type": "amphitheater",
+      "amenities": ["parking", "concessions", "outdoor_seating"]
+    },
+    {
+      "venue_id": "ven_003",
+      "name": "The Fillmore",
+      "location": {
+        "address": "1805 Geary Blvd",
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "USA",
+        "postal_code": "94115",
+        "latitude": 37.7849,
+        "longitude": -122.4324
+      },
+      "capacity": 1315,
+      "venue_type": "theater",
+      "amenities": ["bar", "merchandise", "historic_venue"]
+    }
+  ]
+}

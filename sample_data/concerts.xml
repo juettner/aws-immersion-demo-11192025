@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<concerts>
+  <concert>
+    <concert_id>con_001</concert_id>
+    <artist_id>art_001</artist_id>
+    <venue_id>ven_001</venue_id>
+    <event_date>2024-07-15T20:00:00Z</event_date>
+    <ticket_prices>
+      <general>75.0</general>
+      <premium>125.0</premium>
+      <vip>250.0</vip>
+    </ticket_prices>
+    <total_attendance>18500</total_attendance>
+    <revenue>1875000.0</revenue>
+    <status>completed</status>
+  </concert>
+  <concert>
+    <concert_id>con_002</concert_id>
+    <artist_id>art_002</artist_id>
+    <venue_id>ven_002</venue_id>
+    <event_date>2024-08-20T19:30:00Z</event_date>
+    <ticket_prices>
+      <general>65.0</general>
+      <premium>110.0</premium>
+    </ticket_prices>
+    <status>scheduled</status>
+  </concert>
+  <concert>
+    <concert_id>con_003</concert_id>
+    <artist_id>art_003</artist_id>
+    <venue_id>ven_003</venue_id>
+    <event_date>2024-09-10T21:00:00Z</event_date>
+    <ticket_prices>
+      <general>85.0</general>
+      <premium>140.0</premium>
+      <vip>275.0</vip>
+    </ticket_prices>
+    <total_attendance>1200</total_attendance>
+    <revenue>156000.0</revenue>
+    <status>completed</status>
+  </concert>
+</concerts>
