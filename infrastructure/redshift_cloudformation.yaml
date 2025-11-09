@@ -1,0 +1,293 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation template for Concert Data Platform Redshift Data Warehouse'
+
+Parameters:
+  ClusterIdentifier:
+    Type: String
+    Default: concert-data-warehouse
+    Description: Unique identifier for the Redshift cluster
+    
+  DatabaseName:
+    Type: String
+    Default: concerts
+    Description: Name of the database to create
+    
+  MasterUsername:
+    Type: String
+    Default: admin
+    Description: Master username for the Redshift cluster
+    NoEcho: false
+    
+  MasterUserPassword:
+    Type: String
+    Description: Master password for the Redshift cluster (min 8 chars, must include uppercase, lowercase, and number)
+    NoEcho: true
+    MinLength: 8
+    
+  NodeType:
+    Type: String
+    Default: ra3.xlplus
+    Description: Node type for the Redshift cluster
+    AllowedValues:
+      - ra3.xlplus
+      - ra3.4xlarge
+      - ra3.16xlarge
+      - dc2.large
+      - dc2.8xlarge
+      
+  NumberOfNodes:
+    Type: Number
+    Default: 2
+    Description: Number of compute nodes in the cluster
+    MinValue: 1
+    MaxValue: 32
+    
+  AllowedCIDR:
+    Type: String
+    Default: 0.0.0.0/0
+    Description: CIDR block allowed to connect to Redshift (restrict this in production!)
+    
+  S3BucketName:
+    Type: String
+    Default: concert-data-processed
+    Description: S3 bucket name for data loading
+
+Conditions:
+  IsMultiNode: !Not [!Equals [!Ref NumberOfNodes, 1]]
+
+Resources:
+  # IAM Role for Redshift to access S3
+  RedshiftRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${ClusterIdentifier}-s3-access-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: redshift.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-role'
+        - Key: Project
+          Value: ConcertDataPlatform
+
+  # Security Group for Redshift
+  RedshiftSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub '${ClusterIdentifier}-sg'
+      GroupDescription: Security group for Redshift cluster
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5439
+          ToPort: 5439
+          CidrIp: !Ref AllowedCIDR
+          Description: Allow Redshift access
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-sg'
+        - Key: Project
+          Value: ConcertDataPlatform
+
+  # VPC for Redshift
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-vpc'
+        - Key: Project
+          Value: ConcertDataPlatform
+
+  # Internet Gateway
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-igw'
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  # Public Subnet 1
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs '']
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-public-subnet-1'
+
+  # Public Subnet 2
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: !Select [1, !GetAZs '']
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-public-subnet-2'
+
+  # Route Table
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-public-rt'
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  SubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+
+  SubnetRouteTableAssociation2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2
+      RouteTableId: !Ref PublicRouteTable
+
+  # Redshift Subnet Group
+  RedshiftSubnetGroup:
+    Type: AWS::Redshift::ClusterSubnetGroup
+    Properties:
+      Description: Subnet group for Redshift cluster
+      SubnetIds:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      Tags:
+        - Key: Name
+          Value: !Sub '${ClusterIdentifier}-subnet-group'
+        - Key: Project
+          Value: ConcertDataPlatform
+
+  # Redshift Cluster
+  RedshiftCluster:
+    Type: AWS::Redshift::Cluster
+    DependsOn:
+      - RedshiftRole
+      - RedshiftSubnetGroup
+      - RedshiftSecurityGroup
+    Properties:
+      ClusterIdentifier: !Ref ClusterIdentifier
+      ClusterType: !If [IsMultiNode, multi-node, single-node]
+      NumberOfNodes: !If [IsMultiNode, !Ref NumberOfNodes, !Ref 'AWS::NoValue']
+      NodeType: !Ref NodeType
+      DBName: !Ref DatabaseName
+      MasterUsername: !Ref MasterUsername
+      MasterUserPassword: !Ref MasterUserPassword
+      ClusterSubnetGroupName: !Ref RedshiftSubnetGroup
+      VpcSecurityGroupIds:
+        - !Ref RedshiftSecurityGroup
+      IamRoles:
+        - !GetAtt RedshiftRole.Arn
+      PubliclyAccessible: true
+      Encrypted: true
+      Port: 5439
+      Tags:
+        - Key: Name
+          Value: !Ref ClusterIdentifier
+        - Key: Project
+          Value: ConcertDataPlatform
+
+  # CloudWatch Alarms
+  HighCPUAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub '${ClusterIdentifier}-high-cpu'
+      AlarmDescription: Alert when CPU exceeds 80%
+      MetricName: CPUUtilization
+      Namespace: AWS/Redshift
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 80
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: ClusterIdentifier
+          Value: !Ref ClusterIdentifier
+
+  HighDiskSpaceAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub '${ClusterIdentifier}-high-disk-usage'
+      AlarmDescription: Alert when disk usage exceeds 85%
+      MetricName: PercentageDiskSpaceUsed
+      Namespace: AWS/Redshift
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 85
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: ClusterIdentifier
+          Value: !Ref ClusterIdentifier
+
+Outputs:
+  ClusterEndpoint:
+    Description: Redshift cluster endpoint
+    Value: !GetAtt RedshiftCluster.Endpoint.Address
+    Export:
+      Name: !Sub '${AWS::StackName}-ClusterEndpoint'
+      
+  ClusterPort:
+    Description: Redshift cluster port
+    Value: !GetAtt RedshiftCluster.Endpoint.Port
+    Export:
+      Name: !Sub '${AWS::StackName}-ClusterPort'
+      
+  ClusterIdentifier:
+    Description: Redshift cluster identifier
+    Value: !Ref RedshiftCluster
+    Export:
+      Name: !Sub '${AWS::StackName}-ClusterIdentifier'
+      
+  DatabaseName:
+    Description: Database name
+    Value: !Ref DatabaseName
+    Export:
+      Name: !Sub '${AWS::StackName}-DatabaseName'
+      
+  IAMRoleArn:
+    Description: IAM role ARN for Redshift S3 access
+    Value: !GetAtt RedshiftRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-IAMRoleArn'
+      
+  SecurityGroupId:
+    Description: Security group ID
+    Value: !Ref RedshiftSecurityGroup
+    Export:
+      Name: !Sub '${AWS::StackName}-SecurityGroupId'
+      
+  ConnectionString:
+    Description: Connection string for the Redshift cluster
+    Value: !Sub 'postgresql://${MasterUsername}@${RedshiftCluster.Endpoint.Address}:${RedshiftCluster.Endpoint.Port}/${DatabaseName}'
