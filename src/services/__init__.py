@@ -1,6 +1,6 @@
 # Services package
 
-from src.services.data_governance_service import (
+from .data_governance_service import (
     DataGovernanceService,
     ComplianceResult
 )
