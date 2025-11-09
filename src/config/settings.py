@@ -1,10 +1,12 @@
 import os
 from typing import Optional
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 
 
 class ExternalAPISettings(BaseModel):
     """External API configuration."""
+    model_config = ConfigDict(extra='forbid')
+    
     spotify_client_id: Optional[str] = Field(default=None)
     spotify_client_secret: Optional[str] = Field(default=None)
     spotify_base_url: str = Field(default="https://api.spotify.com/v1")
@@ -18,6 +20,8 @@ class ExternalAPISettings(BaseModel):
 
 class AWSSettings(BaseModel):
     """AWS service configuration."""
+    model_config = ConfigDict(extra='forbid')
+    
     region: str = Field(default="us-east-1")
     s3_bucket_raw: Optional[str] = Field(default=None)
     s3_bucket_processed: Optional[str] = Field(default=None)
@@ -32,6 +36,8 @@ class AWSSettings(BaseModel):
 
 class AgentCoreSettings(BaseModel):
     """AgentCore service configuration."""
+    model_config = ConfigDict(extra='forbid')
+    
     runtime_endpoint: Optional[str] = Field(default=None)
     memory_endpoint: Optional[str] = Field(default=None)
     code_interpreter_endpoint: Optional[str] = Field(default=None)
@@ -41,6 +47,8 @@ class AgentCoreSettings(BaseModel):
 
 class DatabaseSettings(BaseModel):
     """Database configuration."""
+    model_config = ConfigDict(extra='forbid')
+    
     connection_string: Optional[str] = Field(default=None)
     pool_size: int = Field(default=10)
     max_overflow: int = Field(default=20)
@@ -48,18 +56,19 @@ class DatabaseSettings(BaseModel):
 
 class Settings(BaseModel):
     """Application settings loaded from environment variables."""
-    
+    model_config = ConfigDict(extra='forbid')
+
     # Application
     app_name: str = Field(default="Concert Data Platform")
     environment: str = Field(default="development")
     debug: bool = Field(default=False)
-    
+
     # Nested configurations
     external_apis: ExternalAPISettings = Field(default_factory=ExternalAPISettings)
     aws: AWSSettings = Field(default_factory=AWSSettings)
     agentcore: AgentCoreSettings = Field(default_factory=AgentCoreSettings)
     database: DatabaseSettings = Field(default_factory=DatabaseSettings)
-    
+
     @field_validator('environment')
     @classmethod
     def validate_environment(cls, v: str) -> str:
@@ -68,7 +77,7 @@ class Settings(BaseModel):
         if v not in allowed:
             raise ValueError(f'environment must be one of {allowed}')
         return v
-    
+
     @classmethod
     def from_env(cls) -> 'Settings':
         """Create Settings instance from environment variables."""

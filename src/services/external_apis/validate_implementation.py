@@ -43,10 +43,13 @@ def test_ticketmaster_transformation():
     }
     
     normalized_venue = tm_client._transform_venue_data(venue_data)
-    print(f"✓ Ticketmaster venue transformation successful: {normalized_venue['name']}")
-    print(f"  Venue ID: {normalized_venue['venue_id']}")
-    print(f"  Location: {normalized_venue['location']['city']}, {normalized_venue['location']['state']}")
-    print(f"  Capacity: {normalized_venue['capacity']}")
+    if normalized_venue:
+        print(f"✓ Ticketmaster venue transformation successful: {normalized_venue['name']}")
+        print(f"  Venue ID: {normalized_venue['venue_id']}")
+        print(f"  Location: {normalized_venue.get('city', 'N/A')}, {normalized_venue.get('state', 'N/A')}")
+        print(f"  Capacity: {normalized_venue['capacity']}")
+    else:
+        print("✗ Venue transformation returned None")
     
     # Test event transformation
     event_data = {

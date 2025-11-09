@@ -3,7 +3,7 @@ Concert data model with validation schemas.
 """
 from datetime import datetime
 from typing import Dict, Optional
-from pydantic import Field, validator
+from pydantic import Field, field_validator, ConfigDict
 from .base import BaseEntity
 
 
@@ -32,7 +32,8 @@ class Concert(BaseEntity):
         description="Concert status (scheduled, completed, cancelled)"
     )
     
-    @validator('event_date')
+    @field_validator('event_date')
+    @classmethod
     def validate_event_date(cls, v):
         """Ensure event date is not too far in the past or future."""
         now = datetime.utcnow()
@@ -43,7 +44,8 @@ class Concert(BaseEntity):
             raise ValueError('Event date is too far in the future')
         return v
     
-    @validator('ticket_prices')
+    @field_validator('ticket_prices')
+    @classmethod
     def validate_ticket_prices(cls, v):
         """Validate ticket price structure."""
         if not v:
@@ -57,7 +59,8 @@ class Concert(BaseEntity):
         
         return v
     
-    @validator('status')
+    @field_validator('status')
+    @classmethod
     def validate_status(cls, v):
         """Validate concert status."""
         allowed_statuses = ['scheduled', 'completed', 'cancelled', 'postponed']
@@ -65,27 +68,10 @@ class Concert(BaseEntity):
             raise ValueError(f'Status must be one of: {", ".join(allowed_statuses)}')
         return v.lower()
     
-    @validator('total_attendance')
+    @field_validator('total_attendance')
+    @classmethod
     def validate_attendance(cls, v):
         """Validate attendance count."""
         if v is not None and v > 500000:  # Largest concerts in history
             raise ValueError('Attendance seems unreasonably large')
         return v
-    
-    class Config:
-        schema_extra = {
-            "example": {
-                "concert_id": "con_001",
-                "artist_id": "art_001",
-                "venue_id": "ven_001",
-                "event_date": "2024-07-15T20:00:00Z",
-                "ticket_prices": {
-                    "general": 75.0,
-                    "premium": 125.0,
-                    "vip": 250.0
-                },
-                "total_attendance": 18500,
-                "revenue": 1875000.0,
-                "status": "completed"
-            }
-        }

@@ -292,13 +292,14 @@ class TestTicketmasterClient:
         
         normalized = client._transform_venue_data(ticketmaster_data)
         
+        assert normalized is not None
         assert normalized["venue_id"] == "ticketmaster_KovZpZAEkJ7A"
         assert normalized["name"] == "Madison Square Garden"
-        assert normalized["location"]["city"] == "New York"
-        assert normalized["location"]["state"] == "NY"
-        assert normalized["location"]["latitude"] == 40.7505
-        assert normalized["ticketmaster_id"] == "KovZpZAEkJ7A"
-        assert normalized["source"] == "ticketmaster"
+        assert normalized["city"] == "New York"
+        assert normalized["state"] == "NY"
+        assert normalized["country"] == "US"
+        assert normalized["capacity"] == 10000
+        assert normalized["venue_type"] in ["arena", "theater", "club", "outdoor", "stadium", "amphitheater", "hall", "other"]
     
     def test_transform_event_data(self):
         """Test Ticketmaster event data transformation."""

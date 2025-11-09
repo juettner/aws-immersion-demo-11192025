@@ -289,40 +289,47 @@ class TicketmasterClient(APIClient):
     def _transform_venue_data(self, ticketmaster_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
         Transform Ticketmaster venue data to our normalized format.
-        
+    
         Args:
             ticketmaster_data: Raw Ticketmaster venue data
-            
+        
         Returns:
             Normalized venue data dictionary or None if transformation fails
         """
         try:
             # Generate our internal venue ID
             venue_id = f"ticketmaster_{ticketmaster_data['id']}"
-            
+        
             # Extract basic information
             name = ticketmaster_data.get("name", "").strip()
             if not name:
                 return None
-            
+        
             # Extract location information
             address_data = ticketmaster_data.get("address", {})
             city_data = ticketmaster_data.get("city", {})
             state_data = ticketmaster_data.get("state", {})
             country_data = ticketmaster_data.get("country", {})
             location_data = ticketmaster_data.get("location", {})
+        
+            # Extract location fields as top-level attributes
+            city = city_data.get("name", "") if city_data else ""
+            state = state_data.get("stateCode", "") if state_data else None
+            country = country_data.get("countryCode", "") if country_data else ""
+            address = address_data.get("line1", "") if address_data else None
+            postal_code = ticketmaster_data.get("postalCode")
             
-            # Build location object
-            location = {
-                "address": address_data.get("line1", "") if address_data else "",
-                "city": city_data.get("name", "") if city_data else "",
-                "state": state_data.get("stateCode", "") if state_data else "",
-                "country": country_data.get("countryCode", "") if country_data else "",
-                "postal_code": ticketmaster_data.get("postalCode"),
-                "latitude": location_data.get("latitude") if location_data else None,
-                "longitude": location_data.get("longitude") if location_data else None
-            }
-            
+            # Skip venues without required fields
+            if not city or not country:
+                self.logger.warning(
+                    "Venue missing required location fields",
+                    venue_id=venue_id,
+                    name=name,
+                    has_city=bool(city),
+                    has_country=bool(country)
+                )
+                return None
+        
             # Determine venue type
             venue_type = "arena"  # Default
             tm_type = ticketmaster_data.get("type", "").lower()
@@ -331,38 +338,30 @@ class TicketmasterClient(APIClient):
             elif "club" in tm_type:
                 venue_type = "club"
             elif "outdoor" in tm_type or "amphitheater" in tm_type:
-                venue_type = "outdoor"
+                venue_type = "amphitheater"
             elif "stadium" in tm_type:
                 venue_type = "stadium"
-            
+            elif "hall" in tm_type:
+                venue_type = "hall"
+            else:
+                venue_type = "other"
+        
             # Extract capacity (not always available)
             capacity = 10000  # Default capacity if not specified
-            
-            # Extract amenities from various fields
-            amenities = []
-            if ticketmaster_data.get("parkingDetail"):
-                amenities.append("parking")
-            if ticketmaster_data.get("accessibleSeatingDetail"):
-                amenities.append("accessible_seating")
-            
-            # Create normalized venue data
+        
+            # Create normalized venue data matching the Venue model structure
             normalized_data = {
                 "venue_id": venue_id,
                 "name": name,
-                "location": location,
+                "city": city,
+                "state": state,
+                "country": country,
                 "capacity": capacity,
                 "venue_type": venue_type,
-                "amenities": amenities,
-                "ticketmaster_id": ticketmaster_data["id"],
-                "source": "ticketmaster",
-                "raw_data": {
-                    "url": ticketmaster_data.get("url"),
-                    "timezone": ticketmaster_data.get("timezone"),
-                    "markets": ticketmaster_data.get("markets", []),
-                    "dmas": ticketmaster_data.get("dmas", [])
-                }
+                "address": address,
+                "postal_code": postal_code,
             }
-            
+        
             # Validate the data using our Venue model
             try:
                 Venue(**normalized_data)
@@ -372,10 +371,10 @@ class TicketmasterClient(APIClient):
                     venue_id=venue_id,
                     validation_error=str(validation_error)
                 )
-                # Continue with the data even if validation fails for logging purposes
-            
+                return None
+        
             return normalized_data
-            
+        
         except Exception as e:
             self.logger.error(
                 "Failed to transform Ticketmaster venue data",
@@ -488,7 +487,7 @@ class TicketmasterClient(APIClient):
                         concert_id=concert_id,
                         validation_error=str(validation_error)
                     )
-            
+
             return normalized_data
             
         except Exception as e:
