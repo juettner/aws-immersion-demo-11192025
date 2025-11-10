@@ -2,6 +2,8 @@
 
 A comprehensive data platform demonstrating AWS data services, machine learning capabilities, and AI-powered insights for the concert and live entertainment industry.
 
+> **📚 [Complete Documentation Available in `docs/` folder](docs/README.md)**
+
 ## Overview
 
 This platform showcases modern data engineering and AI/ML practices by ingesting, processing, and analyzing concert data from multiple sources. It provides predictive analytics, recommendations, and an AI-powered chatbot interface for exploring concert insights.
@@ -252,14 +254,6 @@ See `.kiro/specs/data-readiness-ai-demo/tasks.md` for detailed implementation pl
 4. Deploy infrastructure
 5. Generate demo data
 
-## Contributing
-
-This is a demo project showcasing AWS data and AI capabilities. For questions or suggestions, please open an issue.
-
-## License
-
-This project is for demonstration purposes.
-
 ## Documentation
 
 - [Project Structure](PROJECT_STRUCTURE.md)
@@ -267,7 +261,3 @@ This project is for demonstration purposes.
 - [SageMaker Testing Guide](SAGEMAKER_TESTING_GUIDE.md)
 - [Design Document](.kiro/specs/data-readiness-ai-demo/design.md)
 - [Requirements](.kiro/specs/data-readiness-ai-demo/requirements.md)
-
-## Contact
-
-For AWS Immersion Day demonstrations and technical deep-dives.
