@@ -2,6 +2,7 @@
 Data ingestion service that orchestrates external API clients.
 """
 import asyncio
+import os
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Any, Union
@@ -10,8 +11,21 @@ import structlog
 from .spotify_client import SpotifyClient
 from .ticketmaster_client import TicketmasterClient
 from .base_client import APIResponse
-from ...config.settings import settings
+from ...config.environment import load_env_file
 from ..file_processor import FileUploadProcessor
+
+# Load environment variables
+load_env_file()
+
+# Import and reload settings
+from ...config import settings as settings_module_import
+# Get the actual module
+import sys
+settings_module = sys.modules['src.config.settings']
+settings_module.reload_settings()
+
+# Now get the settings object
+settings = settings_module.settings
 
 logger = structlog.get_logger(__name__)
 

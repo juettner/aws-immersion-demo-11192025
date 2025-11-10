@@ -5,13 +5,11 @@ and persists it to S3 and streams to Kinesis.
 import asyncio
 import json
 import logging
+import os
 from datetime import datetime
 from typing import Dict, List, Any
 import boto3
 from botocore.exceptions import ClientError
-
-from .ingestion_service import DataIngestionService, IngestionResult
-from ...config.settings import settings
 
 # Configure logging
 logging.basicConfig(
@@ -32,28 +30,45 @@ class ProductionDataPipeline:
     4. Log ingestion metrics and errors
     """
     
-    def __init__(self):
+    def __init__(self, 
+                 s3_bucket_raw: str = None,
+                 s3_bucket_processed: str = None,
+                 kinesis_stream_name: str = None,
+                 aws_region: str = None):
         self.s3_client = None
         self.kinesis_client = None
         self.ingestion_service = None
         
-        # S3 configuration
-        self.s3_bucket_raw = settings.aws.s3_bucket_raw
-        self.s3_bucket_processed = settings.aws.s3_bucket_processed
+        # S3 configuration - use provided or get from environment
+        self.s3_bucket_raw = s3_bucket_raw or os.getenv('AWS_S3_BUCKET_RAW', 'concert-data-raw')
+        self.s3_bucket_processed = s3_bucket_processed or os.getenv('AWS_S3_BUCKET_PROCESSED', 'concert-data-processed')
         
         # Kinesis configuration
-        self.kinesis_stream_name = settings.aws.kinesis_stream_name
+        self.kinesis_stream_name = kinesis_stream_name or os.getenv('AWS_KINESIS_STREAM_NAME', 'concert-data-stream')
+        
+        # AWS region
+        self.aws_region = aws_region or os.getenv('AWS_REGION', 'us-east-1')
         
         logger.info("Production pipeline initialized")
     
     async def __aenter__(self):
         """Initialize AWS clients and ingestion service."""
         # Initialize AWS clients
-        aws_config = settings.get_aws_credentials()
+        aws_config = {'region_name': self.aws_region}
+        
+        # Add credentials if available from environment
+        access_key = os.getenv('AWS_ACCESS_KEY_ID')
+        secret_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+        
+        if access_key and secret_key and access_key != 'your_aws_access_key_here':
+            aws_config['aws_access_key_id'] = access_key
+            aws_config['aws_secret_access_key'] = secret_key
+        
         self.s3_client = boto3.client('s3', **aws_config)
         self.kinesis_client = boto3.client('kinesis', **aws_config)
         
-        # Initialize ingestion service
+        # Initialize ingestion service - import here to avoid circular dependency
+        from .ingestion_service import DataIngestionService
         self.ingestion_service = DataIngestionService()
         await self.ingestion_service.initialize_clients()
         
@@ -434,4 +449,17 @@ async def main():
 
 
 if __name__ == "__main__":
+    # Load environment variables before running
+    import sys
+    from pathlib import Path
+    
+    # Add project root to path
+    project_root = Path(__file__).parent.parent.parent.parent
+    sys.path.insert(0, str(project_root))
+    
+    # Load environment
+    from src.config.environment import load_env_file
+    load_env_file()
+    
+    # Run the pipeline
     asyncio.run(main())

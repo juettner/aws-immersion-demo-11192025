@@ -120,3 +120,13 @@ class Settings(BaseModel):
 
 # Global settings instance
 settings = Settings.from_env()
+
+
+def reload_settings():
+    """Reload settings from environment variables.
+    
+    Call this after loading environment variables from .env file.
+    """
+    global settings
+    settings = Settings.from_env()
+    return settings
