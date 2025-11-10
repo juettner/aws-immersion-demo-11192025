@@ -1,2 +1,3 @@
 infrastructure/redshift_credentials.txt
 .env
+__pycache__/
