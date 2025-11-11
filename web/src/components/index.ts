@@ -8,6 +8,10 @@ export { default as Layout } from './Layout';
 export { default as ChatContainer } from './ChatContainer';
 export { default as Message } from './Message';
 export { default as MessageInput } from './MessageInput';
+export { default as VenuePopularityChart } from './VenuePopularityChart';
+export { default as TicketSalesPredictionChart } from './TicketSalesPredictionChart';
+export { default as ArtistPopularityChart } from './ArtistPopularityChart';
+export { default as RecommendationDisplay } from './RecommendationDisplay';
 
 export type { ButtonProps } from './Button';
 export type { CardProps } from './Card';
