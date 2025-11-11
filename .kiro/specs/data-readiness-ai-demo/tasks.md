@@ -154,8 +154,8 @@
       - Implement image encoding and embedding for chatbot responses
       - _Requirements: 6.4, 6.5_
 
-  - [-] 5.4 Create chatbot API and integration layer
-    - [-] 5.4.1 Build REST API endpoints for chatbot
+  - [x] 5.4 Create chatbot API and integration layer
+    - [x] 5.4.1 Build REST API endpoints for chatbot
       - Create FastAPI application for chatbot service
       - Implement POST /chat endpoint for message processing
       - Add GET /history endpoint for conversation retrieval
@@ -163,7 +163,7 @@
       - Add CORS configuration for web client access
       - _Requirements: 4.1, 3.4_
     
-    - [ ] 5.4.2 Integrate with ML models and data services
+    - [x] 5.4.2 Integrate with ML models and data services
       - Connect chatbot to venue popularity prediction service
       - Integrate ticket sales prediction for recommendation queries
       - Add recommendation engine integration for personalized suggestions
@@ -171,7 +171,7 @@
       - Create unified response formatter for all data sources
       - _Requirements: 3.4, 4.2, 4.3_
 
-  - [ ] 5.5 Write chatbot integration tests
+  - [-] 5.5 Write chatbot integration tests
     - Test conversation flow and context management across sessions
     - Validate query translation and SQL safety checks
     - Test memory persistence and retrieval
