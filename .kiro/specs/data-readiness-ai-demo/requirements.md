@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A comprehensive tech demo showcasing Data Readiness for AI using AWS technologies. The system demonstrates end-to-end data pipeline capabilities from ingestion through AI-powered insights using a rock concert domain including artists, venues, concerts, and ticketing data. The demo highlights AWS Redshift, SageMaker, Lakehouse architecture, LakeFormation, and AgentCore technologies.
+A comprehensive tech demo showcasing Data Readiness for AI using AWS technologies. The system demonstrates end-to-end data pipeline capabilities from ingestion through AI-powered insights using a rock concert domain including artists, venues, concerts, and ticketing data. The demo highlights AWS Redshift, SageMaker, Lakehouse architecture, and AgentCore technologies, with optional Lake Formation integration for advanced data governance.
 
 ## Glossary
 
@@ -71,11 +71,11 @@ A comprehensive tech demo showcasing Data Readiness for AI using AWS technologie
 
 #### Acceptance Criteria
 
-1. THE Data_Readiness_Platform SHALL implement AWS LakeFormation for data governance and access control
-2. WHEN data processing jobs execute, THE Concert_Data_Pipeline SHALL emit metrics to AWS CloudWatch
-3. THE Data_Readiness_Platform SHALL provide real-time dashboards showing pipeline health and data quality metrics
-4. WHEN system errors occur, THE Data_Readiness_Platform SHALL send automated alerts to administrators
-5. THE Data_Readiness_Platform SHALL maintain data lineage tracking from source to AI model consumption
+1. WHEN data processing jobs execute, THE Concert_Data_Pipeline SHALL emit metrics to AWS CloudWatch
+2. THE Data_Readiness_Platform SHALL provide real-time dashboards showing pipeline health and data quality metrics
+3. WHEN system errors occur, THE Data_Readiness_Platform SHALL send automated alerts to administrators
+4. THE Data_Readiness_Platform SHALL implement IAM-based access control for data resources
+5. WHERE advanced governance is needed, THE Data_Readiness_Platform SHALL support optional AWS Lake Formation integration for fine-grained permissions and data lineage tracking
 
 ### Requirement 6
 

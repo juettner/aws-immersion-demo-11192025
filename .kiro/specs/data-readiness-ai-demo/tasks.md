@@ -45,11 +45,12 @@
     - Create stored procedures for data aggregation and analytics
     - _Requirements: 2.2, 2.4_
 
-  - [x] 3.3 Implement data governance with Lake Formation
+  - [x]* 3.3 Implement optional data governance with Lake Formation
     - Configure Lake Formation permissions and access policies
     - Set up data catalog registration and metadata management
     - Implement audit logging for all data access operations
-    - _Requirements: 5.1, 5.4, 5.5_
+    - Note: This is an optional enhancement to showcase advanced governance capabilities
+    - _Requirements: 5.5_
 
   - [x] 3.4 Create integration tests for ETL pipeline
     - Test end-to-end data flow from ingestion to warehouse
@@ -57,7 +58,7 @@
     - Test error handling and retry mechanisms
     - _Requirements: 2.1, 2.2, 2.5_
 
-- [ ] 4. Develop AI insights engine with SageMaker
+- [x] 4. Develop AI insights engine with SageMaker
   - [x] 4.1 Implement venue popularity ranking model
     - Create feature engineering pipeline for venue metrics
     - Train SageMaker model using historical concert and attendance data
@@ -90,221 +91,286 @@
       - _Requirements: 3.4_
 
   - [ ] 4.4 Develop model evaluation and monitoring framework
-    - [ ] 4.4.1 Create model performance evaluation pipeline
-      - Implement metrics calculation for all ML models (MAE, RMSE, precision, recall)
-      - Create validation dataset splitting and cross-validation logic
-      - Build comparison framework for evaluating model versions
+    - [ ] 4.4.1 Create model performance evaluation service
+      - Implement metrics calculation service for all ML models (MAE, RMSE, precision@k, recall@k)
+      - Create validation dataset splitting utilities
+      - Build model comparison framework for A/B testing different model versions
+      - Add performance reporting with visualization support
       - _Requirements: 3.2, 3.3_
     
-    - [ ] 4.4.2 Set up model monitoring and alerting
-      - Implement prediction drift detection for deployed models
-      - Create CloudWatch metrics for model performance tracking
-      - Set up automated alerts for model degradation
+    - [ ] 4.4.2 Set up model monitoring and drift detection
+      - Implement prediction drift detection using statistical tests
+      - Create CloudWatch custom metrics publisher for model performance
+      - Build alerting logic for model degradation thresholds
+      - Add automated model retraining triggers
       - _Requirements: 3.3, 5.2_
 
 - [ ] 5. Build AgentCore-powered AI chatbot
-  - [ ] 5.1 Set up AgentCore Runtime and basic agent framework
-    - [ ] 5.1.1 Configure AgentCore Runtime environment
-      - Set up AgentCore SDK and dependencies
-      - Configure agent runtime settings and resource limits
-      - Create agent deployment configuration
-      - _Requirements: 4.1, 6.1_
+  - [ ] 5.1 Set up AgentCore agent framework and core chatbot service
+    - [ ] 5.1.1 Create base chatbot service class
+      - Implement ConcertChatbotService with Bedrock Agent Runtime integration
+      - Add session management and conversation state tracking
+      - Create message processing pipeline with intent routing
+      - Implement error handling and fallback responses
+      - _Requirements: 4.1, 4.3, 6.1_
     
-    - [ ] 5.1.2 Implement base agent class with conversation handling
-      - Create agent class with message processing logic
-      - Implement session management and state tracking
-      - Add conversation context initialization and cleanup
-      - _Requirements: 4.1, 4.3_
-
-  - [ ] 5.2 Integrate AgentCore Memory for conversation persistence
-    - [ ] 5.2.1 Configure AgentCore Memory service
-      - Set up Memory service connection and authentication
-      - Configure memory storage policies and retention
-      - Implement memory indexing for efficient retrieval
+    - [ ] 5.1.2 Integrate conversation memory for persistence
+      - Configure DynamoDB table for conversation history storage
+      - Implement conversation history storage and retrieval methods
+      - Add user preference tracking across sessions
+      - Create context-aware response generation using stored memory
       - _Requirements: 4.5, 6.1_
-    
-    - [ ] 5.2.2 Implement conversation history and context management
-      - Create methods for storing and retrieving conversation history
-      - Implement user preference tracking and storage
-      - Add context-aware response generation using memory
-      - _Requirements: 4.5, 6.5_
 
-  - [ ] 5.3 Implement Code Interpreter for dynamic data analysis
-    - [ ] 5.3.1 Integrate AgentCore Code Interpreter
-      - Configure Code Interpreter service and sandbox environment
-      - Implement secure code execution with timeout and resource limits
-      - Create error handling and result parsing logic
-      - _Requirements: 4.4, 6.2_
-    
-    - [ ] 5.3.2 Create data analysis templates and tools
-      - Build templates for common concert data queries
-      - Implement data access layer for Code Interpreter
-      - Create visualization generation helpers
-      - _Requirements: 4.4, 6.2_
-
-  - [ ] 5.4 Add Browser Tool for real-time external data fetching
-    - Configure AgentCore Browser service for web scraping
-    - Implement venue and artist information lookup from external sources
-    - Create data validation and normalization for scraped data
-    - Add caching layer for frequently accessed external data
-    - _Requirements: 6.3_
-
-  - [ ] 5.5 Build natural language query processing
-    - [ ] 5.5.1 Implement NLP query understanding
-      - Create intent classification for concert-related queries
-      - Implement entity extraction for artists, venues, dates, and locations
-      - Build query parsing logic for analytical questions
+  - [ ] 5.2 Implement data query and analysis capabilities
+    - [ ] 5.2.1 Build natural language to SQL query translator
+      - Create intent classifier for concert data queries (artist lookup, venue search, concert recommendations)
+      - Implement entity extraction for artists, venues, dates, locations using Bedrock
+      - Build SQL query generator with template-based approach
+      - Add query validation and safety checks to prevent SQL injection
+      - Integrate with Redshift service for query execution
       - _Requirements: 4.2, 4.3_
     
-    - [ ] 5.5.2 Create query-to-SQL translation layer
-      - Implement natural language to SQL conversion
-      - Add support for complex queries with joins and aggregations
-      - Create query validation and safety checks
-      - _Requirements: 4.2, 4.3_
+    - [ ] 5.2.2 Implement dynamic data analysis capabilities
+      - Create data analysis tool that generates analytical insights from concert data
+      - Implement result parsing and formatting for chatbot responses
+      - Add integration with ML models for predictions within chat context
+      - Create visualization data preparation for chart generation
+      - _Requirements: 4.4, 6.2_
 
-  - [ ] 5.6 Create data visualization generation capabilities
-    - Implement chart generation using matplotlib and plotly
-    - Create visualization templates for concert analytics
-    - Add support for multiple chart types (bar, line, scatter, heatmap)
-    - Implement image encoding for chatbot response integration
-    - _Requirements: 6.4, 6.5_
+  - [ ] 5.3 Add external data fetching and visualization
+    - [ ] 5.3.1 Implement external data enrichment
+      - Create tool for fetching real-time artist and venue information from APIs
+      - Add data validation and normalization for external content
+      - Create caching layer for frequently accessed data
+      - Implement fallback to local data when external sources unavailable
+      - _Requirements: 6.3_
+    
+    - [ ] 5.3.2 Implement data visualization generation
+      - Create chart generator using matplotlib or plotly
+      - Build visualization templates for concert analytics (popularity trends, sales forecasts, venue rankings)
+      - Add support for multiple chart types (bar, line, scatter, heatmap)
+      - Implement image encoding and embedding for chatbot responses
+      - _Requirements: 6.4, 6.5_
 
-  - [ ] 5.7 Write comprehensive chatbot tests
-    - Test conversation flow and context management
-    - Validate code execution security and error handling
-    - Test integration with all AgentCore services
-    - Create end-to-end chatbot interaction tests
+  - [ ] 5.4 Create chatbot API and integration layer
+    - [ ] 5.4.1 Build REST API endpoints for chatbot
+      - Create FastAPI application for chatbot service
+      - Implement POST /chat endpoint for message processing
+      - Add GET /history endpoint for conversation retrieval
+      - Create streaming response support for real-time interactions
+      - Add CORS configuration for web client access
+      - _Requirements: 4.1, 3.4_
+    
+    - [ ] 5.4.2 Integrate with ML models and data services
+      - Connect chatbot to venue popularity prediction service
+      - Integrate ticket sales prediction for recommendation queries
+      - Add recommendation engine integration for personalized suggestions
+      - Implement Redshift query execution for analytical questions
+      - Create unified response formatter for all data sources
+      - _Requirements: 3.4, 4.2, 4.3_
+
+  - [ ]* 5.5 Write chatbot integration tests
+    - Test conversation flow and context management across sessions
+    - Validate query translation and SQL safety checks
+    - Test memory persistence and retrieval
+    - Create end-to-end chatbot interaction test scenarios
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
 - [ ] 6. Create web interface and dashboard
-  - [ ] 6.1 Build React-based chatbot web interface
-    - [ ] 6.1.1 Set up React project and component structure
-      - Initialize React application with TypeScript
-      - Set up routing and state management
-      - Configure build and development environment
+  - [ ] 6.1 Set up React application foundation
+    - [ ] 6.1.1 Initialize React project with TypeScript
+      - Create React app using Vite with TypeScript template
+      - Set up project structure (components, services, hooks, types, pages)
+      - Configure ESLint and Prettier for code quality
+      - Install core dependencies (React Router, Axios, TanStack Query, Recharts)
+      - Create environment configuration for API endpoints
       - _Requirements: 4.1, 6.4_
     
-    - [ ] 6.1.2 Create chat UI components
-      - Build message display components with history
-      - Implement input component with send functionality
-      - Create typing indicators and loading states
-      - Add support for rich content (charts, tables, images)
+    - [ ] 6.1.2 Create shared UI components and layout
+      - Build responsive layout component with header and navigation
+      - Create reusable UI components (Button, Card, Input, Modal, Loading, ErrorBoundary)
+      - Implement theme provider with styling system
+      - Add loading and error state components
+      - _Requirements: 6.4_
+
+  - [ ] 6.2 Build chatbot interface
+    - [ ] 6.2.1 Create chat UI components
+      - Build ChatContainer component with message list and input area
+      - Implement Message component supporting text, data tables, and chart images
+      - Create MessageInput with send button and input validation
+      - Add conversation history display with scrolling
+      - Implement typing indicators and message status
       - _Requirements: 4.1, 6.4, 6.5_
     
-    - [ ] 6.1.3 Implement WebSocket connection for real-time messaging
-      - Set up WebSocket client for bidirectional communication
-      - Implement connection management and reconnection logic
-      - Add message queuing and delivery confirmation
+    - [ ] 6.2.2 Implement chatbot API integration
+      - Create chatbot service client for REST API calls
+      - Implement message sending and response handling
+      - Add message state management using React Context or Zustand
+      - Handle API errors and display user-friendly messages
+      - Add conversation history loading on component mount
       - _Requirements: 4.1_
 
-  - [ ] 6.2 Develop analytics dashboard for insights visualization
-    - [ ] 6.2.1 Create dashboard layout and navigation
-      - Build responsive dashboard layout
-      - Implement navigation between different analytics views
-      - Create filter and date range selection components
+  - [ ] 6.3 Develop analytics dashboard
+    - [ ] 6.3.1 Create dashboard layout and navigation
+      - Build dashboard page with responsive grid layout for widgets
+      - Implement navigation for different analytics views (Overview, Venues, Artists, Predictions)
+      - Create filter panel with date range selectors
+      - Add refresh button for manual data updates
       - _Requirements: 5.3_
     
-    - [ ] 6.2.2 Implement analytics visualization components
-      - Create venue popularity ranking charts
-      - Build ticket sales prediction visualizations
-      - Implement artist trend analysis displays
-      - Add interactive drill-down capabilities
+    - [ ] 6.3.2 Implement analytics visualization components
+      - Create VenuePopularityChart component using Recharts
+      - Build TicketSalesPredictionChart with prediction data display
+      - Implement ArtistPopularityChart with ranking visualization
+      - Add RecommendationDisplay component for showing recommendations
+      - Add interactive tooltips and data labels
       - _Requirements: 3.1, 3.2, 5.3_
+    
+    - [ ] 6.3.3 Connect dashboard to backend APIs
+      - Create analytics service client for data fetching
+      - Implement API calls for venue, artist, and prediction data
+      - Add data caching using TanStack Query
+      - Handle loading states and error scenarios with user feedback
+      - Implement data refresh on interval or user action
+      - _Requirements: 3.4, 5.3_
 
-  - [ ] 6.3 Implement API Gateway for backend services
-    - [ ] 6.3.1 Set up API Gateway and REST endpoints
-      - Configure AWS API Gateway with REST API
-      - Create endpoints for chatbot interactions
-      - Implement endpoints for analytics data queries
-      - Add CORS configuration for web client access
+  - [ ] 6.4 Set up API Gateway and backend integration
+    - [ ] 6.4.1 Configure AWS API Gateway
+      - Create REST API in AWS API Gateway
+      - Define routes for chatbot (/chat, /history) and analytics (/venues, /predictions, /recommendations)
+      - Configure CORS for web client access
+      - Set up request/response transformations and validation
+      - Add API throttling and rate limiting
       - _Requirements: 3.4, 4.1_
     
-    - [ ] 6.3.2 Add authentication and security
-      - Configure AWS Cognito for user authentication
-      - Implement JWT token validation
-      - Add rate limiting and request throttling
-      - Create request validation and sanitization
-      - _Requirements: 3.4_
+    - [ ] 6.4.2 Implement Lambda functions for API handlers
+      - Create Lambda function for chatbot message processing
+      - Build Lambda functions for venue popularity queries
+      - Create Lambda function for ticket sales predictions
+      - Implement Lambda function for recommendation queries
+      - Add error handling, logging, and CloudWatch integration
+      - _Requirements: 3.4, 4.1_
 
-  - [ ] 6.4 Create end-to-end UI tests
-    - Test chatbot conversation flows and response rendering
-    - Validate dashboard functionality and data visualization
-    - Test responsive design across different devices and browsers
-    - Create automated UI testing with Cypress or Playwright
-    - _Requirements: 4.1, 6.4, 6.5_
+  - [ ]* 6.5 Add authentication and deployment
+    - Configure AWS Cognito user pool for authentication
+    - Implement login/signup UI components
+    - Add JWT token management and refresh logic
+    - Set up S3 bucket for static site hosting
+    - Configure CloudFront distribution for CDN
+    - Create deployment script for automated builds
+    - _Requirements: 3.4_
 
 - [ ] 7. Set up infrastructure and deployment
-  - [ ] 7.1 Create AWS infrastructure using CDK or Terraform
-    - [ ] 7.1.1 Define core infrastructure resources
-      - Create VPC, subnets, and networking configuration
-      - Define security groups and IAM roles
-      - Set up S3 buckets for data storage
-      - Configure Redshift cluster or serverless
+  - [ ] 7.1 Create infrastructure as code using AWS CDK or CloudFormation
+    - [ ] 7.1.1 Initialize infrastructure project and define core networking
+      - Create CDK TypeScript project or CloudFormation templates
+      - Define VPC with public and private subnets across availability zones
+      - Create security groups for Redshift, Lambda, and API Gateway
+      - Set up NAT Gateway for private subnet internet access
       - _Requirements: 5.2, 7.1, 7.2_
     
-    - [ ] 7.1.2 Define compute and application resources
-      - Create Lambda functions for serverless processing
-      - Configure API Gateway infrastructure
-      - Set up AgentCore runtime environment
-      - Define auto-scaling policies
+    - [ ] 7.1.2 Define data storage and processing infrastructure
+      - Create S3 buckets for raw data, processed data, and model artifacts with lifecycle policies
+      - Configure Redshift Serverless workgroup and namespace
+      - Set up Glue Data Catalog and databases
+      - Define Kinesis Data Streams for real-time ingestion
+      - Add S3 bucket policies and encryption configuration
+      - _Requirements: 7.1, 7.2_
+    
+    - [ ] 7.1.3 Define compute and application resources
+      - Create Lambda functions for data processing and API handlers
+      - Configure API Gateway with REST API and routes
+      - Set up SageMaker endpoints for ML models (or define endpoint configuration)
+      - Define IAM roles and policies for all services with least privilege
+      - Add Lambda layers for shared dependencies
       - _Requirements: 7.1, 7.2, 7.3_
+    
+    - [ ] 7.1.4 Configure chatbot infrastructure
+      - Set up Lambda function for chatbot service with appropriate memory and timeout
+      - Create DynamoDB table for conversation history storage
+      - Configure IAM roles for Bedrock access
+      - Add environment variables for service configuration
+      - Define EventBridge rules for scheduled maintenance tasks
+      - _Requirements: 4.1, 6.1, 7.1_
 
   - [ ] 7.2 Implement monitoring and observability
-    - Create CloudWatch dashboards for system metrics
-    - Configure distributed tracing with X-Ray
-    - Implement log aggregation and analysis
-    - Set up alerts for critical system events
-    - _Requirements: 5.2, 5.3_
+    - [ ] 7.2.1 Create CloudWatch dashboards and alarms
+      - Build dashboard for data pipeline metrics (ingestion rate, ETL job status, data quality)
+      - Create dashboard for ML model metrics (prediction latency, error rates)
+      - Add dashboard for chatbot metrics (response time, conversation count, error rate)
+      - Set up alarms for critical thresholds (Lambda errors, API Gateway 5xx, Redshift failures)
+      - Configure SNS topics for alarm notifications
+      - _Requirements: 5.2, 5.3_
+    
+    - [ ] 7.2.2 Configure distributed tracing and logging
+      - Enable X-Ray tracing for Lambda functions and API Gateway
+      - Set up CloudWatch Logs groups with retention policies
+      - Implement structured logging across all Lambda functions
+      - Create CloudWatch Insights queries for common troubleshooting scenarios
+      - Add log metric filters for error tracking
+      - _Requirements: 5.2, 5.3_
 
-  - [ ] 7.3 Create deployment pipeline with CI/CD
-    - Set up GitHub Actions or AWS CodePipeline
-    - Implement automated testing stages
-    - Configure deployment approvals and gates
-    - Create blue-green deployment strategy
+  - [ ]* 7.3 Create deployment automation
+    - Set up GitHub Actions or AWS CodePipeline for infrastructure deployment
+    - Implement automated testing stage before deployment
+    - Configure environment-specific deployments (dev, prod)
+    - Add deployment approval gates for production
+    - Create rollback procedures and documentation
     - _Requirements: 7.1, 7.2_
-
-  - [ ] 7.4 Set up performance monitoring and optimization
-    - Implement application performance monitoring
-    - Create load testing scenarios
-    - Set up cost monitoring and optimization
-    - Generate performance benchmarks
-    - _Requirements: 5.2, 7.5_
 
 - [ ] 8. Generate demo data and final integration
   - [ ] 8.1 Create synthetic concert data generator
-    - [ ] 8.1.1 Implement data generation logic
-      - Create realistic artist data with genres and popularity
-      - Generate venue data with locations and capacities
-      - Build concert event generator with date distributions
-      - Implement ticket sales data with realistic patterns
+    - [ ] 8.1.1 Build data generation service
+      - Create SyntheticDataGenerator class with configurable parameters (num_artists, num_venues, num_concerts, etc.)
+      - Implement artist generator with realistic genres, popularity scores (0-100), and formation dates
+      - Build venue generator with diverse locations (cities, states), capacities (100-50000), and venue types
+      - Create concert event generator with realistic date distributions (past and future) and pricing tiers
+      - Implement ticket sales generator with purchase patterns based on artist popularity and venue capacity
+      - Add randomization with seed support for reproducible data generation
       - _Requirements: 1.1, 2.1_
     
-    - [ ] 8.1.2 Ensure data quality and relationships
-      - Implement referential integrity checks
-      - Create data validation rules
-      - Generate sufficient volume for ML training (10k+ records)
-      - Add data export to CSV/JSON formats
+    - [ ] 8.1.2 Add data quality and export capabilities
+      - Implement referential integrity validation between artists, venues, concerts, and sales
+      - Create data quality checks for realistic value ranges (prices, dates, capacities)
+      - Generate sufficient volume for ML training (1000+ artists, 500+ venues, 10k+ concerts, 50k+ ticket sales)
+      - Add export functions to CSV, JSON formats
+      - Create S3 upload functionality for direct ingestion
+      - Build CLI tool with argparse for easy execution and configuration
       - _Requirements: 2.1, 3.1_
 
-  - [ ] 8.2 Load demo data and train initial ML models
-    - Execute ETL pipeline with generated demo data
-    - Train venue popularity model with demo dataset
-    - Train ticket sales prediction model
-    - Deploy models to SageMaker endpoints
-    - Validate model predictions and accuracy
-    - _Requirements: 2.1, 2.2, 3.1, 3.2_
+  - [ ] 8.2 Execute end-to-end data pipeline with demo data
+    - [ ] 8.2.1 Load demo data and run ETL pipeline
+      - Generate synthetic data using the data generator
+      - Upload generated data to S3 raw data bucket
+      - Trigger Glue ETL jobs to process and normalize data
+      - Monitor ETL job execution and handle failures
+      - Load processed data into Redshift data warehouse
+      - Verify data quality and completeness in Redshift using SQL queries
+      - _Requirements: 2.1, 2.2_
+    
+    - [ ] 8.2.2 Train and validate ML models with demo data
+      - Extract training data from Redshift for venue popularity model
+      - Prepare features and train venue popularity model
+      - Extract training data for ticket sales prediction model
+      - Prepare features and train ticket sales prediction model
+      - Validate model predictions against test data
+      - Generate sample predictions for demo scenarios
+      - _Requirements: 3.1, 3.2_
 
-  - [ ] 8.3 Configure demo scenarios and user journeys
-    - Create predefined demo scenarios for key features
-    - Set up sample chatbot conversations and queries
-    - Prepare analytics dashboards with meaningful insights
-    - Document demo flow and talking points
-    - _Requirements: 4.1, 4.2, 6.4_
-
-  - [ ] 8.4 Perform end-to-end system validation
-    - Test complete user journeys from ingestion to insights
-    - Validate chatbot responses and recommendations
-    - Verify dashboard visualizations and accuracy
-    - Test system performance under demo load
-    - Verify all integrations and error handling
-    - _Requirements: 1.1, 2.1, 3.1, 4.1, 5.1_
+  - [ ] 8.3 Create demo scenarios and validation
+    - [ ] 8.3.1 Prepare demo scenarios and documentation
+      - Create sample chatbot conversation scripts for common queries (artist lookup, venue search, recommendations)
+      - Prepare test queries for venue recommendations and sales predictions
+      - Generate sample analytics dashboard views with interesting insights
+      - Document demo flow with step-by-step instructions
+      - Create demo presentation materials or README
+      - _Requirements: 4.1, 4.2, 6.4_
+    
+    - [ ] 8.3.2 Perform end-to-end system validation
+      - Test complete data flow from ingestion through Kinesis to Redshift
+      - Validate chatbot responses for various query types
+      - Verify ML model predictions are reasonable and consistent
+      - Test dashboard visualizations render correctly with demo data
+      - Validate error handling and edge cases
+      - Create validation report documenting test results
+      - _Requirements: 1.1, 2.1, 3.1, 4.1, 5.1_

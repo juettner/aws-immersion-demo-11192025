@@ -41,8 +41,8 @@ graph TB
         end
         
         subgraph "Governance Layer"
-            LF[AWS Lake Formation<br/>Data Governance]
             IAM[AWS IAM<br/>Access Control]
+            LF[AWS Lake Formation<br/>Optional Advanced Governance]
         end
     end
     
@@ -105,7 +105,7 @@ graph TB
 1. **Ingestion**: Multiple data sources feed into Kinesis streams and S3 landing zones
 2. **Processing**: AWS Glue and EMR transform raw data into structured formats
 3. **Storage**: Processed data stored in S3 data lake and Redshift data warehouse
-4. **Governance**: Lake Formation manages access control and data lineage
+4. **Governance**: IAM manages access control, with optional Lake Formation for advanced governance
 5. **AI/ML**: SageMaker trains models on processed data
 6. **AgentCore**: Provides intelligent agent capabilities with memory and code execution
 7. **Interface**: Web-based chatbot and analytics dashboard for user interaction
@@ -190,12 +190,14 @@ class ConcertAIChatbot:
     def maintain_conversation_memory(session_id: str, interaction: Dict) -> MemoryResult
 ```
 
-### 5. Data Governance Service
+### 5. Data Governance Service (Optional)
 
-**Purpose**: Manage data access, quality, and compliance using Lake Formation
+**Purpose**: Manage advanced data access, quality, and compliance using Lake Formation
+
+**Note**: This component is optional and can be implemented to showcase advanced governance capabilities. The core demo functions with IAM-based access control.
 
 **Components**:
-- **Access Controller**: Manages fine-grained permissions
+- **Access Controller**: Manages fine-grained permissions via Lake Formation
 - **Lineage Tracker**: Maintains data lineage and impact analysis
 - **Audit Logger**: Records all data access and modifications
 - **Compliance Monitor**: Ensures regulatory compliance
@@ -344,7 +346,7 @@ class ErrorResponse:
 
 ### Integration Testing
 - **End-to-End Data Flow**: Test complete pipeline from ingestion to insights
-- **AWS Service Integration**: Test Glue, Redshift, SageMaker, and Lake Formation interactions
+- **AWS Service Integration**: Test Glue, Redshift, and SageMaker interactions (Lake Formation if implemented)
 - **AgentCore Service Integration**: Test Memory, Code Interpreter, and Browser tool interactions
 - **External API Integration**: Test with actual API responses and error conditions
 
