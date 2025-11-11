@@ -1,100 +1,99 @@
-# Project Structure
+---
+inclusion: always
+---
 
-## Directory Organization
+# Project Structure & Conventions
 
-```
-concert-data-platform/
-├── src/                          # Source code
-│   ├── models/                   # Pydantic data models
-│   ├── services/                 # Business logic and integrations
-│   │   └── external_apis/        # External API clients (Spotify, Ticketmaster)
-│   ├── infrastructure/           # AWS service clients and utilities
-│   └── config/                   # Configuration management
-├── web/                          # React frontend application
-│   └── src/
-│       ├── components/           # Reusable UI components
-│       ├── pages/                # Page components
-│       ├── services/             # API client
-│       ├── hooks/                # Custom React hooks
-│       ├── context/              # React context providers
-│       ├── types/                # TypeScript type definitions
-│       ├── styles/               # Global styles and theme
-│       └── config/               # Frontend configuration
-├── infrastructure/               # Infrastructure setup scripts
-├── sample_data/                  # Sample datasets (CSV, JSON, XML)
-├── docs/                         # Documentation
-│   ├── api-ingestion/
-│   ├── infrastructure/
-│   ├── kinesis/
-│   └── redshift/
-├── .kiro/                        # Kiro configuration
-│   ├── specs/                    # Feature specifications
-│   └── steering/                 # AI assistant guidance rules
-└── validate_*.py                 # Validation scripts (root level)
-```
+## Directory Layout
 
-## Code Organization Patterns
+- `src/models/` - Pydantic data models (domain + ML models)
+- `src/services/` - Business logic, orchestration, and integrations
+- `src/services/external_apis/` - External API clients (Spotify, Ticketmaster)
+- `src/infrastructure/` - AWS service clients (boto3 wrappers)
+- `src/config/` - Centralized Pydantic configuration
+- `web/src/` - React frontend (components, pages, hooks, services)
+- `infrastructure/` - Setup scripts for AWS resources
+- `docs/` - ALL documentation (except root README.md)
+  - `docs/api/` - API documentation
+  - `docs/api-ingestion/` - API integration guides
+  - `docs/features/` - Feature implementation summaries
+  - `docs/guides/` - How-to guides and tutorials
+  - `docs/infrastructure/` - Infrastructure setup and configuration
+  - `docs/kinesis/` - Kinesis streaming documentation
+  - `docs/redshift/` - Redshift data warehouse documentation
+  - `docs/services/` - Service-specific documentation
+- `validate_*.py` - Root-level validation scripts
 
-### Models (`src/models/`)
-- `base.py`: BaseEntity with common fields (created_at, updated_at), Location model
-- Domain models: `artist.py`, `venue.py`, `concert.py`, `ticket_sale.py`
-- ML models: `recommendation.py`, `ticket_sales_prediction.py`, `venue_popularity.py`
-- All models use Pydantic for validation and serialization
+## Naming Conventions
 
-### Services (`src/services/`)
-- Service classes handle business logic and orchestration
-- Naming: `<feature>_service.py` (e.g., `recommendation_service.py`)
-- Example usage: `example_<feature>_usage.py`
+**Python:**
+- Modules: `lowercase_with_underscores.py`
+- Classes: `PascalCase`
+- Functions/methods: `lowercase_with_underscores()`
+- Constants: `UPPERCASE_WITH_UNDERSCORES`
+
+**TypeScript/React:**
+- Components: `PascalCase.tsx`
+- Utilities: `camelCase.ts`
+
+**File Patterns:**
+- Services: `<feature>_service.py`
+- Examples: `example_<feature>_usage.py`
 - Tests: `test_<feature>.py` or `test_<feature>_integration.py`
-- External API clients in `external_apis/` subdirectory
+- Validation: `validate_<feature>_implementation.py` (root level)
+- AWS clients: `<service>_client.py`
 
-### Infrastructure (`src/infrastructure/`)
-- AWS service clients: `<service>_client.py` (e.g., `redshift_client.py`, `kinesis_client.py`)
-- Service-specific utilities: `<service>_<purpose>.py` (e.g., `redshift_schema.py`, `glue_job_manager.py`)
-- Each client encapsulates boto3 interactions for a specific AWS service
+**AWS Resources:**
+- S3: `concert-data-{environment}-{purpose}`
+- Kinesis: `concert-stream-{data-type}`
+- Glue: `concert-etl-{job-name}`
+- Redshift: `concert-warehouse-{environment}`
+- SageMaker: `{model-name}-{timestamp}`
+- DynamoDB: `concert-chatbot-{table-name}`
 
-### Configuration (`src/config/`)
-- `settings.py`: Centralized Pydantic-based configuration with nested settings classes
-- `environment.py`: Environment variable loading utilities
-- Settings loaded from `.env` file via `Settings.from_env()`
+## Code Organization Rules
 
-## File Naming Conventions
+**Models (`src/models/`):**
+- All models use Pydantic for validation
+- `base.py` contains BaseEntity (created_at, updated_at) and Location
+- Domain models: artist, venue, concert, ticket_sale
+- ML models: recommendation, ticket_sales_prediction, venue_popularity
 
-- **Python modules**: lowercase with underscores (`ticket_sales_prediction_service.py`)
-- **Classes**: PascalCase (`TicketSalesPredictionService`, `RedshiftClient`)
-- **Functions/methods**: lowercase with underscores (`get_recommendations`, `execute_query`)
-- **Constants**: UPPERCASE with underscores (`API_BASE_URL`, `DEFAULT_TIMEOUT`)
-- **TypeScript/React**: PascalCase for components (`Button.tsx`), camelCase for utilities
+**Services (`src/services/`):**
+- Handle business logic and orchestration
+- Accept configuration via constructor (dependency injection)
+- Include example usage and test files alongside implementation
 
-## Validation Scripts
+**Infrastructure (`src/infrastructure/`):**
+- Each AWS service gets its own client class
+- Encapsulate all boto3 interactions
+- Service-specific utilities use pattern: `<service>_<purpose>.py`
 
-- Located at project root
-- Pattern: `validate_<feature>_implementation.py`
-- Purpose: Verify implementation structure, imports, and basic functionality
-- Run before committing feature implementations
+**Configuration (`src/config/`):**
+- `settings.py` uses nested Pydantic settings classes
+- Load via `Settings.from_env()` from `.env` file
+- Categories: ExternalAPISettings, AWSSettings, AgentCoreSettings, DatabaseSettings
 
-## Documentation
+## Architectural Patterns
 
-- Feature summaries: `<FEATURE>_SUMMARY.md` at root
-- Detailed guides: `docs/<category>/` subdirectories
-- README files in each major directory explain purpose and usage
-- Infrastructure setup guides in `infrastructure/` directory
-
-## AWS Resource Naming
-
-- S3 Buckets: `concert-data-{environment}-{purpose}`
-- Kinesis Streams: `concert-stream-{data-type}`
-- Glue Jobs: `concert-etl-{job-name}`
-- Redshift Cluster: `concert-warehouse-{environment}`
-- SageMaker Endpoints: `{model-name}-{timestamp}`
-- DynamoDB Tables: `concert-chatbot-{table-name}`
-
-## Key Architectural Patterns
-
-- **Separation of Concerns**: Models, services, and infrastructure are clearly separated
-- **Dependency Injection**: Clients and services accept configuration via constructor
-- **Async/Await**: External API clients use async patterns with httpx
-- **Error Handling**: Structured logging with contextual information
+- **Separation of Concerns**: Models, services, infrastructure are distinct layers
+- **Type Safety**: Pydantic (Python), TypeScript (frontend)
+- **Async/Await**: Use httpx for external API clients
+- **Error Handling**: Structured logging with context
 - **Rate Limiting**: Token bucket pattern in base API client
 - **Retry Logic**: Exponential backoff for transient failures
-- **Type Safety**: Pydantic models for Python, TypeScript for frontend
+
+## Documentation Standards
+
+- ALL documentation (except root README.md) goes in `docs/` folder
+- Feature implementation summaries: `docs/features/<FEATURE>_SUMMARY.md`
+- Service documentation: `docs/services/<SERVICE>_README.md`
+- How-to guides: `docs/guides/<GUIDE_NAME>.md`
+- Infrastructure setup: `docs/infrastructure/<COMPONENT>_GUIDE.md`
+- API documentation: `docs/api/README.md`
+- Each docs subdirectory has a README explaining purpose
+- Use `docs/DOCUMENTATION_INDEX.md` for navigation
+
+## Validation Workflow
+
+Run `validate_<feature>_implementation.py` scripts before committing to verify structure, imports, and basic functionality.

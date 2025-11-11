@@ -8,6 +8,10 @@ Complete index of all documentation files in the Concert Data Platform.
 docs/
 ├── README.md                          # Main documentation hub
 ├── DOCUMENTATION_INDEX.md             # This file
+├── PROJECT_STRUCTURE.md               # Project organization guide
+│
+├── api/                               # API Documentation
+│   └── README.md                      # API overview
 │
 ├── api-ingestion/                     # API Integration
 │   ├── README.md                      # API ingestion overview
@@ -15,6 +19,15 @@ docs/
 │   ├── PRODUCTION_INGESTION_GUIDE.md  # Complete production guide
 │   ├── PRODUCTION_INGESTION_FIXED.md  # Working implementation ⭐
 │   └── RUN_INGESTION_README.md        # Quick start guide
+│
+├── features/                          # Feature Implementation Summaries
+│   ├── CONVERSATION_MEMORY_IMPLEMENTATION_SUMMARY.md
+│   ├── DATA_ANALYSIS_IMPLEMENTATION_SUMMARY.md
+│   ├── MODEL_MONITORING_SUMMARY.md
+│   └── NL_TO_SQL_IMPLEMENTATION_SUMMARY.md
+│
+├── guides/                            # How-To Guides
+│   └── SAGEMAKER_TESTING_GUIDE.md     # SageMaker testing guide
 │
 ├── kinesis/                           # Streaming
 │   ├── README.md                      # Kinesis overview
@@ -28,9 +41,16 @@ docs/
 │   ├── REDSHIFT_DEPLOYMENT_CHECKLIST.md
 │   └── REDSHIFT_DEPLOYMENT_SUMMARY.md
 │
-└── infrastructure/                    # Additional Components
-    ├── README.md                      # Infrastructure overview
-    └── RECOMMENDATION_ENGINE_SUMMARY.md
+├── infrastructure/                    # Infrastructure Components
+│   ├── README.md                      # Infrastructure overview
+│   ├── INFRASTRUCTURE_README.md       # Infrastructure details
+│   ├── LAKE_FORMATION_README.md       # Lake Formation guide
+│   ├── RECOMMENDATION_ENGINE_SUMMARY.md
+│   └── REDSHIFT_SETUP_GUIDE.md        # Redshift setup guide
+│
+└── services/                          # Service Documentation
+    ├── CONVERSATION_MEMORY_README.md  # Conversation memory service
+    └── DATA_ANALYSIS_README.md        # Data analysis service
 ```
 
 ## 🎯 Quick Navigation
@@ -58,11 +78,29 @@ docs/
 - [Redshift Quickstart](redshift/REDSHIFT_QUICKSTART.md) ⭐
 - [Redshift Deployment Checklist](redshift/REDSHIFT_DEPLOYMENT_CHECKLIST.md)
 - [Redshift Deployment Summary](redshift/REDSHIFT_DEPLOYMENT_SUMMARY.md)
+- [Redshift Setup Guide](infrastructure/REDSHIFT_SETUP_GUIDE.md)
 
 #### Infrastructure
 - [Infrastructure Overview](infrastructure/README.md)
+- [Infrastructure Details](infrastructure/INFRASTRUCTURE_README.md)
 - [Recommendation Engine](infrastructure/RECOMMENDATION_ENGINE_SUMMARY.md)
-- [Lake Formation](../src/infrastructure/LAKE_FORMATION_README.md)
+- [Lake Formation](infrastructure/LAKE_FORMATION_README.md)
+
+#### AI/ML Features
+- [Conversation Memory](features/CONVERSATION_MEMORY_IMPLEMENTATION_SUMMARY.md)
+- [Data Analysis](features/DATA_ANALYSIS_IMPLEMENTATION_SUMMARY.md)
+- [Model Monitoring](features/MODEL_MONITORING_SUMMARY.md)
+- [NL to SQL](features/NL_TO_SQL_IMPLEMENTATION_SUMMARY.md)
+
+#### Services
+- [Conversation Memory Service](services/CONVERSATION_MEMORY_README.md)
+- [Data Analysis Service](services/DATA_ANALYSIS_README.md)
+
+#### Guides
+- [SageMaker Testing Guide](guides/SAGEMAKER_TESTING_GUIDE.md)
+
+#### API
+- [API Documentation](api/README.md)
 
 ### By Role
 
@@ -185,16 +223,18 @@ When adding new documentation:
 
 ## 🔄 Documentation Updates
 
-**Last Updated**: November 9, 2025  
-**Version**: 1.0  
+**Last Updated**: November 10, 2025  
+**Version**: 1.1  
 **Status**: Complete
 
 ### Recent Changes
-- ✅ Organized all docs into structured folders
-- ✅ Created index files for each section
-- ✅ Added navigation links
-- ✅ Standardized format
-- ✅ Added search by keyword
+- ✅ Consolidated ALL documentation into docs/ folder
+- ✅ Created features/ folder for implementation summaries
+- ✅ Created services/ folder for service documentation
+- ✅ Created guides/ folder for how-to guides
+- ✅ Created api/ folder for API documentation
+- ✅ Moved all scattered docs from root and src/ into docs/
+- ✅ Updated documentation index with new structure
 
 ---
 
