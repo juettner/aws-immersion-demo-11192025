@@ -5,6 +5,9 @@ export { default as Modal } from './Modal';
 export { default as Loading } from './Loading';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as Layout } from './Layout';
+export { default as ChatContainer } from './ChatContainer';
+export { default as Message } from './Message';
+export { default as MessageInput } from './MessageInput';
 
 export type { ButtonProps } from './Button';
 export type { CardProps } from './Card';
@@ -12,3 +15,6 @@ export type { InputProps } from './Input';
 export type { ModalProps } from './Modal';
 export type { LoadingProps } from './Loading';
 export type { LayoutProps } from './Layout';
+export type { ChatContainerProps } from './ChatContainer';
+export type { MessageProps } from './Message';
+export type { MessageInputProps } from './MessageInput';

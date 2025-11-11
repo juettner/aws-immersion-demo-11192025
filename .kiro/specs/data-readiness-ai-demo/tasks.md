@@ -195,8 +195,8 @@
       - Add loading and error state components
       - _Requirements: 6.4_
 
-  - [ ] 6.2 Build chatbot interface
-    - [ ] 6.2.1 Create chat UI components
+  - [x] 6.2 Build chatbot interface
+    - [x] 6.2.1 Create chat UI components
       - Build ChatContainer component with message list and input area
       - Implement Message component supporting text, data tables, and chart images
       - Create MessageInput with send button and input validation
@@ -204,7 +204,7 @@
       - Implement typing indicators and message status
       - _Requirements: 4.1, 6.4, 6.5_
     
-    - [ ] 6.2.2 Implement chatbot API integration
+    - [x] 6.2.2 Implement chatbot API integration
       - Create chatbot service client for REST API calls
       - Implement message sending and response handling
       - Add message state management using React Context or Zustand

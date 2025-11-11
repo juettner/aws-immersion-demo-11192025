@@ -1,0 +1,18 @@
+.chatbot-page {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.chatbot-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .chatbot-page {
+    padding: 0.5rem;
+  }
+}

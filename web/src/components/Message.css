@@ -1,0 +1,133 @@
+.message {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-user {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+.message-assistant {
+  background-color: #f1f3f5;
+  color: #212529;
+  margin-right: auto;
+  align-self: flex-start;
+}
+
+.message-sending {
+  opacity: 0.6;
+}
+
+.message-error {
+  border: 2px solid #dc3545;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.message-role {
+  font-weight: 600;
+}
+
+.message-timestamp {
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+.message-content p {
+  margin: 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.message-data-table {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.message-data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.message-data-table th,
+.message-data-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.message-data-table th {
+  background-color: #e9ecef;
+  font-weight: 600;
+  color: #495057;
+}
+
+.message-data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.message-data-json {
+  margin-top: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.message-data-json pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #212529;
+}
+
+.message-visualization {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.visualization-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-status {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.message-status.error {
+  color: #dc3545;
+  opacity: 1;
+}
