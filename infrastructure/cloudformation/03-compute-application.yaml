@@ -1,0 +1,626 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Concert Data Platform - Compute and Application Resources (Lambda, API Gateway, SageMaker)'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: development
+    AllowedValues:
+      - development
+      - staging
+      - production
+    Description: Environment name
+  
+  NetworkStackName:
+    Type: String
+    Description: Name of the networking stack for imports
+  
+  StorageStackName:
+    Type: String
+    Description: Name of the storage stack for imports
+  
+  BedrockAgentId:
+    Type: String
+    Default: ''
+    Description: Bedrock Agent ID (optional)
+  
+  BedrockAgentAliasId:
+    Type: String
+    Default: ''
+    Description: Bedrock Agent Alias ID (optional)
+
+Resources:
+  # IAM Roles
+  
+  # Lambda Execution Role
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'ConcertLambdaExecutionRole-${Environment}'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+      Policies:
+        - PolicyName: RedshiftDataAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - redshift-data:ExecuteStatement
+                  - redshift-data:DescribeStatement
+                  - redshift-data:GetStatementResult
+                  - redshift-data:ListStatements
+                  - redshift-serverless:GetCredentials
+                Resource: '*'
+        - PolicyName: BedrockAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - bedrock:InvokeAgent
+                  - bedrock:InvokeModel
+                  - bedrock:GetAgent
+                  - bedrock-agent-runtime:InvokeAgent
+                  - bedrock-agent-runtime:Retrieve
+                Resource: '*'
+        - PolicyName: SageMakerAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - sagemaker:InvokeEndpoint
+                  - sagemaker:DescribeEndpoint
+                Resource: '*'
+        - PolicyName: DynamoDBAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                  - dynamodb:UpdateItem
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                  - dynamodb:DeleteItem
+                Resource: !GetAtt ConversationHistoryTable.Arn
+        - PolicyName: S3Access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                Resource:
+                  - Fn::Sub:
+                      - '${BucketArn}/*'
+                      - BucketArn:
+                          Fn::ImportValue: !Sub '${StorageStackName}-ProcessedDataBucket'
+                  - Fn::Sub:
+                      - '${BucketArn}/*'
+                      - BucketArn:
+                          Fn::ImportValue: !Sub '${StorageStackName}-ModelArtifactsBucket'
+        - PolicyName: KinesisAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - kinesis:PutRecord
+                  - kinesis:PutRecords
+                  - kinesis:GetRecords
+                  - kinesis:GetShardIterator
+                  - kinesis:DescribeStream
+                Resource:
+                  - Fn::Sub:
+                      - 'arn:aws:kinesis:${AWS::Region}:${AWS::AccountId}:stream/${StreamName}'
+                      - StreamName:
+                          Fn::ImportValue: !Sub '${StorageStackName}-ConcertEventsStream'
+      Tags:
+        - Key: Name
+          Value: !Sub 'ConcertLambdaExecutionRole-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # SageMaker Execution Role
+  SageMakerExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'ConcertSageMakerExecutionRole-${Environment}'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: sagemaker.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+      Policies:
+        - PolicyName: S3Access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:ListBucket
+                Resource:
+                  - Fn::Sub:
+                      - '${BucketArn}/*'
+                      - BucketArn:
+                          Fn::ImportValue: !Sub '${StorageStackName}-ProcessedDataBucket'
+                  - Fn::Sub:
+                      - '${BucketArn}/*'
+                      - BucketArn:
+                          Fn::ImportValue: !Sub '${StorageStackName}-ModelArtifactsBucket'
+      Tags:
+        - Key: Name
+          Value: !Sub 'ConcertSageMakerExecutionRole-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Lambda Layer for Shared Dependencies
+  SharedDependenciesLayer:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      LayerName: !Sub 'concert-shared-dependencies-${Environment}'
+      Description: Shared dependencies for Concert Lambda functions
+      Content:
+        S3Bucket:
+          Fn::ImportValue: !Sub '${StorageStackName}-LambdaDeploymentBucket'
+        S3Key: layers/shared-dependencies.zip
+      CompatibleRuntimes:
+        - python3.11
+        - python3.12
+
+  # Lambda Functions
+  
+  # Chatbot Handler
+  ChatbotFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-api-chatbot-${Environment}'
+      Description: Chatbot message processing
+      Runtime: python3.11
+      Handler: api_lambda_handlers.chatbot_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 30
+      MemorySize: 512
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub '${StorageStackName}-LambdaDeploymentBucket'
+        S3Key: functions/api-handlers.zip
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+          BEDROCK_AGENT_ID: !Ref BedrockAgentId
+          BEDROCK_AGENT_ALIAS_ID: !Ref BedrockAgentAliasId
+          CONVERSATION_TABLE_NAME: !Ref ConversationHistoryTable
+      Layers:
+        - !Ref SharedDependenciesLayer
+      VpcConfig:
+        SecurityGroupIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-LambdaSecurityGroupId'
+        SubnetIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet1Id'
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet2Id'
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-api-chatbot-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Venue Popularity Handler
+  VenuePopularityFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-api-venue-popularity-${Environment}'
+      Description: Venue popularity queries
+      Runtime: python3.11
+      Handler: api_lambda_handlers.venue_popularity_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 60
+      MemorySize: 512
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub '${StorageStackName}-LambdaDeploymentBucket'
+        S3Key: functions/api-handlers.zip
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Layers:
+        - !Ref SharedDependenciesLayer
+      VpcConfig:
+        SecurityGroupIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-LambdaSecurityGroupId'
+        SubnetIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet1Id'
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet2Id'
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-api-venue-popularity-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Ticket Prediction Handler
+  TicketPredictionFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-api-ticket-prediction-${Environment}'
+      Description: Ticket sales predictions
+      Runtime: python3.11
+      Handler: api_lambda_handlers.ticket_prediction_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 30
+      MemorySize: 512
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub '${StorageStackName}-LambdaDeploymentBucket'
+        S3Key: functions/api-handlers.zip
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Layers:
+        - !Ref SharedDependenciesLayer
+      VpcConfig:
+        SecurityGroupIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-LambdaSecurityGroupId'
+        SubnetIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet1Id'
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet2Id'
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-api-ticket-prediction-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Recommendations Handler
+  RecommendationsFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-api-recommendations-${Environment}'
+      Description: Concert recommendations
+      Runtime: python3.11
+      Handler: api_lambda_handlers.recommendations_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 60
+      MemorySize: 512
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub '${StorageStackName}-LambdaDeploymentBucket'
+        S3Key: functions/api-handlers.zip
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Layers:
+        - !Ref SharedDependenciesLayer
+      VpcConfig:
+        SecurityGroupIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-LambdaSecurityGroupId'
+        SubnetIds:
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet1Id'
+          - Fn::ImportValue: !Sub '${NetworkStackName}-PrivateSubnet2Id'
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-api-recommendations-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Health Check Handler
+  HealthCheckFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-api-health-check-${Environment}'
+      Description: API health check
+      Runtime: python3.11
+      Handler: api_lambda_handlers.health_check_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 10
+      MemorySize: 256
+      Code:
+        S3Bucket:
+          Fn::ImportValue: !Sub '${StorageStackName}-LambdaDeploymentBucket'
+        S3Key: functions/api-handlers.zip
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-api-health-check-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # DynamoDB Table for Conversation History
+  ConversationHistoryTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'concert-chatbot-conversations-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: session_id
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: N
+      KeySchema:
+        - AttributeName: session_id
+          KeyType: HASH
+        - AttributeName: timestamp
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-chatbot-conversations-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # API Gateway
+  RestAPI:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: !Sub 'concert-ai-api-${Environment}'
+      Description: REST API for Concert AI Platform
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-ai-api-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # API Gateway Resources and Methods
+  
+  # /chat resource
+  ChatResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !GetAtt RestAPI.RootResourceId
+      PathPart: chat
+
+  ChatPostMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPI
+      ResourceId: !Ref ChatResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ChatbotFunction.Arn}/invocations'
+
+  ChatOptionsMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPI
+      ResourceId: !Ref ChatResource
+      HttpMethod: OPTIONS
+      AuthorizationType: NONE
+      Integration:
+        Type: MOCK
+        IntegrationResponses:
+          - StatusCode: 200
+            ResponseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Methods: "'POST,OPTIONS'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        RequestTemplates:
+          application/json: '{"statusCode": 200}'
+      MethodResponses:
+        - StatusCode: 200
+          ResponseParameters:
+            method.response.header.Access-Control-Allow-Headers: true
+            method.response.header.Access-Control-Allow-Methods: true
+            method.response.header.Access-Control-Allow-Origin: true
+
+  # /venues/popularity resource
+  VenuesResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !GetAtt RestAPI.RootResourceId
+      PathPart: venues
+
+  VenuesPopularityResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !Ref VenuesResource
+      PathPart: popularity
+
+  VenuesPopularityGetMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPI
+      ResourceId: !Ref VenuesPopularityResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${VenuePopularityFunction.Arn}/invocations'
+
+  # /predictions/tickets resource
+  PredictionsResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !GetAtt RestAPI.RootResourceId
+      PathPart: predictions
+
+  PredictionsTicketsResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !Ref PredictionsResource
+      PathPart: tickets
+
+  PredictionsTicketsPostMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPI
+      ResourceId: !Ref PredictionsTicketsResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${TicketPredictionFunction.Arn}/invocations'
+
+  # /recommendations resource
+  RecommendationsResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !GetAtt RestAPI.RootResourceId
+      PathPart: recommendations
+
+  RecommendationsGetMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPI
+      ResourceId: !Ref RecommendationsResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${RecommendationsFunction.Arn}/invocations'
+
+  # /health resource
+  HealthResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestAPI
+      ParentId: !GetAtt RestAPI.RootResourceId
+      PathPart: health
+
+  HealthGetMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPI
+      ResourceId: !Ref HealthResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${HealthCheckFunction.Arn}/invocations'
+
+  # API Gateway Deployment
+  APIDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+      - ChatPostMethod
+      - ChatOptionsMethod
+      - VenuesPopularityGetMethod
+      - PredictionsTicketsPostMethod
+      - RecommendationsGetMethod
+      - HealthGetMethod
+    Properties:
+      RestApiId: !Ref RestAPI
+      StageName: !Ref Environment
+
+  # Lambda Permissions for API Gateway
+  ChatbotInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ChatbotFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPI}/*'
+
+  VenuePopularityInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref VenuePopularityFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPI}/*'
+
+  TicketPredictionInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref TicketPredictionFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPI}/*'
+
+  RecommendationsInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref RecommendationsFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPI}/*'
+
+  HealthCheckInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref HealthCheckFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPI}/*'
+
+Outputs:
+  LambdaExecutionRoleArn:
+    Description: Lambda execution role ARN
+    Value: !GetAtt LambdaExecutionRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-LambdaExecutionRoleArn'
+
+  SageMakerExecutionRoleArn:
+    Description: SageMaker execution role ARN
+    Value: !GetAtt SageMakerExecutionRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-SageMakerExecutionRoleArn'
+
+  ConversationHistoryTableName:
+    Description: DynamoDB conversation history table name
+    Value: !Ref ConversationHistoryTable
+    Export:
+      Name: !Sub '${AWS::StackName}-ConversationHistoryTable'
+
+  RestAPIId:
+    Description: API Gateway REST API ID
+    Value: !Ref RestAPI
+    Export:
+      Name: !Sub '${AWS::StackName}-RestAPIId'
+
+  RestAPIEndpoint:
+    Description: API Gateway endpoint URL
+    Value: !Sub 'https://${RestAPI}.execute-api.${AWS::Region}.amazonaws.com/${Environment}'
+    Export:
+      Name: !Sub '${AWS::StackName}-RestAPIEndpoint'
+
+  ChatbotFunctionArn:
+    Description: Chatbot Lambda function ARN
+    Value: !GetAtt ChatbotFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ChatbotFunctionArn'
+
+  VenuePopularityFunctionArn:
+    Description: Venue popularity Lambda function ARN
+    Value: !GetAtt VenuePopularityFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-VenuePopularityFunctionArn'

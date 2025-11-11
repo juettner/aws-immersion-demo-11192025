@@ -1,0 +1,593 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Concert Data Platform - Monitoring and Observability (CloudWatch Dashboards, Alarms, SNS)'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: development
+    AllowedValues:
+      - development
+      - staging
+      - production
+    Description: Environment name
+  
+  ComputeStackName:
+    Type: String
+    Description: Name of the compute stack for imports
+  
+  StorageStackName:
+    Type: String
+    Description: Name of the storage stack for imports
+  
+  AlertEmail:
+    Type: String
+    Default: ''
+    Description: Email address for alarm notifications (optional)
+
+Resources:
+  # SNS Topics for Alerts
+  
+  CriticalAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub 'concert-critical-alerts-${Environment}'
+      DisplayName: Concert Platform Critical Alerts
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-critical-alerts-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  WarningAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub 'concert-warning-alerts-${Environment}'
+      DisplayName: Concert Platform Warning Alerts
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-warning-alerts-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Email Subscription (if provided)
+  CriticalAlertsEmailSubscription:
+    Type: AWS::SNS::Subscription
+    Condition: HasAlertEmail
+    Properties:
+      Protocol: email
+      TopicArn: !Ref CriticalAlertsTopic
+      Endpoint: !Ref AlertEmail
+
+  WarningAlertsEmailSubscription:
+    Type: AWS::SNS::Subscription
+    Condition: HasAlertEmail
+    Properties:
+      Protocol: email
+      TopicArn: !Ref WarningAlertsTopic
+      Endpoint: !Ref AlertEmail
+
+  # CloudWatch Alarms - Lambda Functions
+  
+  ChatbotLambdaErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-chatbot-lambda-errors-${Environment}'
+      AlarmDescription: Alert when chatbot Lambda has high error rate
+      MetricName: Errors
+      Namespace: AWS/Lambda
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 5
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value: !Sub 'concert-api-chatbot-${Environment}'
+      AlarmActions:
+        - !Ref CriticalAlertsTopic
+      TreatMissingData: notBreaching
+
+  ChatbotLambdaThrottlesAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-chatbot-lambda-throttles-${Environment}'
+      AlarmDescription: Alert when chatbot Lambda is throttled
+      MetricName: Throttles
+      Namespace: AWS/Lambda
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value: !Sub 'concert-api-chatbot-${Environment}'
+      AlarmActions:
+        - !Ref WarningAlertsTopic
+      TreatMissingData: notBreaching
+
+  ChatbotLambdaDurationAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-chatbot-lambda-duration-${Environment}'
+      AlarmDescription: Alert when chatbot Lambda duration is high
+      MetricName: Duration
+      Namespace: AWS/Lambda
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 25000
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value: !Sub 'concert-api-chatbot-${Environment}'
+      AlarmActions:
+        - !Ref WarningAlertsTopic
+      TreatMissingData: notBreaching
+
+  VenuePopularityLambdaErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-venue-lambda-errors-${Environment}'
+      AlarmDescription: Alert when venue popularity Lambda has errors
+      MetricName: Errors
+      Namespace: AWS/Lambda
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 5
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value: !Sub 'concert-api-venue-popularity-${Environment}'
+      AlarmActions:
+        - !Ref CriticalAlertsTopic
+      TreatMissingData: notBreaching
+
+  # CloudWatch Alarms - API Gateway
+  
+  APIGateway5xxErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-api-5xx-errors-${Environment}'
+      AlarmDescription: Alert when API Gateway has high 5xx error rate
+      MetricName: 5XXError
+      Namespace: AWS/ApiGateway
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 10
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: ApiName
+          Value: !Sub 'concert-ai-api-${Environment}'
+      AlarmActions:
+        - !Ref CriticalAlertsTopic
+      TreatMissingData: notBreaching
+
+  APIGateway4xxErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-api-4xx-errors-${Environment}'
+      AlarmDescription: Alert when API Gateway has high 4xx error rate
+      MetricName: 4XXError
+      Namespace: AWS/ApiGateway
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 50
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: ApiName
+          Value: !Sub 'concert-ai-api-${Environment}'
+      AlarmActions:
+        - !Ref WarningAlertsTopic
+      TreatMissingData: notBreaching
+
+  APIGatewayLatencyAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-api-latency-${Environment}'
+      AlarmDescription: Alert when API Gateway latency is high
+      MetricName: Latency
+      Namespace: AWS/ApiGateway
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 5000
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: ApiName
+          Value: !Sub 'concert-ai-api-${Environment}'
+      AlarmActions:
+        - !Ref WarningAlertsTopic
+      TreatMissingData: notBreaching
+
+  # CloudWatch Alarms - Kinesis Streams
+  
+  KinesisIteratorAgeAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-kinesis-iterator-age-${Environment}'
+      AlarmDescription: Alert when Kinesis iterator age is high (processing lag)
+      MetricName: GetRecords.IteratorAgeMilliseconds
+      Namespace: AWS/Kinesis
+      Statistic: Maximum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 60000
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: StreamName
+          Value: !Sub 'concert-events-stream-${Environment}'
+      AlarmActions:
+        - !Ref WarningAlertsTopic
+      TreatMissingData: notBreaching
+
+  KinesisWriteProvisionedThroughputExceededAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-kinesis-write-throttle-${Environment}'
+      AlarmDescription: Alert when Kinesis write throughput is exceeded
+      MetricName: WriteProvisionedThroughputExceeded
+      Namespace: AWS/Kinesis
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: StreamName
+          Value: !Sub 'concert-events-stream-${Environment}'
+      AlarmActions:
+        - !Ref CriticalAlertsTopic
+      TreatMissingData: notBreaching
+
+  # CloudWatch Alarms - DynamoDB
+  
+  DynamoDBUserErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-dynamodb-user-errors-${Environment}'
+      AlarmDescription: Alert when DynamoDB has user errors
+      MetricName: UserErrors
+      Namespace: AWS/DynamoDB
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 10
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: TableName
+          Value: !Sub 'concert-chatbot-conversations-${Environment}'
+      AlarmActions:
+        - !Ref WarningAlertsTopic
+      TreatMissingData: notBreaching
+
+  DynamoDBThrottledRequestsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-dynamodb-throttles-${Environment}'
+      AlarmDescription: Alert when DynamoDB requests are throttled
+      MetricName: ThrottledRequests
+      Namespace: AWS/DynamoDB
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: TableName
+          Value: !Sub 'concert-chatbot-conversations-${Environment}'
+      AlarmActions:
+        - !Ref CriticalAlertsTopic
+      TreatMissingData: notBreaching
+
+  # CloudWatch Dashboard - Data Pipeline
+  DataPipelineDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Sub 'concert-data-pipeline-${Environment}'
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/Kinesis", "IncomingRecords", {"stat": "Sum", "label": "Events Stream"}],
+                  ["...", {"stat": "Sum", "label": "Artist Stream"}],
+                  ["...", {"stat": "Sum", "label": "Venue Stream"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "Kinesis Ingestion Rate",
+                "yAxis": {
+                  "left": {
+                    "label": "Records"
+                  }
+                }
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/Kinesis", "GetRecords.IteratorAgeMilliseconds", {"stat": "Maximum"}]
+                ],
+                "period": 300,
+                "stat": "Maximum",
+                "region": "${AWS::Region}",
+                "title": "Kinesis Processing Lag",
+                "yAxis": {
+                  "left": {
+                    "label": "Milliseconds"
+                  }
+                }
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/Glue", "glue.driver.aggregate.numCompletedTasks", {"stat": "Sum"}],
+                  [".", "glue.driver.aggregate.numFailedTasks", {"stat": "Sum"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "Glue ETL Job Status"
+              }
+            },
+            {
+              "type": "log",
+              "properties": {
+                "query": "SOURCE '/aws/lambda/concert-api-chatbot-${Environment}' | fields @timestamp, @message | filter @message like /ERROR/ | sort @timestamp desc | limit 20",
+                "region": "${AWS::Region}",
+                "title": "Recent Lambda Errors"
+              }
+            }
+          ]
+        }
+
+  # CloudWatch Dashboard - ML Models
+  MLModelsDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Sub 'concert-ml-models-${Environment}'
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/SageMaker", "ModelLatency", {"stat": "Average"}]
+                ],
+                "period": 300,
+                "stat": "Average",
+                "region": "${AWS::Region}",
+                "title": "Model Prediction Latency",
+                "yAxis": {
+                  "left": {
+                    "label": "Milliseconds"
+                  }
+                }
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/SageMaker", "Invocations", {"stat": "Sum"}],
+                  [".", "InvocationModelErrors", {"stat": "Sum"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "Model Invocations and Errors"
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["ConcertMLModels", "PredictionAccuracy", {"stat": "Average"}],
+                  [".", "ModelDrift", {"stat": "Average"}]
+                ],
+                "period": 3600,
+                "stat": "Average",
+                "region": "${AWS::Region}",
+                "title": "Model Performance Metrics"
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/Lambda", "Errors", {"stat": "Sum", "label": "Venue Popularity"}],
+                  ["...", {"stat": "Sum", "label": "Ticket Prediction"}],
+                  ["...", {"stat": "Sum", "label": "Recommendations"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "ML Lambda Function Errors"
+              }
+            }
+          ]
+        }
+
+  # CloudWatch Dashboard - Chatbot
+  ChatbotDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Sub 'concert-chatbot-${Environment}'
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/Lambda", "Duration", {"stat": "Average", "label": "Chatbot Response Time"}]
+                ],
+                "period": 300,
+                "stat": "Average",
+                "region": "${AWS::Region}",
+                "title": "Chatbot Response Time",
+                "yAxis": {
+                  "left": {
+                    "label": "Milliseconds"
+                  }
+                }
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["ConcertChatbot", "TotalConversations", {"stat": "Sum"}],
+                  [".", "UniqueSessions", {"stat": "Sum"}]
+                ],
+                "period": 3600,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "Conversation Volume"
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/Lambda", "Errors", {"stat": "Sum"}],
+                  [".", "Throttles", {"stat": "Sum"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "Chatbot Errors and Throttles"
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/DynamoDB", "ConsumedReadCapacityUnits", {"stat": "Sum"}],
+                  [".", "ConsumedWriteCapacityUnits", {"stat": "Sum"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "DynamoDB Capacity Usage"
+              }
+            },
+            {
+              "type": "log",
+              "properties": {
+                "query": "SOURCE '/aws/lambda/concert-api-chatbot-${Environment}' | fields @timestamp, @message | filter @message like /conversation/ | stats count() by bin(5m)",
+                "region": "${AWS::Region}",
+                "title": "Conversation Rate (5min bins)"
+              }
+            }
+          ]
+        }
+
+  # CloudWatch Dashboard - API Gateway
+  APIGatewayDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Sub 'concert-api-gateway-${Environment}'
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/ApiGateway", "Count", {"stat": "Sum", "label": "Total Requests"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "API Request Volume"
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/ApiGateway", "4XXError", {"stat": "Sum"}],
+                  [".", "5XXError", {"stat": "Sum"}]
+                ],
+                "period": 300,
+                "stat": "Sum",
+                "region": "${AWS::Region}",
+                "title": "API Error Rates"
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/ApiGateway", "Latency", {"stat": "Average"}],
+                  ["...", {"stat": "p99"}]
+                ],
+                "period": 300,
+                "stat": "Average",
+                "region": "${AWS::Region}",
+                "title": "API Latency",
+                "yAxis": {
+                  "left": {
+                    "label": "Milliseconds"
+                  }
+                }
+              }
+            },
+            {
+              "type": "metric",
+              "properties": {
+                "metrics": [
+                  ["AWS/ApiGateway", "IntegrationLatency", {"stat": "Average"}]
+                ],
+                "period": 300,
+                "stat": "Average",
+                "region": "${AWS::Region}",
+                "title": "Backend Integration Latency"
+              }
+            }
+          ]
+        }
+
+Conditions:
+  HasAlertEmail: !Not [!Equals [!Ref AlertEmail, '']]
+
+Outputs:
+  CriticalAlertsTopicArn:
+    Description: SNS topic ARN for critical alerts
+    Value: !Ref CriticalAlertsTopic
+    Export:
+      Name: !Sub '${AWS::StackName}-CriticalAlertsTopic'
+
+  WarningAlertsTopicArn:
+    Description: SNS topic ARN for warning alerts
+    Value: !Ref WarningAlertsTopic
+    Export:
+      Name: !Sub '${AWS::StackName}-WarningAlertsTopic'
+
+  DataPipelineDashboardURL:
+    Description: URL to Data Pipeline CloudWatch Dashboard
+    Value: !Sub 'https://console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=concert-data-pipeline-${Environment}'
+
+  MLModelsDashboardURL:
+    Description: URL to ML Models CloudWatch Dashboard
+    Value: !Sub 'https://console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=concert-ml-models-${Environment}'
+
+  ChatbotDashboardURL:
+    Description: URL to Chatbot CloudWatch Dashboard
+    Value: !Sub 'https://console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=concert-chatbot-${Environment}'
+
+  APIGatewayDashboardURL:
+    Description: URL to API Gateway CloudWatch Dashboard
+    Value: !Sub 'https://console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=concert-api-gateway-${Environment}'

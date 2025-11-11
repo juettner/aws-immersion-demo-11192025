@@ -44,9 +44,18 @@ docs/
 ├── infrastructure/                    # Infrastructure Components
 │   ├── README.md                      # Infrastructure overview
 │   ├── INFRASTRUCTURE_README.md       # Infrastructure details
+│   ├── CLOUDFORMATION_DEPLOYMENT_GUIDE.md  # CloudFormation deployment ⭐
+│   ├── INFRASTRUCTURE_AS_CODE_SUMMARY.md   # IaC architecture overview
+│   ├── TASK_7_IMPLEMENTATION_SUMMARY.md    # Task 7 completion details
 │   ├── LAKE_FORMATION_README.md       # Lake Formation guide
 │   ├── RECOMMENDATION_ENGINE_SUMMARY.md
-│   └── REDSHIFT_SETUP_GUIDE.md        # Redshift setup guide
+│   ├── REDSHIFT_SETUP_GUIDE.md        # Redshift setup guide
+│   ├── WEB_DEPLOYMENT_GUIDE.md        # Web deployment guide ⭐
+│   ├── WEB_DEPLOYMENT_SUMMARY.md      # Deployment implementation
+│   ├── API_GATEWAY_SETUP_GUIDE.md     # API Gateway setup
+│   ├── API_GATEWAY_SUMMARY.md         # API Gateway implementation
+│   ├── LAMBDA_HANDLERS_GUIDE.md       # Lambda handlers guide
+│   └── LAMBDA_IMPLEMENTATION_SUMMARY.md
 │
 └── services/                          # Service Documentation
     ├── CONVERSATION_MEMORY_README.md  # Conversation memory service
@@ -80,9 +89,20 @@ docs/
 - [Redshift Deployment Summary](redshift/REDSHIFT_DEPLOYMENT_SUMMARY.md)
 - [Redshift Setup Guide](infrastructure/REDSHIFT_SETUP_GUIDE.md)
 
-#### Infrastructure
+#### Infrastructure as Code
+- [CloudFormation Deployment Guide](infrastructure/CLOUDFORMATION_DEPLOYMENT_GUIDE.md) ⭐
+- [Infrastructure as Code Summary](infrastructure/INFRASTRUCTURE_AS_CODE_SUMMARY.md)
+- [Task 7 Implementation Summary](infrastructure/TASK_7_IMPLEMENTATION_SUMMARY.md)
+
+#### Infrastructure Components
 - [Infrastructure Overview](infrastructure/README.md)
 - [Infrastructure Details](infrastructure/INFRASTRUCTURE_README.md)
+- [API Gateway Setup Guide](infrastructure/API_GATEWAY_SETUP_GUIDE.md)
+- [API Gateway Summary](infrastructure/API_GATEWAY_SUMMARY.md)
+- [Lambda Handlers Guide](infrastructure/LAMBDA_HANDLERS_GUIDE.md)
+- [Lambda Implementation Summary](infrastructure/LAMBDA_IMPLEMENTATION_SUMMARY.md)
+- [Web Deployment Guide](infrastructure/WEB_DEPLOYMENT_GUIDE.md)
+- [Web Deployment Summary](infrastructure/WEB_DEPLOYMENT_SUMMARY.md)
 - [Recommendation Engine](infrastructure/RECOMMENDATION_ENGINE_SUMMARY.md)
 - [Lake Formation](infrastructure/LAKE_FORMATION_README.md)
 
@@ -117,8 +137,9 @@ docs/
 
 #### DevOps Engineer
 1. [Infrastructure Overview](infrastructure/README.md)
-2. [Setup Scripts](infrastructure/README.md#-setup-scripts)
-3. [Monitoring](README.md#-common-tasks)
+2. [Web Deployment Guide](infrastructure/WEB_DEPLOYMENT_GUIDE.md)
+3. [Setup Scripts](infrastructure/README.md#-setup-scripts)
+4. [Monitoring](README.md#-common-tasks)
 
 #### Developer
 1. [Quick Start](README.md#-quick-start)
@@ -132,6 +153,7 @@ docs/
 - Kinesis Setup
 - Redshift Configuration
 - Recommendation Engine
+- Web Application Deployment
 
 ### 🚧 In Progress
 - Advanced ML Models
@@ -149,6 +171,7 @@ docs/
 - [Kinesis Setup](kinesis/KINESIS_QUICKSTART.md)
 - [Redshift Setup](redshift/REDSHIFT_QUICKSTART.md)
 - [API Configuration](api-ingestion/PRODUCTION_INGESTION_FIXED.md)
+- [Web Deployment](infrastructure/WEB_DEPLOYMENT_GUIDE.md)
 
 ### Troubleshooting
 - [API Issues](api-ingestion/RUN_INGESTION_README.md#troubleshooting)

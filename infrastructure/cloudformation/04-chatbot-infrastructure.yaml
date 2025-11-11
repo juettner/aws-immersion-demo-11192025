@@ -1,0 +1,324 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Concert Data Platform - Chatbot Infrastructure (DynamoDB, EventBridge, Lambda)'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: development
+    AllowedValues:
+      - development
+      - staging
+      - production
+    Description: Environment name
+  
+  NetworkStackName:
+    Type: String
+    Description: Name of the networking stack for imports
+  
+  ComputeStackName:
+    Type: String
+    Description: Name of the compute stack for imports
+  
+  BedrockAgentId:
+    Type: String
+    Default: ''
+    Description: Bedrock Agent ID
+  
+  BedrockAgentAliasId:
+    Type: String
+    Default: ''
+    Description: Bedrock Agent Alias ID
+
+Resources:
+  # DynamoDB Tables for Chatbot
+  
+  # Conversation History Table (already in compute stack, but adding preferences)
+  UserPreferencesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'concert-chatbot-preferences-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: user_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: user_id
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-chatbot-preferences-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Session State Table
+  SessionStateTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'concert-chatbot-sessions-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: session_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: session_id
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-chatbot-sessions-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Lambda Function for Chatbot Maintenance
+  ChatbotMaintenanceFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-chatbot-maintenance-${Environment}'
+      Description: Scheduled maintenance for chatbot (cleanup old sessions, etc.)
+      Runtime: python3.11
+      Handler: index.lambda_handler
+      Role:
+        Fn::ImportValue: !Sub '${ComputeStackName}-LambdaExecutionRoleArn'
+      Timeout: 300
+      MemorySize: 256
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import os
+          from datetime import datetime, timedelta
+          
+          dynamodb = boto3.resource('dynamodb')
+          
+          def lambda_handler(event, context):
+              """Perform chatbot maintenance tasks."""
+              environment = os.environ.get('ENVIRONMENT', 'development')
+              
+              # Clean up old sessions
+              sessions_table = dynamodb.Table(f'concert-chatbot-sessions-{environment}')
+              conversations_table = dynamodb.Table(f'concert-chatbot-conversations-{environment}')
+              
+              # Delete sessions older than 7 days
+              cutoff_time = int((datetime.now() - timedelta(days=7)).timestamp())
+              
+              print(f"Cleaning up sessions older than {cutoff_time}")
+              
+              # Note: In production, implement pagination for large datasets
+              response = sessions_table.scan(
+                  FilterExpression='#ts < :cutoff',
+                  ExpressionAttributeNames={'#ts': 'timestamp'},
+                  ExpressionAttributeValues={':cutoff': cutoff_time}
+              )
+              
+              deleted_count = 0
+              for item in response.get('Items', []):
+                  sessions_table.delete_item(Key={'session_id': item['session_id']})
+                  deleted_count += 1
+              
+              print(f"Deleted {deleted_count} old sessions")
+              
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps({
+                      'message': 'Maintenance completed',
+                      'deleted_sessions': deleted_count
+                  })
+              }
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-chatbot-maintenance-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # EventBridge Rule for Scheduled Maintenance
+  ChatbotMaintenanceSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: !Sub 'concert-chatbot-maintenance-schedule-${Environment}'
+      Description: Daily maintenance for chatbot
+      ScheduleExpression: 'cron(0 2 * * ? *)'
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt ChatbotMaintenanceFunction.Arn
+          Id: ChatbotMaintenanceTarget
+
+  # Permission for EventBridge to invoke Lambda
+  ChatbotMaintenanceInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ChatbotMaintenanceFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt ChatbotMaintenanceSchedule.Arn
+
+  # Lambda Function for Conversation Analytics
+  ConversationAnalyticsFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-chatbot-analytics-${Environment}'
+      Description: Process conversation analytics and metrics
+      Runtime: python3.11
+      Handler: index.lambda_handler
+      Role:
+        Fn::ImportValue: !Sub '${ComputeStackName}-LambdaExecutionRoleArn'
+      Timeout: 60
+      MemorySize: 512
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import os
+          from datetime import datetime
+          from collections import Counter
+          
+          dynamodb = boto3.resource('dynamodb')
+          cloudwatch = boto3.client('cloudwatch')
+          
+          def lambda_handler(event, context):
+              """Analyze conversation patterns and publish metrics."""
+              environment = os.environ.get('ENVIRONMENT', 'development')
+              conversations_table = dynamodb.Table(f'concert-chatbot-conversations-{environment}')
+              
+              # Scan recent conversations (last 24 hours)
+              cutoff_time = int((datetime.now().timestamp() - 86400) * 1000)
+              
+              response = conversations_table.scan(
+                  FilterExpression='#ts > :cutoff',
+                  ExpressionAttributeNames={'#ts': 'timestamp'},
+                  ExpressionAttributeValues={':cutoff': cutoff_time}
+              )
+              
+              conversations = response.get('Items', [])
+              
+              # Calculate metrics
+              total_conversations = len(conversations)
+              unique_sessions = len(set(c['session_id'] for c in conversations))
+              
+              # Publish to CloudWatch
+              cloudwatch.put_metric_data(
+                  Namespace='ConcertChatbot',
+                  MetricData=[
+                      {
+                          'MetricName': 'TotalConversations',
+                          'Value': total_conversations,
+                          'Unit': 'Count',
+                          'Timestamp': datetime.now()
+                      },
+                      {
+                          'MetricName': 'UniqueSessions',
+                          'Value': unique_sessions,
+                          'Unit': 'Count',
+                          'Timestamp': datetime.now()
+                      }
+                  ]
+              )
+              
+              print(f"Published metrics: {total_conversations} conversations, {unique_sessions} sessions")
+              
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps({
+                      'total_conversations': total_conversations,
+                      'unique_sessions': unique_sessions
+                  })
+              }
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-chatbot-analytics-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # EventBridge Rule for Analytics
+  ConversationAnalyticsSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: !Sub 'concert-chatbot-analytics-schedule-${Environment}'
+      Description: Hourly conversation analytics
+      ScheduleExpression: 'rate(1 hour)'
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt ConversationAnalyticsFunction.Arn
+          Id: ConversationAnalyticsTarget
+
+  # Permission for EventBridge to invoke Analytics Lambda
+  ConversationAnalyticsInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ConversationAnalyticsFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt ConversationAnalyticsSchedule.Arn
+
+  # SNS Topic for Chatbot Alerts
+  ChatbotAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub 'concert-chatbot-alerts-${Environment}'
+      DisplayName: Concert Chatbot Alerts
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-chatbot-alerts-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # CloudWatch Alarm for High Error Rate
+  ChatbotHighErrorRateAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub 'concert-chatbot-high-error-rate-${Environment}'
+      AlarmDescription: Alert when chatbot error rate exceeds threshold
+      MetricName: Errors
+      Namespace: AWS/Lambda
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 10
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: FunctionName
+          Value:
+            Fn::ImportValue: !Sub '${ComputeStackName}-ChatbotFunctionArn'
+      AlarmActions:
+        - !Ref ChatbotAlertsTopic
+      TreatMissingData: notBreaching
+
+Outputs:
+  UserPreferencesTableName:
+    Description: User preferences DynamoDB table name
+    Value: !Ref UserPreferencesTable
+    Export:
+      Name: !Sub '${AWS::StackName}-UserPreferencesTable'
+
+  SessionStateTableName:
+    Description: Session state DynamoDB table name
+    Value: !Ref SessionStateTable
+    Export:
+      Name: !Sub '${AWS::StackName}-SessionStateTable'
+
+  ChatbotMaintenanceFunctionArn:
+    Description: Chatbot maintenance Lambda function ARN
+    Value: !GetAtt ChatbotMaintenanceFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ChatbotMaintenanceFunctionArn'
+
+  ConversationAnalyticsFunctionArn:
+    Description: Conversation analytics Lambda function ARN
+    Value: !GetAtt ConversationAnalyticsFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ConversationAnalyticsFunctionArn'
+
+  ChatbotAlertsTopicArn:
+    Description: SNS topic ARN for chatbot alerts
+    Value: !Ref ChatbotAlertsTopic
+    Export:
+      Name: !Sub '${AWS::StackName}-ChatbotAlertsTopicArn'
