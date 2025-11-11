@@ -26,9 +26,22 @@ Data warehouse setup and deployment.
 - **[Redshift Deployment Summary](redshift/REDSHIFT_DEPLOYMENT_SUMMARY.md)** - Deployment overview
 - **[Redshift Quickstart](redshift/REDSHIFT_QUICKSTART.md)** - Quick setup guide
 
-### 🏗️ Infrastructure
+### 🏗️ Infrastructure as Code
+Complete infrastructure automation with CloudFormation.
+
+- **[CloudFormation Deployment Guide](infrastructure/CLOUDFORMATION_DEPLOYMENT_GUIDE.md)** ⭐ - Complete deployment instructions
+- **[Infrastructure as Code Summary](infrastructure/INFRASTRUCTURE_AS_CODE_SUMMARY.md)** - Architecture overview
+- **[Task 7 Implementation Summary](infrastructure/TASK_7_IMPLEMENTATION_SUMMARY.md)** - Implementation details
+
+### 🔧 Infrastructure Components
 Additional infrastructure components and services.
 
+- **[API Gateway Setup Guide](infrastructure/API_GATEWAY_SETUP_GUIDE.md)** - REST API configuration
+- **[API Gateway Summary](infrastructure/API_GATEWAY_SUMMARY.md)** - Implementation overview
+- **[Lambda Handlers Guide](infrastructure/LAMBDA_HANDLERS_GUIDE.md)** - Serverless API handlers
+- **[Lambda Implementation Summary](infrastructure/LAMBDA_IMPLEMENTATION_SUMMARY.md)** - Handler details
+- **[Web Deployment Guide](infrastructure/WEB_DEPLOYMENT_GUIDE.md)** - S3/CloudFront deployment
+- **[Web Deployment Summary](infrastructure/WEB_DEPLOYMENT_SUMMARY.md)** - Deployment details
 - **[Recommendation Engine Summary](infrastructure/RECOMMENDATION_ENGINE_SUMMARY.md)** - ML recommendation system
 - **[Lake Formation README](../src/infrastructure/LAKE_FORMATION_README.md)** - Data governance setup
 - **[Redshift Setup Guide](../infrastructure/REDSHIFT_SETUP_GUIDE.md)** - Detailed Redshift configuration
@@ -75,6 +88,21 @@ python infrastructure/initialize_redshift_schema.py
 ```
 
 📖 **Read**: [Redshift Quickstart](redshift/REDSHIFT_QUICKSTART.md)
+
+### 4. Deploy Complete Infrastructure (CloudFormation)
+
+```bash
+# Validate all templates
+python validate_cloudformation_templates.py
+
+# Deploy all stacks
+cd infrastructure
+./deploy_cloudformation_stacks.sh development us-east-1
+```
+
+This deploys 88+ AWS resources including networking, storage, compute, monitoring, and logging.
+
+📖 **Read**: [CloudFormation Deployment Guide](infrastructure/CLOUDFORMATION_DEPLOYMENT_GUIDE.md)
 
 ## 📊 Architecture Overview
 

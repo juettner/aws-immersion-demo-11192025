@@ -1,0 +1,344 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Concert Data Platform - Distributed Tracing and Logging (X-Ray, CloudWatch Logs)'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: development
+    AllowedValues:
+      - development
+      - staging
+      - production
+    Description: Environment name
+  
+  ComputeStackName:
+    Type: String
+    Description: Name of the compute stack for imports
+  
+  LogRetentionDays:
+    Type: Number
+    Default: 7
+    AllowedValues: [1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 3653]
+    Description: CloudWatch Logs retention period in days
+
+Resources:
+  # CloudWatch Log Groups
+  
+  ChatbotLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-api-chatbot-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  VenuePopularityLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-api-venue-popularity-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  TicketPredictionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-api-ticket-prediction-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  RecommendationsLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-api-recommendations-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  HealthCheckLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-api-health-check-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  ChatbotMaintenanceLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-chatbot-maintenance-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  ConversationAnalyticsLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/concert-chatbot-analytics-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  APIGatewayLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/apigateway/concert-ai-api-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  GlueJobLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws-glue/jobs/concert-etl-${Environment}'
+      RetentionInDays: !Ref LogRetentionDays
+
+  # Log Metric Filters
+  
+  ChatbotErrorMetricFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      FilterPattern: '[time, request_id, level = ERROR*, ...]'
+      LogGroupName: !Ref ChatbotLogGroup
+      MetricTransformations:
+        - MetricName: ChatbotErrors
+          MetricNamespace: ConcertPlatform
+          MetricValue: '1'
+          DefaultValue: 0
+
+  ChatbotLatencyMetricFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      FilterPattern: '[time, request_id, level, msg, duration_ms]'
+      LogGroupName: !Ref ChatbotLogGroup
+      MetricTransformations:
+        - MetricName: ChatbotLatency
+          MetricNamespace: ConcertPlatform
+          MetricValue: '$duration_ms'
+          Unit: Milliseconds
+
+  APIGateway5xxMetricFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      FilterPattern: '[ip, -, user, timestamp, request, status_code=5*, size]'
+      LogGroupName: !Ref APIGatewayLogGroup
+      MetricTransformations:
+        - MetricName: API5xxErrors
+          MetricNamespace: ConcertPlatform
+          MetricValue: '1'
+          DefaultValue: 0
+
+  DataQualityIssuesMetricFilter:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      FilterPattern: '[time, level, msg = "*data quality*", ...]'
+      LogGroupName: !Ref GlueJobLogGroup
+      MetricTransformations:
+        - MetricName: DataQualityIssues
+          MetricNamespace: ConcertPlatform
+          MetricValue: '1'
+          DefaultValue: 0
+
+  # CloudWatch Insights Queries
+  
+  ChatbotErrorsQuery:
+    Type: AWS::Logs::QueryDefinition
+    Properties:
+      Name: !Sub 'concert-chatbot-errors-${Environment}'
+      QueryString: |
+        fields @timestamp, @message, @logStream
+        | filter @message like /ERROR/
+        | sort @timestamp desc
+        | limit 100
+      LogGroupNames:
+        - !Ref ChatbotLogGroup
+
+  ChatbotConversationStatsQuery:
+    Type: AWS::Logs::QueryDefinition
+    Properties:
+      Name: !Sub 'concert-chatbot-conversation-stats-${Environment}'
+      QueryString: |
+        fields @timestamp, session_id, user_message, bot_response
+        | stats count() as conversation_count by bin(5m)
+        | sort @timestamp desc
+      LogGroupNames:
+        - !Ref ChatbotLogGroup
+
+  APIGatewayLatencyQuery:
+    Type: AWS::Logs::QueryDefinition
+    Properties:
+      Name: !Sub 'concert-api-latency-analysis-${Environment}'
+      QueryString: |
+        fields @timestamp, requestId, status, latency
+        | filter latency > 1000
+        | stats avg(latency), max(latency), min(latency) by bin(5m)
+        | sort @timestamp desc
+      LogGroupNames:
+        - !Ref APIGatewayLogGroup
+
+  LambdaColdStartsQuery:
+    Type: AWS::Logs::QueryDefinition
+    Properties:
+      Name: !Sub 'concert-lambda-cold-starts-${Environment}'
+      QueryString: |
+        fields @timestamp, @message, @initDuration
+        | filter @type = "REPORT"
+        | filter @initDuration > 0
+        | stats count() as cold_starts, avg(@initDuration) as avg_init_duration by bin(1h)
+        | sort @timestamp desc
+      LogGroupNames:
+        - !Ref ChatbotLogGroup
+        - !Ref VenuePopularityLogGroup
+        - !Ref TicketPredictionLogGroup
+        - !Ref RecommendationsLogGroup
+
+  DataPipelineErrorsQuery:
+    Type: AWS::Logs::QueryDefinition
+    Properties:
+      Name: !Sub 'concert-data-pipeline-errors-${Environment}'
+      QueryString: |
+        fields @timestamp, @message, @logStream
+        | filter @message like /ERROR/ or @message like /FAILED/
+        | stats count() as error_count by @logStream
+        | sort error_count desc
+      LogGroupNames:
+        - !Ref GlueJobLogGroup
+
+  # X-Ray Sampling Rule
+  XRaySamplingRule:
+    Type: AWS::XRay::SamplingRule
+    Properties:
+      SamplingRule:
+        RuleName: !Sub 'concert-platform-sampling-${Environment}'
+        Priority: 1000
+        Version: 1
+        ReservoirSize: 1
+        FixedRate: 0.05
+        URLPath: '*'
+        Host: '*'
+        HTTPMethod: '*'
+        ServiceType: '*'
+        ServiceName: '*'
+        ResourceARN: '*'
+
+  # X-Ray Group for Concert Platform
+  XRayGroup:
+    Type: AWS::XRay::Group
+    Properties:
+      GroupName: !Sub 'concert-platform-${Environment}'
+      FilterExpression: 'service("concert-api") OR annotation.environment = "${Environment}"'
+
+  # Lambda Layer for X-Ray SDK
+  XRaySDKLayer:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      LayerName: !Sub 'concert-xray-sdk-${Environment}'
+      Description: AWS X-Ray SDK for Python
+      Content:
+        S3Bucket: !Sub 'concert-lambda-deployment-${Environment}-${AWS::AccountId}'
+        S3Key: layers/xray-sdk.zip
+      CompatibleRuntimes:
+        - python3.11
+        - python3.12
+
+  # CloudWatch Logs Subscription Filter for Real-time Monitoring
+  ChatbotErrorsSubscription:
+    Type: AWS::Logs::SubscriptionFilter
+    Properties:
+      LogGroupName: !Ref ChatbotLogGroup
+      FilterPattern: '[time, request_id, level = ERROR*, ...]'
+      DestinationArn: !GetAtt ErrorProcessingFunction.Arn
+
+  # Lambda Function for Processing Critical Errors
+  ErrorProcessingFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'concert-error-processor-${Environment}'
+      Description: Process and alert on critical errors
+      Runtime: python3.11
+      Handler: index.lambda_handler
+      Role:
+        Fn::ImportValue: !Sub '${ComputeStackName}-LambdaExecutionRoleArn'
+      Timeout: 60
+      MemorySize: 256
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import base64
+          import gzip
+          import os
+          
+          sns = boto3.client('sns')
+          
+          def lambda_handler(event, context):
+              """Process CloudWatch Logs and send alerts for critical errors."""
+              
+              # Decode and decompress CloudWatch Logs data
+              compressed_payload = base64.b64decode(event['awslogs']['data'])
+              uncompressed_payload = gzip.decompress(compressed_payload)
+              log_data = json.loads(uncompressed_payload)
+              
+              critical_errors = []
+              
+              for log_event in log_data['logEvents']:
+                  message = log_event['message']
+                  
+                  # Check for critical error patterns
+                  if any(pattern in message.upper() for pattern in ['CRITICAL', 'FATAL', 'EXCEPTION']):
+                      critical_errors.append({
+                          'timestamp': log_event['timestamp'],
+                          'message': message,
+                          'logGroup': log_data['logGroup'],
+                          'logStream': log_data['logStream']
+                      })
+              
+              # Send SNS notification if critical errors found
+              if critical_errors:
+                  topic_arn = os.environ.get('ALERT_TOPIC_ARN')
+                  if topic_arn:
+                      sns.publish(
+                          TopicArn=topic_arn,
+                          Subject=f'Critical Errors Detected - {log_data["logGroup"]}',
+                          Message=json.dumps(critical_errors, indent=2)
+                      )
+                      print(f"Sent alert for {len(critical_errors)} critical errors")
+              
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps(f'Processed {len(critical_errors)} critical errors')
+              }
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+          ALERT_TOPIC_ARN: !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:concert-critical-alerts-${Environment}'
+      Tags:
+        - Key: Name
+          Value: !Sub 'concert-error-processor-${Environment}'
+        - Key: Environment
+          Value: !Ref Environment
+
+  # Permission for CloudWatch Logs to invoke Lambda
+  ErrorProcessingInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ErrorProcessingFunction
+      Action: lambda:InvokeFunction
+      Principal: logs.amazonaws.com
+      SourceArn: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/concert-api-chatbot-${Environment}:*'
+
+Outputs:
+  ChatbotLogGroupName:
+    Description: Chatbot Lambda log group name
+    Value: !Ref ChatbotLogGroup
+    Export:
+      Name: !Sub '${AWS::StackName}-ChatbotLogGroup'
+
+  APIGatewayLogGroupName:
+    Description: API Gateway log group name
+    Value: !Ref APIGatewayLogGroup
+    Export:
+      Name: !Sub '${AWS::StackName}-APIGatewayLogGroup'
+
+  XRayGroupName:
+    Description: X-Ray group name
+    Value: !Ref XRayGroup
+    Export:
+      Name: !Sub '${AWS::StackName}-XRayGroup'
+
+  XRaySDKLayerArn:
+    Description: X-Ray SDK Lambda layer ARN
+    Value: !Ref XRaySDKLayer
+    Export:
+      Name: !Sub '${AWS::StackName}-XRaySDKLayer'
+
+  ErrorProcessingFunctionArn:
+    Description: Error processing Lambda function ARN
+    Value: !GetAtt ErrorProcessingFunction.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ErrorProcessingFunction'

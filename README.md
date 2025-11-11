@@ -6,7 +6,7 @@ A comprehensive data platform demonstrating AWS data services, machine learning 
 
 ## Project Status
 
-**Overall Completion**: ~80% | **Current Phase**: Web Interface & Infrastructure Deployment
+**Overall Completion**: ~85% | **Current Phase**: Web Interface & Demo Data Generation
 
 | Component | Status | Progress |
 |-----------|--------|----------|
@@ -18,9 +18,10 @@ A comprehensive data platform demonstrating AWS data services, machine learning 
 | API Layer (ML & Chatbot APIs) | ✅ Complete | 100% |
 | API Gateway Configuration | ✅ Complete | 100% |
 | Lambda Functions (API Handlers) | ✅ Complete | 100% |
+| Infrastructure as Code (CloudFormation) | ✅ Complete | 100% |
+| Monitoring & Observability | ✅ Complete | 100% |
 | Documentation | ✅ Complete | 100% |
 | Web Interface | 🚧 In Progress | 60% |
-| Infrastructure & Deployment | 🚧 In Progress | 50% |
 | Demo Data & Integration | 🚧 Planned | 0% |
 
 **Key Achievements**:
@@ -30,10 +31,12 @@ A comprehensive data platform demonstrating AWS data services, machine learning 
 - ✅ RESTful APIs for ML inference and chat interactions
 - ✅ **AWS API Gateway configured with CORS, throttling, and validation**
 - ✅ **5 Lambda function handlers for serverless API processing**
+- ✅ **Complete Infrastructure as Code with 6 CloudFormation templates (88+ resources)**
+- ✅ **Comprehensive monitoring with 4 dashboards, 15+ alarms, X-Ray tracing**
 - ✅ Comprehensive documentation with 50+ guides and summaries
 - ✅ React web interface with chat and analytics dashboards
 
-**Next Steps**: Complete infrastructure automation, generate demo data, deploy to AWS
+**Next Steps**: Complete web interface, generate demo data, deploy to AWS
 
 ## Overview
 
@@ -43,13 +46,17 @@ This platform showcases modern data engineering and AI/ML practices by ingesting
 
 The platform leverages the following AWS services:
 
-- **Data Ingestion**: Kinesis Data Streams, Lambda, S3
-- **Data Processing**: AWS Glue, Redshift, Lake Formation
+- **Networking**: VPC with multi-AZ deployment, NAT Gateway, Security Groups
+- **Data Ingestion**: Kinesis Data Streams (3 streams), Lambda, S3 (4 buckets)
+- **Data Processing**: AWS Glue, Redshift Serverless, Lake Formation
 - **Machine Learning**: Amazon SageMaker
 - **AI Services**: Amazon Bedrock AgentCore (Runtime, Memory, Code Interpreter, Browser)
-- **API Layer**: API Gateway (REST API with CORS, throttling, validation)
+- **Compute**: Lambda Functions (10+ functions), API Gateway (REST API)
+- **Storage**: DynamoDB (3 tables), S3 with lifecycle policies
+- **API Layer**: API Gateway with CORS, throttling, and validation
 - **Web Interface**: React + Vite, hosted on S3/CloudFront
-- **Monitoring**: CloudWatch Logs, CloudWatch Metrics, X-Ray Tracing
+- **Monitoring**: CloudWatch (4 dashboards, 15+ alarms), X-Ray Tracing, SNS Alerts
+- **Infrastructure**: CloudFormation (6 modular stacks, 88+ resources)
 
 ## Features
 
@@ -135,13 +142,20 @@ The platform leverages the following AWS services:
 - 🚧 User authentication and session management
 
 #### 11. Infrastructure & Deployment
-- ✅ API Gateway CloudFormation template
-- ✅ Automated deployment scripts (Bash + Python)
-- ✅ API Gateway client for programmatic management
-- ✅ Lambda function handlers with deployment automation
-- 🚧 Infrastructure as Code for complete stack (CDK/Terraform)
+- ✅ **Complete Infrastructure as Code**: 6 modular CloudFormation templates
+  - Networking (VPC, subnets, NAT gateway, security groups)
+  - Storage & Processing (S3, Redshift Serverless, Glue, Kinesis)
+  - Compute & Application (Lambda, API Gateway, DynamoDB)
+  - Chatbot Infrastructure (DynamoDB tables, EventBridge, maintenance functions)
+  - Monitoring & Observability (15+ alarms, 4 dashboards, SNS topics)
+  - Tracing & Logging (CloudWatch Logs, X-Ray, log filters, Insights queries)
+- ✅ **Automated Deployment**: Single-command deployment script with dependency management
+- ✅ **Template Validation**: Automated validation tool for all CloudFormation templates
+- ✅ **88+ AWS Resources**: Complete infrastructure defined as code
+- ✅ **Multi-Environment Support**: Development, staging, and production configurations
+- ✅ **Security by Default**: Encryption, VPC isolation, least-privilege IAM roles
+- ✅ **Cost Optimization**: Lifecycle policies, VPC endpoints, serverless services
 - 🚧 CI/CD pipeline with automated testing
-- 🚧 Monitoring dashboards and alerting
 
 #### 12. Demo Data & Integration
 - Synthetic concert data generator
@@ -206,39 +220,46 @@ cp .env.example .env
 # Edit .env with your AWS credentials and API keys
 ```
 
-### Deploying API Gateway
+### Deploying Infrastructure
 
-Deploy the production API Gateway:
+Deploy the complete infrastructure using CloudFormation:
 
 ```bash
-# Interactive deployment
+# Validate all CloudFormation templates
+python validate_cloudformation_templates.py
+
+# Deploy all infrastructure stacks (automated)
+cd infrastructure
+./deploy_cloudformation_stacks.sh development us-east-1
+```
+
+This will deploy:
+- Networking infrastructure (VPC, subnets, security groups)
+- Storage and processing (S3, Redshift, Glue, Kinesis)
+- Compute and application (Lambda, API Gateway, DynamoDB)
+- Chatbot infrastructure (tables, maintenance functions)
+- Monitoring and observability (dashboards, alarms)
+- Tracing and logging (CloudWatch Logs, X-Ray)
+
+See [CloudFormation Deployment Guide](docs/infrastructure/CLOUDFORMATION_DEPLOYMENT_GUIDE.md) for detailed instructions.
+
+### Alternative: Deploy Individual Components
+
+You can also deploy components individually:
+
+#### API Gateway
+```bash
 ./infrastructure/deploy_api_gateway.sh
-
-# Or use Python script directly
-python infrastructure/setup_api_gateway.py --environment development --region us-east-1
-
-# Validate deployment
-python validate_api_gateway_setup.py
+# Or: python infrastructure/setup_api_gateway.py --environment development
 ```
 
-See [API Gateway Setup Guide](docs/infrastructure/API_GATEWAY_SETUP_GUIDE.md) for detailed instructions.
-
-### Deploying Lambda Functions
-
-Deploy Lambda function handlers for API endpoints:
-
+#### Lambda Functions
 ```bash
-# Interactive deployment
 ./infrastructure/deploy_api_lambdas.sh
-
-# Or use Python script directly
-python infrastructure/deploy_api_lambdas.py --region us-east-1
-
-# Validate deployment
-python validate_api_lambda_handlers.py
+# Or: python infrastructure/deploy_api_lambdas.py --region us-east-1
 ```
 
-See [Lambda Handlers Guide](docs/infrastructure/LAMBDA_HANDLERS_GUIDE.md) for detailed instructions.
+See component-specific guides in [docs/infrastructure/](docs/infrastructure/).
 
 ### Running Examples
 
@@ -309,7 +330,10 @@ python src/services/test_redshift_service.py
 
 Validate implementations:
 ```bash
-# Infrastructure
+# Infrastructure as Code
+python validate_cloudformation_templates.py  # Validate all CloudFormation templates
+
+# Infrastructure Components
 python validate_api_gateway_setup.py
 python validate_api_lambda_handlers.py
 python validate_implementation_structure.py
@@ -402,13 +426,15 @@ See [`.kiro/specs/data-readiness-ai-demo/tasks.md`](.kiro/specs/data-readiness-a
 - ✅ Phase 6: Web Interface (React Components & Pages)
 - ✅ Phase 7: API Gateway Configuration (REST API with CORS & Throttling)
 - ✅ Phase 8: Lambda Functions (5 Serverless API Handlers)
+- ✅ Phase 9: Infrastructure as Code (6 CloudFormation Templates, 88+ Resources)
+- ✅ Phase 10: Monitoring & Observability (Dashboards, Alarms, X-Ray, Logging)
 
 **Next Milestones**:
-1. Complete infrastructure automation with IaC (CDK/Terraform)
-2. Set up CI/CD pipeline with automated testing
-3. Generate synthetic demo data and validation scenarios
-4. Deploy complete stack to AWS
-5. Performance optimization and monitoring dashboards
+1. Complete web interface with authentication and real-time updates
+2. Generate synthetic demo data and validation scenarios
+3. Deploy complete stack to AWS
+4. Set up CI/CD pipeline with automated testing
+5. Performance optimization and cost analysis
 
 ## Documentation
 
@@ -424,10 +450,19 @@ All documentation is now centralized in the `docs/` folder for easy navigation:
 - **Services**: [Service Documentation](docs/services/)
 - **Guides**: [How-To Guides & Tutorials](docs/guides/)
 - **Infrastructure**: [AWS Setup & Configuration](docs/infrastructure/)
-  - [API Gateway Setup Guide](docs/infrastructure/API_GATEWAY_SETUP_GUIDE.md)
-  - [API Gateway Summary](docs/infrastructure/API_GATEWAY_SUMMARY.md)
-  - [Lambda Handlers Guide](docs/infrastructure/LAMBDA_HANDLERS_GUIDE.md)
-  - [Lambda Implementation Summary](docs/infrastructure/LAMBDA_IMPLEMENTATION_SUMMARY.md)
+  - **Infrastructure as Code**:
+    - [CloudFormation Deployment Guide](docs/infrastructure/CLOUDFORMATION_DEPLOYMENT_GUIDE.md) - Complete deployment instructions
+    - [Infrastructure as Code Summary](docs/infrastructure/INFRASTRUCTURE_AS_CODE_SUMMARY.md) - Architecture overview
+    - [Task 7 Implementation Summary](docs/infrastructure/TASK_7_IMPLEMENTATION_SUMMARY.md) - Implementation details
+  - **API Gateway**:
+    - [API Gateway Setup Guide](docs/infrastructure/API_GATEWAY_SETUP_GUIDE.md)
+    - [API Gateway Summary](docs/infrastructure/API_GATEWAY_SUMMARY.md)
+  - **Lambda Functions**:
+    - [Lambda Handlers Guide](docs/infrastructure/LAMBDA_HANDLERS_GUIDE.md)
+    - [Lambda Implementation Summary](docs/infrastructure/LAMBDA_IMPLEMENTATION_SUMMARY.md)
+  - **Web Deployment**:
+    - [Web Deployment Guide](docs/infrastructure/WEB_DEPLOYMENT_GUIDE.md)
+    - [Web Deployment Summary](docs/infrastructure/WEB_DEPLOYMENT_SUMMARY.md)
 - **API**: [API Documentation](docs/api/)
   - [API Gateway Reference](docs/api/API_GATEWAY_REFERENCE.md)
 - **Data Ingestion**: [API Integration Guides](docs/api-ingestion/)
