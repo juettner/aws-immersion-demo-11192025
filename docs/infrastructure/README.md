@@ -12,6 +12,13 @@ Documentation for additional infrastructure components, ML models, and advanced 
 
 ## 🏗️ Infrastructure Components
 
+### API Gateway
+- **[API Gateway Setup Guide](API_GATEWAY_SETUP_GUIDE.md)**
+  - REST API configuration
+  - CORS and throttling
+  - Lambda integrations
+  - Deployment instructions
+
 ### Data Lake & Governance
 - **[Lake Formation README](../../src/infrastructure/LAKE_FORMATION_README.md)**
   - Data governance setup
@@ -28,6 +35,7 @@ Documentation for additional infrastructure components, ML models, and advanced 
 - **Kinesis Client**: `src/infrastructure/kinesis_client.py`
 - **Lambda Functions**: `src/infrastructure/lambda_functions.py`
 - **Lambda Deployment**: `src/infrastructure/lambda_deployment.py`
+- **API Gateway Client**: `infrastructure/api_gateway_client.py`
 
 ### Machine Learning
 - **Recommendation Service**: `src/services/recommendation_service.py`
@@ -82,6 +90,18 @@ metrics = analyzer.analyze_venue(venue_id="venue_789")
 
 ## 🔧 Setup Scripts
 
+### API Gateway
+```bash
+# Deploy API Gateway
+./infrastructure/deploy_api_gateway.sh
+
+# Or use Python script
+python infrastructure/setup_api_gateway.py --environment development
+
+# Validate setup
+python validate_api_gateway_setup.py
+```
+
 ### Kinesis
 ```bash
 ./infrastructure/setup_kinesis_for_ingestion.sh
@@ -97,6 +117,7 @@ python infrastructure/init_redshift_simple.py
 
 ### Validation
 ```bash
+python validate_api_gateway_setup.py
 python validate_kinesis_implementation.py
 python validate_redshift_implementation.py
 python validate_governance_implementation.py
