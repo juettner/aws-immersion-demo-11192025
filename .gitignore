@@ -2,3 +2,4 @@ infrastructure/redshift_credentials.txt
 .env
 *.pyc
 __pycache__/
+/.kiro/
