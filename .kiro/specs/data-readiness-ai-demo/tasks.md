@@ -45,11 +45,13 @@
     - Create stored procedures for data aggregation and analytics
     - _Requirements: 2.2, 2.4_
 
-  - [x]* 3.3 Implement optional data governance with Lake Formation
-    - Configure Lake Formation permissions and access policies
-    - Set up data catalog registration and metadata management
-    - Implement audit logging for all data access operations
-    - Note: This is an optional enhancement to showcase advanced governance capabilities
+  - [ ]* 3.3 Implement optional data governance with Lake Formation
+    - Create Lake Formation setup script to register S3 data locations
+    - Configure Lake Formation permissions and access policies for different roles
+    - Deploy data catalog registration and metadata management
+    - Set up audit logging infrastructure for all data access operations
+    - Test Lake Formation permissions with sample queries
+    - Note: This is an optional enhancement. Client library code exists but Lake Formation is not deployed in AWS.
     - _Requirements: 5.5_
 
   - [x] 3.4 Create integration tests for ETL pipeline
@@ -91,14 +93,14 @@
       - _Requirements: 3.4_
 
   - [ ] 4.4 Develop model evaluation and monitoring framework
-    - [ ] 4.4.1 Create model performance evaluation service
+    - [x] 4.4.1 Create model performance evaluation service
       - Implement metrics calculation service for all ML models (MAE, RMSE, precision@k, recall@k)
       - Create validation dataset splitting utilities
       - Build model comparison framework for A/B testing different model versions
       - Add performance reporting with visualization support
       - _Requirements: 3.2, 3.3_
     
-    - [ ] 4.4.2 Set up model monitoring and drift detection
+    - [x] 4.4.2 Set up model monitoring and drift detection
       - Implement prediction drift detection using statistical tests
       - Create CloudWatch custom metrics publisher for model performance
       - Build alerting logic for model degradation thresholds
@@ -107,14 +109,14 @@
 
 - [ ] 5. Build AgentCore-powered AI chatbot
   - [ ] 5.1 Set up AgentCore agent framework and core chatbot service
-    - [ ] 5.1.1 Create base chatbot service class
+    - [x] 5.1.1 Create base chatbot service class
       - Implement ConcertChatbotService with Bedrock Agent Runtime integration
       - Add session management and conversation state tracking
       - Create message processing pipeline with intent routing
       - Implement error handling and fallback responses
       - _Requirements: 4.1, 4.3, 6.1_
     
-    - [ ] 5.1.2 Integrate conversation memory for persistence
+    - [x] 5.1.2 Integrate conversation memory for persistence
       - Configure DynamoDB table for conversation history storage
       - Implement conversation history storage and retrieval methods
       - Add user preference tracking across sessions
@@ -122,7 +124,7 @@
       - _Requirements: 4.5, 6.1_
 
   - [ ] 5.2 Implement data query and analysis capabilities
-    - [ ] 5.2.1 Build natural language to SQL query translator
+    - [x] 5.2.1 Build natural language to SQL query translator
       - Create intent classifier for concert data queries (artist lookup, venue search, concert recommendations)
       - Implement entity extraction for artists, venues, dates, locations using Bedrock
       - Build SQL query generator with template-based approach
@@ -130,30 +132,30 @@
       - Integrate with Redshift service for query execution
       - _Requirements: 4.2, 4.3_
     
-    - [ ] 5.2.2 Implement dynamic data analysis capabilities
+    - [x] 5.2.2 Implement dynamic data analysis capabilities
       - Create data analysis tool that generates analytical insights from concert data
       - Implement result parsing and formatting for chatbot responses
       - Add integration with ML models for predictions within chat context
       - Create visualization data preparation for chart generation
       - _Requirements: 4.4, 6.2_
 
-  - [ ] 5.3 Add external data fetching and visualization
-    - [ ] 5.3.1 Implement external data enrichment
+  - [x] 5.3 Add external data fetching and visualization
+    - [x] 5.3.1 Implement external data enrichment
       - Create tool for fetching real-time artist and venue information from APIs
       - Add data validation and normalization for external content
       - Create caching layer for frequently accessed data
       - Implement fallback to local data when external sources unavailable
       - _Requirements: 6.3_
     
-    - [ ] 5.3.2 Implement data visualization generation
+    - [x] 5.3.2 Implement data visualization generation
       - Create chart generator using matplotlib or plotly
       - Build visualization templates for concert analytics (popularity trends, sales forecasts, venue rankings)
       - Add support for multiple chart types (bar, line, scatter, heatmap)
       - Implement image encoding and embedding for chatbot responses
       - _Requirements: 6.4, 6.5_
 
-  - [ ] 5.4 Create chatbot API and integration layer
-    - [ ] 5.4.1 Build REST API endpoints for chatbot
+  - [-] 5.4 Create chatbot API and integration layer
+    - [-] 5.4.1 Build REST API endpoints for chatbot
       - Create FastAPI application for chatbot service
       - Implement POST /chat endpoint for message processing
       - Add GET /history endpoint for conversation retrieval
@@ -169,7 +171,7 @@
       - Create unified response formatter for all data sources
       - _Requirements: 3.4, 4.2, 4.3_
 
-  - [ ]* 5.5 Write chatbot integration tests
+  - [ ] 5.5 Write chatbot integration tests
     - Test conversation flow and context management across sessions
     - Validate query translation and SQL safety checks
     - Test memory persistence and retrieval
@@ -177,8 +179,8 @@
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
 - [ ] 6. Create web interface and dashboard
-  - [ ] 6.1 Set up React application foundation
-    - [ ] 6.1.1 Initialize React project with TypeScript
+  - [x] 6.1 Set up React application foundation
+    - [x] 6.1.1 Initialize React project with TypeScript
       - Create React app using Vite with TypeScript template
       - Set up project structure (components, services, hooks, types, pages)
       - Configure ESLint and Prettier for code quality
@@ -186,7 +188,7 @@
       - Create environment configuration for API endpoints
       - _Requirements: 4.1, 6.4_
     
-    - [ ] 6.1.2 Create shared UI components and layout
+    - [x] 6.1.2 Create shared UI components and layout
       - Build responsive layout component with header and navigation
       - Create reusable UI components (Button, Card, Input, Modal, Loading, ErrorBoundary)
       - Implement theme provider with styling system

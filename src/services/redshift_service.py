@@ -9,7 +9,7 @@ from ..infrastructure.redshift_client import RedshiftClient
 from ..infrastructure.redshift_schema import RedshiftSchemaManager
 from ..infrastructure.redshift_data_loader import RedshiftDataLoader
 from ..infrastructure.redshift_stored_procedures import RedshiftStoredProcedures
-from ..config.settings import get_settings
+from ..config.settings import settings
 
 logger = logging.getLogger(__name__)
 
@@ -19,12 +19,12 @@ class RedshiftService:
     
     def __init__(self, iam_role: Optional[str] = None):
         """Initialize Redshift service with all components."""
-        self.settings = get_settings()
+        self.settings = settings
         self.client = RedshiftClient()
         self.schema_manager = RedshiftSchemaManager(self.client)
         
         # Use provided IAM role or get from settings
-        self.iam_role = iam_role or self.settings.aws.sagemaker_execution_role
+        self.iam_role = iam_role or self.settings.aws.sagemaker_role_arn
         if not self.iam_role:
             logger.warning("No IAM role provided for COPY operations")
         

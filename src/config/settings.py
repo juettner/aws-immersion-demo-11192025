@@ -32,6 +32,8 @@ class AWSSettings(BaseModel):
     redshift_password: Optional[str] = Field(default=None)
     glue_database: str = Field(default="concert_catalog")
     sagemaker_role_arn: Optional[str] = Field(default=None)
+    dynamodb_conversations_table: str = Field(default="concert-chatbot-conversations")
+    dynamodb_preferences_table: str = Field(default="concert-chatbot-preferences")
 
 
 class AgentCoreSettings(BaseModel):
@@ -102,6 +104,8 @@ class Settings(BaseModel):
                 redshift_password=os.getenv('AWS_REDSHIFT_PASSWORD'),
                 glue_database=os.getenv('AWS_GLUE_DATABASE', 'concert_catalog'),
                 sagemaker_role_arn=os.getenv('AWS_SAGEMAKER_ROLE_ARN'),
+                dynamodb_conversations_table=os.getenv('AWS_DYNAMODB_CONVERSATIONS_TABLE', 'concert-chatbot-conversations'),
+                dynamodb_preferences_table=os.getenv('AWS_DYNAMODB_PREFERENCES_TABLE', 'concert-chatbot-preferences'),
             ),
             agentcore=AgentCoreSettings(
                 runtime_endpoint=os.getenv('AGENTCORE_RUNTIME_ENDPOINT'),

@@ -15,6 +15,8 @@ from pydantic import BaseModel, Field
 
 from src.config.settings import settings
 from src.services.conversation_memory_service import ConversationMemoryService
+from src.services.nl_to_sql_service import NLToSQLService
+from src.services.data_analysis_service import DataAnalysisService
 
 
 class MessageRole(str, Enum):
@@ -82,7 +84,11 @@ class ConcertChatbotService:
         agent_id: Optional[str] = None,
         agent_alias_id: Optional[str] = None,
         region: Optional[str] = None,
-        enable_memory_persistence: bool = True
+        enable_memory_persistence: bool = True,
+        redshift_service: Optional[Any] = None,
+        venue_popularity_service: Optional[Any] = None,
+        ticket_sales_service: Optional[Any] = None,
+        recommendation_service: Optional[Any] = None
     ):
         """
         Initialize the chatbot service.
@@ -92,6 +98,10 @@ class ConcertChatbotService:
             agent_alias_id: Agent alias ID (optional, uses env if not provided)
             region: AWS region (optional, uses settings if not provided)
             enable_memory_persistence: Enable DynamoDB persistence (default: True)
+            redshift_service: Optional RedshiftService for data queries
+            venue_popularity_service: Optional VenuePopularityService for predictions
+            ticket_sales_service: Optional TicketSalesPredictionService for predictions
+            recommendation_service: Optional RecommendationService for recommendations
         """
         self.region = region or settings.aws.region
         self.agent_id = agent_id
@@ -117,6 +127,28 @@ class ConcertChatbotService:
                 self.memory_service = None
         else:
             self.memory_service = None
+        
+        # Initialize NL to SQL service for data queries
+        try:
+            self.nl_to_sql_service = NLToSQLService(
+                redshift_service=redshift_service,
+                region=self.region
+            )
+        except Exception as e:
+            print(f"Warning: Could not initialize NL to SQL service: {e}")
+            self.nl_to_sql_service = None
+        
+        # Initialize data analysis service for analytical insights
+        try:
+            self.data_analysis_service = DataAnalysisService(
+                redshift_service=redshift_service,
+                venue_popularity_service=venue_popularity_service,
+                ticket_sales_service=ticket_sales_service,
+                recommendation_service=recommendation_service
+            )
+        except Exception as e:
+            print(f"Warning: Could not initialize data analysis service: {e}")
+            self.data_analysis_service = None
         
         # In-memory session storage (for active sessions and fallback)
         self.sessions: Dict[str, ConversationState] = {}
@@ -412,7 +444,35 @@ class ConcertChatbotService:
         context: Optional[Dict[str, Any]] = None
     ) -> ChatResponse:
         """Handle artist lookup queries."""
-        # Use context to provide personalized response
+        # Try to use NL to SQL service for data queries
+        if self.nl_to_sql_service:
+            try:
+                result = self.nl_to_sql_service.translate_and_execute(message, execute=True)
+                
+                if result.success and result.data:
+                    # Format response with data
+                    response_message = f"I found {result.row_count} artist(s):\n\n"
+                    
+                    for i, artist in enumerate(result.data[:5], 1):
+                        name = artist.get('name', 'Unknown')
+                        genre = artist.get('genre', 'N/A')
+                        popularity = artist.get('popularity_score', 0)
+                        response_message += f"{i}. {name} - Genre: {genre}, Popularity: {popularity}\n"
+                    
+                    if result.row_count > 5:
+                        response_message += f"\n... and {result.row_count - 5} more artists."
+                    
+                    return ChatResponse(
+                        message=response_message,
+                        session_id=session.session_id,
+                        intent=ConversationIntent.ARTIST_LOOKUP,
+                        confidence=0.9,
+                        data={"artists": result.data, "query": result.query.sql if result.query else None}
+                    )
+            except Exception as e:
+                print(f"NL to SQL query failed: {e}")
+        
+        # Fallback response
         response_message = "I can help you find information about artists. "
         
         if context and context.get('user_preferences'):
@@ -421,7 +481,7 @@ class ConcertChatbotService:
                 genres = ', '.join(prefs['favorite_genres'][:3])
                 response_message += f"Based on your interest in {genres}, "
         
-        response_message += "This feature will be connected to the concert database in upcoming tasks."
+        response_message += "Try asking about specific artists or genres."
         
         return ChatResponse(
             message=response_message,
@@ -442,7 +502,36 @@ class ConcertChatbotService:
         context: Optional[Dict[str, Any]] = None
     ) -> ChatResponse:
         """Handle venue search queries."""
-        # Use context to provide personalized response
+        # Try to use NL to SQL service for data queries
+        if self.nl_to_sql_service:
+            try:
+                result = self.nl_to_sql_service.translate_and_execute(message, execute=True)
+                
+                if result.success and result.data:
+                    # Format response with data
+                    response_message = f"I found {result.row_count} venue(s):\n\n"
+                    
+                    for i, venue in enumerate(result.data[:5], 1):
+                        name = venue.get('name', 'Unknown')
+                        city = venue.get('city', 'N/A')
+                        capacity = venue.get('capacity', 0)
+                        venue_type = venue.get('venue_type', 'N/A')
+                        response_message += f"{i}. {name} - {city}, Capacity: {capacity}, Type: {venue_type}\n"
+                    
+                    if result.row_count > 5:
+                        response_message += f"\n... and {result.row_count - 5} more venues."
+                    
+                    return ChatResponse(
+                        message=response_message,
+                        session_id=session.session_id,
+                        intent=ConversationIntent.VENUE_SEARCH,
+                        confidence=0.9,
+                        data={"venues": result.data, "query": result.query.sql if result.query else None}
+                    )
+            except Exception as e:
+                print(f"NL to SQL query failed: {e}")
+        
+        # Fallback response
         response_message = "I can help you search for concert venues. "
         
         if context and context.get('user_preferences'):
@@ -451,7 +540,7 @@ class ConcertChatbotService:
                 location = prefs['location_preference']
                 response_message += f"I see you're interested in venues near {location}. "
         
-        response_message += "This feature will be connected to the venue database in upcoming tasks."
+        response_message += "Try asking about venues in specific cities or with certain capacities."
         
         return ChatResponse(
             message=response_message,
@@ -530,10 +619,112 @@ class ConcertChatbotService:
         session: ConversationState,
         context: Optional[Dict[str, Any]] = None
     ) -> ChatResponse:
-        """Handle data analysis queries."""
+        """Handle data analysis queries with dynamic insights generation."""
+        message_lower = message.lower()
+        
+        # Use data analysis service if available
+        if self.data_analysis_service:
+            try:
+                # Detect analysis type from message
+                if any(word in message_lower for word in ["trend", "over time", "growth", "change"]):
+                    # Trend analysis
+                    result = self.data_analysis_service.analyze_concert_trends(
+                        time_period="last_year",
+                        metric="attendance",
+                        group_by="month"
+                    )
+                    response_message = self.data_analysis_service.format_for_chatbot(result)
+                    
+                    return ChatResponse(
+                        message=response_message,
+                        session_id=session.session_id,
+                        intent=ConversationIntent.DATA_ANALYSIS,
+                        confidence=0.9,
+                        data={
+                            "analysis_type": result.analysis_type.value,
+                            "visualization": result.visualization,
+                            "insights": result.insights
+                        }
+                    )
+                
+                elif any(word in message_lower for word in ["compare", "versus", "vs", "difference"]):
+                    # Comparison analysis - would need entity extraction
+                    response_message = "I can compare artists or venues for you. Please specify which entities you'd like to compare."
+                    
+                    return ChatResponse(
+                        message=response_message,
+                        session_id=session.session_id,
+                        intent=ConversationIntent.DATA_ANALYSIS,
+                        confidence=0.7,
+                        suggestions=[
+                            "Compare artist_001 and artist_002",
+                            "Compare venues in New York",
+                            "Show me artist statistics"
+                        ]
+                    )
+                
+                elif any(word in message_lower for word in ["statistics", "summary", "overview", "stats"]):
+                    # Statistical summary
+                    entity_type = "concert"
+                    if "artist" in message_lower:
+                        entity_type = "artist"
+                    elif "venue" in message_lower:
+                        entity_type = "venue"
+                    
+                    result = self.data_analysis_service.generate_statistical_summary(
+                        entity_type=entity_type
+                    )
+                    response_message = self.data_analysis_service.format_for_chatbot(result)
+                    
+                    return ChatResponse(
+                        message=response_message,
+                        session_id=session.session_id,
+                        intent=ConversationIntent.DATA_ANALYSIS,
+                        confidence=0.9,
+                        data={
+                            "analysis_type": result.analysis_type.value,
+                            "statistics": result.data.get("statistics", {}),
+                            "visualization": result.visualization
+                        }
+                    )
+                
+            except Exception as e:
+                print(f"Data analysis service failed: {e}")
+                # Fall through to NL to SQL fallback
+        
+        # Try to use NL to SQL service for data queries
+        if self.nl_to_sql_service:
+            try:
+                result = self.nl_to_sql_service.translate_and_execute(message, execute=True)
+                
+                if result.success and result.data:
+                    # Format response with data
+                    response_message = f"Here's the analysis based on your query:\n\n"
+                    
+                    # Show first few rows of data
+                    for i, row in enumerate(result.data[:5], 1):
+                        row_str = ", ".join([f"{k}: {v}" for k, v in row.items()])
+                        response_message += f"{i}. {row_str}\n"
+                    
+                    if result.row_count > 5:
+                        response_message += f"\n... and {result.row_count - 5} more results."
+                    
+                    response_message += f"\n\nQuery executed in {result.execution_time_ms:.2f}ms"
+                    
+                    return ChatResponse(
+                        message=response_message,
+                        session_id=session.session_id,
+                        intent=ConversationIntent.DATA_ANALYSIS,
+                        confidence=0.9,
+                        data={"results": result.data, "query": result.query.sql if result.query else None}
+                    )
+            except Exception as e:
+                print(f"NL to SQL query failed: {e}")
+        
+        # Fallback response
         return ChatResponse(
             message="I can analyze concert data and provide insights. "
-                   "This feature will be enhanced with AgentCore Code Interpreter in upcoming tasks.",
+                   "Try asking about trends, statistics, or comparisons.",
             session_id=session.session_id,
             intent=ConversationIntent.DATA_ANALYSIS,
             confidence=0.8,

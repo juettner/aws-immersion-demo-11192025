@@ -8,7 +8,7 @@ import boto3
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from botocore.exceptions import ClientError
-from ..config.settings import get_settings
+from ..config.settings import settings
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class RedshiftClient:
     
     def __init__(self):
         """Initialize Redshift client with configuration."""
-        self.settings = get_settings()
+        self.settings = settings
         self.redshift_client = boto3.client('redshift', region_name=self.settings.aws_region)
         self.redshift_data_client = boto3.client('redshift-data', region_name=self.settings.aws_region)
         self._connection = None
