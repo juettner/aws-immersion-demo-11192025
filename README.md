@@ -22,7 +22,7 @@ A comprehensive data platform demonstrating AWS data services, machine learning 
 | Monitoring & Observability | ✅ Complete | 100% |
 | Documentation | ✅ Complete | 100% |
 | Web Interface | 🚧 In Progress | 60% |
-| Demo Data & Integration | 🚧 Planned | 0% |
+| Demo Data & Integration | 🚧 In Progress | 50% |
 
 **Key Achievements**:
 - ✅ Full data pipeline from ingestion to warehouse
@@ -158,9 +158,18 @@ The platform leverages the following AWS services:
 - 🚧 CI/CD pipeline with automated testing
 
 #### 12. Demo Data & Integration
-- Synthetic concert data generator
-- End-to-end system validation
-- Demo scenarios and user journeys
+- ✅ **Synthetic Data Generator**: Production-ready data generation service
+  - Configurable parameters (artists, venues, concerts, ticket sales)
+  - Realistic data with proper distributions and relationships
+  - Referential integrity validation
+  - Data quality checks for value ranges
+  - Export to CSV and JSON formats
+  - S3 upload functionality for direct ingestion
+  - CLI tool with comprehensive options
+  - Reproducible generation with seed support
+  - Sufficient volume for ML training (1000+ artists, 500+ venues, 10k+ concerts, 50k+ sales)
+- 🚧 End-to-end system validation
+- 🚧 Demo scenarios and user journeys
 
 ## Project Structure
 
@@ -261,6 +270,46 @@ You can also deploy components individually:
 
 See component-specific guides in [docs/infrastructure/](docs/infrastructure/).
 
+### Generating Demo Data
+
+Generate synthetic concert data for testing and demos:
+
+```bash
+# Generate default dataset (1000 artists, 500 venues, 10k concerts, 50k sales)
+python generate_synthetic_data.py
+
+# Generate smaller dataset for testing
+python generate_synthetic_data.py --artists 100 --venues 50 --concerts 500 --sales 2000
+
+# Generate with specific seed for reproducibility
+python generate_synthetic_data.py --seed 42
+
+# Export to JSON instead of CSV
+python generate_synthetic_data.py --format json
+
+# Export to both formats
+python generate_synthetic_data.py --format both
+
+# Upload directly to S3
+python generate_synthetic_data.py --upload-s3 my-bucket --s3-prefix synthetic-data
+
+# Custom output directory
+python generate_synthetic_data.py --output-dir ./my_data
+
+# Skip validation (faster)
+python generate_synthetic_data.py --skip-validation
+
+# See all options
+python generate_synthetic_data.py --help
+```
+
+The generator creates realistic data with:
+- Artist names, genres, popularity scores, and formation dates
+- Venues with locations, capacities, and types across 50 US cities
+- Concerts with realistic date distributions and pricing tiers
+- Ticket sales with purchase patterns based on popularity and capacity
+- Full referential integrity between all entities
+
 ### Running Examples
 
 #### Data Ingestion
@@ -330,6 +379,9 @@ python src/services/test_redshift_service.py
 
 Validate implementations:
 ```bash
+# Demo Data Generation
+python validate_synthetic_data_generator.py  # Validate synthetic data generator
+
 # Infrastructure as Code
 python validate_cloudformation_templates.py  # Validate all CloudFormation templates
 
@@ -431,10 +483,12 @@ See [`.kiro/specs/data-readiness-ai-demo/tasks.md`](.kiro/specs/data-readiness-a
 
 **Next Milestones**:
 1. Complete web interface with authentication and real-time updates
-2. Generate synthetic demo data and validation scenarios
-3. Deploy complete stack to AWS
-4. Set up CI/CD pipeline with automated testing
-5. Performance optimization and cost analysis
+2. ✅ Generate synthetic demo data (completed)
+3. Execute end-to-end data pipeline with demo data
+4. Create demo scenarios and validation
+5. Deploy complete stack to AWS
+6. Set up CI/CD pipeline with automated testing
+7. Performance optimization and cost analysis
 
 ## Documentation
 
