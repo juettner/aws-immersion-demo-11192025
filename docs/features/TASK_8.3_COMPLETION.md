@@ -100,8 +100,8 @@ Task 8.3 "Create demo scenarios and validation" has been successfully completed.
 
 ### Documentation Files
 1. `docs/guides/DEMO_SCENARIOS.md` - Comprehensive demo scenarios guide (500+ lines)
-2. `DEMO_EXECUTION_GUIDE.md` - Step-by-step demo execution instructions (800+ lines)
-3. `TASK_8.3_COMPLETION.md` - This completion summary
+2. `docs/guides/DEMO_EXECUTION_GUIDE.md` - Step-by-step demo execution instructions (800+ lines)
+3. `docs/features/TASK_8.3_COMPLETION.md` - This completion summary
 
 ### Executable Scripts
 1. `demo_test_queries.py` - Interactive demo test query runner (400+ lines)
@@ -221,7 +221,7 @@ cat validation_report_*.json
 
 ```bash
 # Follow step-by-step instructions in:
-cat DEMO_EXECUTION_GUIDE.md
+cat docs/guides/DEMO_EXECUTION_GUIDE.md
 
 # Or open in browser/editor for better formatting
 ```

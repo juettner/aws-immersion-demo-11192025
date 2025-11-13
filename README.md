@@ -4,6 +4,16 @@ A comprehensive data platform demonstrating AWS data services, machine learning 
 
 > **📚 [Complete Documentation Available in `docs/` folder](docs/README.md)**
 
+## 🎯 Quick Start for Demos
+
+Ready to demonstrate the platform? **[See DEMO_README.md for complete demo guide](DEMO_README.md)**
+
+Quick links:
+- **[Demo Execution Guide](docs/guides/DEMO_EXECUTION_GUIDE.md)** - Step-by-step demo instructions
+- **[Demo Scenarios](docs/guides/DEMO_SCENARIOS.md)** - 13 pre-configured scenarios
+- **Quick Validation**: `python quick_system_validation.py`
+- **Interactive Demo**: `python demo_test_queries.py`
+
 ## Project Status
 
 **Overall Completion**: ~85% | **Current Phase**: Web Interface & Demo Data Generation
@@ -514,7 +524,7 @@ All documentation is now centralized in the `docs/` folder for easy navigation:
 - **[📚 Complete Documentation Hub](docs/README.md)** - Start here
 - **[📑 Documentation Index](docs/DOCUMENTATION_INDEX.md)** - Full index with search
 - **[🏗️ Project Structure](docs/PROJECT_STRUCTURE.md)** - Code organization guide
-- **[🎯 Demo Execution Guide](DEMO_EXECUTION_GUIDE.md)** - Step-by-step demo instructions
+- **[🎯 Demo Execution Guide](docs/guides/DEMO_EXECUTION_GUIDE.md)** - Step-by-step demo instructions
 - **[🎬 Demo Scenarios](docs/guides/DEMO_SCENARIOS.md)** - Comprehensive demo scenarios and test queries
 
 ### Quick Links by Category

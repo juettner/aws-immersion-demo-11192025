@@ -24,12 +24,15 @@ docs/
 │   ├── CONVERSATION_MEMORY_IMPLEMENTATION_SUMMARY.md
 │   ├── DATA_ANALYSIS_IMPLEMENTATION_SUMMARY.md
 │   ├── DEMO_PIPELINE_IMPLEMENTATION_SUMMARY.md  # Task 8.2 implementation ⭐
+│   ├── TASK_8.2_COMPLETION.md         # Task 8.2 completion summary
+│   ├── TASK_8.3_COMPLETION.md         # Task 8.3 completion summary ⭐
 │   ├── MODEL_MONITORING_SUMMARY.md
 │   └── NL_TO_SQL_IMPLEMENTATION_SUMMARY.md
 │
 ├── guides/                            # How-To Guides
 │   ├── SAGEMAKER_TESTING_GUIDE.md     # SageMaker testing guide
 │   ├── DEMO_PIPELINE_GUIDE.md         # Demo pipeline execution ⭐
+│   ├── DEMO_EXECUTION_GUIDE.md        # Step-by-step demo instructions ⭐
 │   └── DEMO_SCENARIOS.md              # Demo scenarios and test queries ⭐
 │
 ├── kinesis/                           # Streaming
@@ -113,6 +116,8 @@ docs/
 - [Conversation Memory](features/CONVERSATION_MEMORY_IMPLEMENTATION_SUMMARY.md)
 - [Data Analysis](features/DATA_ANALYSIS_IMPLEMENTATION_SUMMARY.md)
 - [Demo Pipeline Implementation](features/DEMO_PIPELINE_IMPLEMENTATION_SUMMARY.md) ⭐
+- [Task 8.2 Completion Summary](features/TASK_8.2_COMPLETION.md)
+- [Task 8.3 Completion Summary](features/TASK_8.3_COMPLETION.md) ⭐
 - [Model Monitoring](features/MODEL_MONITORING_SUMMARY.md)
 - [NL to SQL](features/NL_TO_SQL_IMPLEMENTATION_SUMMARY.md)
 
@@ -123,6 +128,7 @@ docs/
 #### Guides
 - [SageMaker Testing Guide](guides/SAGEMAKER_TESTING_GUIDE.md)
 - [Demo Pipeline Guide](guides/DEMO_PIPELINE_GUIDE.md) ⭐
+- [Demo Execution Guide](guides/DEMO_EXECUTION_GUIDE.md) ⭐
 - [Demo Scenarios Guide](guides/DEMO_SCENARIOS.md) ⭐
 
 #### API
