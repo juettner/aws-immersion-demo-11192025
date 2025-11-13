@@ -248,6 +248,23 @@ This will deploy:
 - Compute and application (Lambda, API Gateway, DynamoDB)
 - Chatbot infrastructure (tables, maintenance functions)
 - Monitoring and observability (dashboards, alarms)
+
+### Running the Demo Pipeline
+
+Execute the end-to-end demo data pipeline:
+
+```bash
+# Generate synthetic data and load to Redshift
+python run_demo_pipeline.py --artists 1000 --venues 500 --concerts 10000 --sales 50000
+
+# Train ML models with the loaded data
+python train_demo_models.py
+
+# Validate the implementation
+python validate_demo_pipeline.py
+```
+
+See [Demo Pipeline Guide](docs/guides/DEMO_PIPELINE_GUIDE.md) for detailed instructions.
 - Tracing and logging (CloudWatch Logs, X-Ray)
 
 See [CloudFormation Deployment Guide](docs/infrastructure/CLOUDFORMATION_DEPLOYMENT_GUIDE.md) for detailed instructions.
@@ -497,6 +514,8 @@ All documentation is now centralized in the `docs/` folder for easy navigation:
 - **[📚 Complete Documentation Hub](docs/README.md)** - Start here
 - **[📑 Documentation Index](docs/DOCUMENTATION_INDEX.md)** - Full index with search
 - **[🏗️ Project Structure](docs/PROJECT_STRUCTURE.md)** - Code organization guide
+- **[🎯 Demo Execution Guide](DEMO_EXECUTION_GUIDE.md)** - Step-by-step demo instructions
+- **[🎬 Demo Scenarios](docs/guides/DEMO_SCENARIOS.md)** - Comprehensive demo scenarios and test queries
 
 ### Quick Links by Category
 

@@ -23,11 +23,14 @@ docs/
 ├── features/                          # Feature Implementation Summaries
 │   ├── CONVERSATION_MEMORY_IMPLEMENTATION_SUMMARY.md
 │   ├── DATA_ANALYSIS_IMPLEMENTATION_SUMMARY.md
+│   ├── DEMO_PIPELINE_IMPLEMENTATION_SUMMARY.md  # Task 8.2 implementation ⭐
 │   ├── MODEL_MONITORING_SUMMARY.md
 │   └── NL_TO_SQL_IMPLEMENTATION_SUMMARY.md
 │
 ├── guides/                            # How-To Guides
-│   └── SAGEMAKER_TESTING_GUIDE.md     # SageMaker testing guide
+│   ├── SAGEMAKER_TESTING_GUIDE.md     # SageMaker testing guide
+│   ├── DEMO_PIPELINE_GUIDE.md         # Demo pipeline execution ⭐
+│   └── DEMO_SCENARIOS.md              # Demo scenarios and test queries ⭐
 │
 ├── kinesis/                           # Streaming
 │   ├── README.md                      # Kinesis overview
@@ -109,6 +112,7 @@ docs/
 #### AI/ML Features
 - [Conversation Memory](features/CONVERSATION_MEMORY_IMPLEMENTATION_SUMMARY.md)
 - [Data Analysis](features/DATA_ANALYSIS_IMPLEMENTATION_SUMMARY.md)
+- [Demo Pipeline Implementation](features/DEMO_PIPELINE_IMPLEMENTATION_SUMMARY.md) ⭐
 - [Model Monitoring](features/MODEL_MONITORING_SUMMARY.md)
 - [NL to SQL](features/NL_TO_SQL_IMPLEMENTATION_SUMMARY.md)
 
@@ -118,6 +122,8 @@ docs/
 
 #### Guides
 - [SageMaker Testing Guide](guides/SAGEMAKER_TESTING_GUIDE.md)
+- [Demo Pipeline Guide](guides/DEMO_PIPELINE_GUIDE.md) ⭐
+- [Demo Scenarios Guide](guides/DEMO_SCENARIOS.md) ⭐
 
 #### API
 - [API Documentation](api/README.md)
@@ -246,11 +252,13 @@ When adding new documentation:
 
 ## 🔄 Documentation Updates
 
-**Last Updated**: November 10, 2025  
-**Version**: 1.1  
+**Last Updated**: November 13, 2025  
+**Version**: 1.2  
 **Status**: Complete
 
 ### Recent Changes
+- ✅ Added Demo Pipeline Guide (Task 8.2 implementation)
+- ✅ Added Demo Pipeline Implementation Summary
 - ✅ Consolidated ALL documentation into docs/ folder
 - ✅ Created features/ folder for implementation summaries
 - ✅ Created services/ folder for service documentation
