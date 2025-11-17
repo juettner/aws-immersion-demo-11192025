@@ -1,0 +1,1001 @@
+artist_id,name,genre,popularity_score,formation_date,members,spotify_id,created_at,updated_at
+art_000001,Golden Stars,jazz|hip hop|rock,6.19,1977-11-29,Member 1|Member 2|Member 3,spotify_000001,2025-11-17T02:43:33.073646,2025-11-17T02:43:33.073647
+art_000002,Cosmic Thunder,rock|indie|jazz,73.58,2020-11-18,Member 1|Member 2|Member 3,spotify_000002,2025-11-17T02:43:33.073826,2025-11-17T02:43:33.073827
+art_000003,Storms,electronic|pop,45.59,2001-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000003,2025-11-17T02:43:33.073844,2025-11-17T02:43:33.073844
+art_000004,Winds,hip hop,75.58,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000004,2025-11-17T02:43:33.073854,2025-11-17T02:43:33.073854
+art_000005,Stars,jazz|country|reggae,87.95,1993-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000005,2025-11-17T02:43:33.073862,2025-11-17T02:43:33.073862
+art_000006,Golden Legends,reggae|r&b,69.8,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000006,2025-11-17T02:43:33.073870,2025-11-17T02:43:33.073870
+art_000007,Echoes,pop|blues|country,50.6,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000007,2025-11-17T02:43:33.073877,2025-11-17T02:43:33.073877
+art_000008,Legends,latin,86.62,1983-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000008,2025-11-17T02:43:33.073888,2025-11-17T02:43:33.073888
+art_000009,Tigers,country|r&b,27.2,2001-11-23,Member 1|Member 2|Member 3,spotify_000009,2025-11-17T02:43:33.073896,2025-11-17T02:43:33.073896
+art_000010,Moons,funk|classical|soul,51.54,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000010,2025-11-17T02:43:33.073903,2025-11-17T02:43:33.073904
+art_000011,Suns,alternative,25.27,2020-11-18,Member 1|Member 2,spotify_000011,2025-11-17T02:43:33.073910,2025-11-17T02:43:33.073910
+art_000012,Midnight Waves,alternative,73.6,1980-11-28,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.073917,2025-11-17T02:43:33.073917
+art_000013,Electric Winds,country,95.15,2007-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000013,2025-11-17T02:43:33.073924,2025-11-17T02:43:33.073924
+art_000014,Dragons,blues|alternative|jazz,15.89,1993-11-25,Member 1|Member 2,spotify_000014,2025-11-17T02:43:33.073930,2025-11-17T02:43:33.073930
+art_000015,Flames,folk|disco,7.93,2014-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000015,2025-11-17T02:43:33.073939,2025-11-17T02:43:33.073939
+art_000016,Diamond Skies,country|jazz,10.37,2004-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000016,2025-11-17T02:43:33.073945,2025-11-17T02:43:33.073945
+art_000017,Electric Dreams,country|punk,76.24,2013-11-20,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.073951,2025-11-17T02:43:33.073951
+art_000018,Cosmic Phoenix,metal|electronic,53.8,1963-12-03,Member 1,spotify_000018,2025-11-17T02:43:33.073957,2025-11-17T02:43:33.073957
+art_000019,Electric Stars,pop|metal,52.15,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000019,2025-11-17T02:43:33.073963,2025-11-17T02:43:33.073963
+art_000020,Steel Phoenix,disco,42.29,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000020,2025-11-17T02:43:33.073971,2025-11-17T02:43:33.073971
+art_000021,Waves,latin|funk,83.18,1979-11-29,Member 1|Member 2,spotify_000021,2025-11-17T02:43:33.073977,2025-11-17T02:43:33.073977
+art_000022,Crystal Waves,folk|electronic|blues,84.87,2001-11-23,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.073984,2025-11-17T02:43:33.073984
+art_000023,Storms,alternative|classical,61.21,1991-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.073990,2025-11-17T02:43:33.073990
+art_000024,Crystal Thunder,blues,47.13,2020-11-18,Member 1|Member 2,spotify_000024,2025-11-17T02:43:33.073995,2025-11-17T02:43:33.073995
+art_000025,Dreams,metal,16.72,2007-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.074001,2025-11-17T02:43:33.074001
+art_000026,Skies,indie,48.85,1984-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074007,2025-11-17T02:43:33.074007
+art_000027,Dreams,hip hop|soul|classical,18.02,2003-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000027,2025-11-17T02:43:33.074013,2025-11-17T02:43:33.074013
+art_000028,Cosmic Waves,metal|hip hop,27.35,2017-11-19,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074019,2025-11-17T02:43:33.074019
+art_000029,The Echoes,alternative|punk|classical,17.44,2012-11-20,Member 1|Member 2|Member 3,spotify_000029,2025-11-17T02:43:33.074025,2025-11-17T02:43:33.074025
+art_000030,Steel Rivers,country|indie,31.25,1960-12-03,Member 1|Member 2,,2025-11-17T02:43:33.074030,2025-11-17T02:43:33.074030
+art_000031,Diamond Eagles,punk|pop|classical,47.16,1993-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000031,2025-11-17T02:43:33.074036,2025-11-17T02:43:33.074036
+art_000032,Dragons,rock|latin|r&b,56.72,1974-11-30,Member 1|Member 2|Member 3,spotify_000032,2025-11-17T02:43:33.074042,2025-11-17T02:43:33.074042
+art_000033,Flames,latin,56.05,2006-11-22,Member 1,spotify_000033,2025-11-17T02:43:33.074048,2025-11-17T02:43:33.074048
+art_000034,Electric Phoenix,metal|pop|electronic,72.74,2005-11-22,Member 1|Member 2|Member 3,spotify_000034,2025-11-17T02:43:33.074054,2025-11-17T02:43:33.074054
+art_000035,Iron Skies,latin|disco|hip hop,74.11,2008-11-21,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.074060,2025-11-17T02:43:33.074060
+art_000036,Silver Storms,grunge,34.04,2001-11-23,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.074065,2025-11-17T02:43:33.074066
+art_000037,Cosmic Waves,reggae,80.21,1967-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000037,2025-11-17T02:43:33.074071,2025-11-17T02:43:33.074071
+art_000038,Oceans,folk|disco,71.56,1983-11-28,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074077,2025-11-17T02:43:33.074077
+art_000039,Silver Tigers,pop|country|electronic,50.31,2003-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000039,2025-11-17T02:43:33.074083,2025-11-17T02:43:33.074083
+art_000040,Thunder,alternative|country|hip hop,52.05,2003-11-23,Member 1,spotify_000040,2025-11-17T02:43:33.074090,2025-11-17T02:43:33.074090
+art_000041,Mountains,grunge|disco,46.68,1999-11-24,Member 1,spotify_000041,2025-11-17T02:43:33.074096,2025-11-17T02:43:33.074096
+art_000042,Horizons,folk,86.25,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074102,2025-11-17T02:43:33.074102
+art_000043,Midnight Legends,disco|metal|indie,71.91,1969-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074108,2025-11-17T02:43:33.074108
+art_000044,Electric Phoenix,metal|hip hop|blues,39.74,1977-11-29,Member 1,,2025-11-17T02:43:33.074113,2025-11-17T02:43:33.074113
+art_000045,Velvet Eagles,rock|soul|metal,34.23,1980-11-28,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074118,2025-11-17T02:43:33.074119
+art_000046,Neon Shadows,rock,34.61,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074125,2025-11-17T02:43:33.074125
+art_000047,Velvet Dreams,country|pop,67.6,2012-11-20,Member 1|Member 2,spotify_000047,2025-11-17T02:43:33.074131,2025-11-17T02:43:33.074131
+art_000048,Velvet Ravens,classical|punk|country,57.61,2007-11-22,Member 1,spotify_000048,2025-11-17T02:43:33.074136,2025-11-17T02:43:33.074136
+art_000049,Diamond Tigers,hip hop,32.69,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000049,2025-11-17T02:43:33.074142,2025-11-17T02:43:33.074142
+art_000050,Cosmic Stars,latin|indie,31.66,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000050,2025-11-17T02:43:33.074147,2025-11-17T02:43:33.074148
+art_000051,Cosmic Storms Y,soul|punk,32.03,2014-11-20,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074155,2025-11-17T02:43:33.074155
+art_000052,Silver Echoes Z,reggae,46.09,1964-12-02,Member 1,spotify_000052,2025-11-17T02:43:33.074161,2025-11-17T02:43:33.074161
+art_000053,Silver Horizons A,reggae|grunge,22.14,2019-11-19,Member 1|Member 2,spotify_000053,2025-11-17T02:43:33.074167,2025-11-17T02:43:33.074167
+art_000054,Skies B,grunge|alternative|indie,37.03,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074172,2025-11-17T02:43:33.074172
+art_000055,Waves C,punk,12.55,2003-11-23,Member 1|Member 2|Member 3,spotify_000055,2025-11-17T02:43:33.074178,2025-11-17T02:43:33.074178
+art_000056,Dragons D,punk,11.05,1981-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000056,2025-11-17T02:43:33.074183,2025-11-17T02:43:33.074183
+art_000057,Neon Suns E,rock|funk,26.45,1977-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.074188,2025-11-17T02:43:33.074189
+art_000058,Steel Phoenix F,soul,11.63,2003-11-23,Member 1,spotify_000058,2025-11-17T02:43:33.074194,2025-11-17T02:43:33.074194
+art_000059,Cosmic Suns G,indie|soul,45.38,2019-11-19,Member 1,,2025-11-17T02:43:33.074199,2025-11-17T02:43:33.074199
+art_000060,Ravens H,latin|metal,59.9,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000060,2025-11-17T02:43:33.074205,2025-11-17T02:43:33.074205
+art_000061,Horizons I,rock|electronic,11.42,1969-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.074210,2025-11-17T02:43:33.074210
+art_000062,Midnight Eagles J,grunge|jazz,12.44,2005-11-22,Member 1,spotify_000062,2025-11-17T02:43:33.074216,2025-11-17T02:43:33.074216
+art_000063,Cosmic Legends K,indie,71.0,1992-11-25,Member 1|Member 2|Member 3,spotify_000063,2025-11-17T02:43:33.074221,2025-11-17T02:43:33.074221
+art_000064,Velvet Moons L,folk|electronic|blues,43.9,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074227,2025-11-17T02:43:33.074227
+art_000065,Steel Valleys M,rock,18.59,2012-11-20,Member 1|Member 2|Member 3,spotify_000065,2025-11-17T02:43:33.074233,2025-11-17T02:43:33.074233
+art_000066,The Moons N,metal,85.78,1997-11-24,Member 1|Member 2,spotify_000066,2025-11-17T02:43:33.074238,2025-11-17T02:43:33.074238
+art_000067,Eagles O,blues,53.77,1968-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000067,2025-11-17T02:43:33.074243,2025-11-17T02:43:33.074243
+art_000068,Cosmic Ravens P,classical,41.1,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000068,2025-11-17T02:43:33.074251,2025-11-17T02:43:33.074251
+art_000069,Wolves Q,punk|reggae,66.08,2011-11-21,Member 1|Member 2|Member 3,spotify_000069,2025-11-17T02:43:33.074257,2025-11-17T02:43:33.074257
+art_000070,Steel Flames R,pop,12.09,1985-11-27,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.074262,2025-11-17T02:43:33.074262
+art_000071,Silver Thunder S,pop,58.28,1997-11-24,Member 1,spotify_000071,2025-11-17T02:43:33.074268,2025-11-17T02:43:33.074268
+art_000072,Iron Waves T,electronic|blues|soul,55.78,1988-11-26,Member 1|Member 2|Member 3,spotify_000072,2025-11-17T02:43:33.074274,2025-11-17T02:43:33.074274
+art_000073,Wolves U,disco|grunge,51.85,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000073,2025-11-17T02:43:33.074279,2025-11-17T02:43:33.074279
+art_000074,Moons V,hip hop|grunge|soul,43.88,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000074,2025-11-17T02:43:33.074285,2025-11-17T02:43:33.074285
+art_000075,Cosmic Echoes W,funk,56.01,1974-11-30,Member 1|Member 2|Member 3,spotify_000075,2025-11-17T02:43:33.074290,2025-11-17T02:43:33.074290
+art_000076,Steel Winds X,reggae,52.74,1990-11-26,Member 1|Member 2,,2025-11-17T02:43:33.074295,2025-11-17T02:43:33.074295
+art_000077,Storms Y,blues|jazz,29.34,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000077,2025-11-17T02:43:33.074302,2025-11-17T02:43:33.074302
+art_000078,The Rivers Z,r&b|reggae,50.15,1983-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000078,2025-11-17T02:43:33.074308,2025-11-17T02:43:33.074308
+art_000079,Mountains A,folk,66.77,1999-11-24,Member 1|Member 2|Member 3,spotify_000079,2025-11-17T02:43:33.074313,2025-11-17T02:43:33.074313
+art_000080,Golden Wolves B,metal|classical|disco,72.27,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000080,2025-11-17T02:43:33.074319,2025-11-17T02:43:33.074319
+art_000081,The Horizons C,classical,70.43,1962-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000081,2025-11-17T02:43:33.074325,2025-11-17T02:43:33.074325
+art_000082,Echoes D,reggae,63.02,2017-11-19,Member 1|Member 2,,2025-11-17T02:43:33.074332,2025-11-17T02:43:33.074332
+art_000083,The Valleys E,rock|reggae,66.11,1981-11-28,Member 1|Member 2,,2025-11-17T02:43:33.074337,2025-11-17T02:43:33.074337
+art_000084,Diamond Horizons F,electronic,56.43,1998-11-24,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074342,2025-11-17T02:43:33.074343
+art_000085,Wolves G,classical|funk|rock,68.95,2002-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000085,2025-11-17T02:43:33.074348,2025-11-17T02:43:33.074348
+art_000086,Lightning H,grunge|soul,41.82,2000-11-23,Member 1,spotify_000086,2025-11-17T02:43:33.074353,2025-11-17T02:43:33.074353
+art_000087,Winds I,folk|punk|alternative,36.6,1992-11-25,Member 1,spotify_000087,2025-11-17T02:43:33.074359,2025-11-17T02:43:33.074359
+art_000088,Stars J,indie|rock|soul,18.58,1983-11-28,Member 1,spotify_000088,2025-11-17T02:43:33.074364,2025-11-17T02:43:33.074364
+art_000089,The Waves K,country|alternative|metal,27.41,1993-11-25,Member 1,,2025-11-17T02:43:33.074369,2025-11-17T02:43:33.074370
+art_000090,Neon Moons L,hip hop|folk|classical,36.02,2014-11-20,Member 1|Member 2,spotify_000090,2025-11-17T02:43:33.074375,2025-11-17T02:43:33.074375
+art_000091,Cosmic Lightning M,alternative,71.41,1974-11-30,Member 1|Member 2|Member 3,spotify_000091,2025-11-17T02:43:33.074382,2025-11-17T02:43:33.074382
+art_000092,Crystal Stars N,r&b,16.99,2007-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000092,2025-11-17T02:43:33.074388,2025-11-17T02:43:33.074388
+art_000093,Cosmic Eagles O,funk,72.07,2012-11-20,Member 1|Member 2,spotify_000093,2025-11-17T02:43:33.074394,2025-11-17T02:43:33.074395
+art_000094,Golden Skies P,country,11.67,1969-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000094,2025-11-17T02:43:33.074400,2025-11-17T02:43:33.074401
+art_000095,The Valleys Q,alternative|jazz,30.88,1975-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000095,2025-11-17T02:43:33.074406,2025-11-17T02:43:33.074406
+art_000096,Velvet Waves R,jazz|folk|soul,18.09,1999-11-24,Member 1|Member 2|Member 3,spotify_000096,2025-11-17T02:43:33.074413,2025-11-17T02:43:33.074413
+art_000097,Diamond Mountains S,punk|pop|electronic,71.26,1983-11-28,Member 1|Member 2|Member 3,spotify_000097,2025-11-17T02:43:33.074420,2025-11-17T02:43:33.074420
+art_000098,Neon Skies T,electronic|country,28.14,1990-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000098,2025-11-17T02:43:33.074427,2025-11-17T02:43:33.074427
+art_000099,Steel Dragons U,r&b|rock,66.49,2017-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000099,2025-11-17T02:43:33.074434,2025-11-17T02:43:33.074434
+art_000100,Phoenix V,electronic,91.77,1961-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000100,2025-11-17T02:43:33.074439,2025-11-17T02:43:33.074440
+art_000101,Midnight Tigers W,grunge|alternative,16.65,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000101,2025-11-17T02:43:33.074446,2025-11-17T02:43:33.074446
+art_000102,Cosmic Horizons X,latin,50.5,1986-11-27,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.074451,2025-11-17T02:43:33.074451
+art_000103,Legends Y,classical|indie,70.42,1964-12-02,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074456,2025-11-17T02:43:33.074456
+art_000104,Ravens Z,blues,39.1,2020-11-18,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000104,2025-11-17T02:43:33.074462,2025-11-17T02:43:33.074462
+art_000105,Cosmic Wolves A,latin|electronic|r&b,23.78,2015-11-20,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074468,2025-11-17T02:43:33.074468
+art_000106,Cosmic Storms B,grunge|disco|soul,7.06,1965-12-02,Member 1|Member 2,,2025-11-17T02:43:33.074473,2025-11-17T02:43:33.074474
+art_000107,Golden Dragons C,metal|jazz,78.55,2003-11-23,Member 1|Member 2,spotify_000107,2025-11-17T02:43:33.074480,2025-11-17T02:43:33.074480
+art_000108,Neon Stars D,jazz,53.33,2018-11-19,Member 1|Member 2,spotify_000108,2025-11-17T02:43:33.074485,2025-11-17T02:43:33.074485
+art_000109,Electric Winds E,jazz|disco|classical,54.86,2003-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000109,2025-11-17T02:43:33.074491,2025-11-17T02:43:33.074491
+art_000110,Neon Lightning F,blues|classical|punk,26.2,1983-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000110,2025-11-17T02:43:33.074498,2025-11-17T02:43:33.074498
+art_000111,Velvet Stars G,hip hop,52.47,1981-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074504,2025-11-17T02:43:33.074504
+art_000112,Mountains H,electronic|blues|rock,64.78,1982-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000112,2025-11-17T02:43:33.074511,2025-11-17T02:43:33.074511
+art_000113,Electric Shadows I,soul,69.77,2002-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000113,2025-11-17T02:43:33.074519,2025-11-17T02:43:33.074519
+art_000114,Ravens J,rock,69.42,2015-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074525,2025-11-17T02:43:33.074525
+art_000115,Midnight Storms K,r&b|metal,40.1,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000115,2025-11-17T02:43:33.074530,2025-11-17T02:43:33.074530
+art_000116,Neon Flames L,blues,32.01,2010-11-21,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000116,2025-11-17T02:43:33.074536,2025-11-17T02:43:33.074536
+art_000117,Rivers M,alternative,70.13,1962-12-03,Member 1,spotify_000117,2025-11-17T02:43:33.074542,2025-11-17T02:43:33.074542
+art_000118,Silver Lightning N,jazz|electronic|punk,78.39,1966-12-02,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074547,2025-11-17T02:43:33.074547
+art_000119,Neon Tigers O,blues|alternative,55.37,1995-11-25,Member 1|Member 2,spotify_000119,2025-11-17T02:43:33.074553,2025-11-17T02:43:33.074553
+art_000120,Suns P,soul,57.71,2020-11-18,Member 1|Member 2|Member 3|Member 4,spotify_000120,2025-11-17T02:43:33.074558,2025-11-17T02:43:33.074558
+art_000121,Dragons Q,jazz|latin,85.87,1993-11-25,Member 1|Member 2,,2025-11-17T02:43:33.074563,2025-11-17T02:43:33.074563
+art_000122,Neon Valleys R,indie|pop,73.44,1971-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000122,2025-11-17T02:43:33.074568,2025-11-17T02:43:33.074569
+art_000123,Mountains S,folk|hip hop,30.96,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000123,2025-11-17T02:43:33.074574,2025-11-17T02:43:33.074574
+art_000124,Crystal Rivers T,punk|latin,53.99,2020-11-18,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.074580,2025-11-17T02:43:33.074580
+art_000125,Oceans U,punk|alternative,71.91,2004-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000125,2025-11-17T02:43:33.074585,2025-11-17T02:43:33.074585
+art_000126,Suns V,funk,70.36,1979-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074590,2025-11-17T02:43:33.074590
+art_000127,Flames W,funk|folk,33.37,1971-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000127,2025-11-17T02:43:33.074645,2025-11-17T02:43:33.074645
+art_000128,Velvet Dreams X,alternative,35.35,1976-11-29,Member 1|Member 2|Member 3,spotify_000128,2025-11-17T02:43:33.074651,2025-11-17T02:43:33.074652
+art_000129,Neon Storms Y,latin|classical,36.17,1966-12-02,Member 1|Member 2,,2025-11-17T02:43:33.074657,2025-11-17T02:43:33.074657
+art_000130,The Flames Z,reggae,84.58,1991-11-26,Member 1|Member 2,spotify_000130,2025-11-17T02:43:33.074663,2025-11-17T02:43:33.074664
+art_000131,Stars A,jazz|blues|indie,22.53,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000131,2025-11-17T02:43:33.074669,2025-11-17T02:43:33.074669
+art_000132,Diamond Rivers B,reggae|latin,65.56,1989-11-26,Member 1|Member 2,spotify_000132,2025-11-17T02:43:33.074675,2025-11-17T02:43:33.074675
+art_000133,Lightning C,folk|punk|funk,13.4,1964-12-02,Member 1|Member 2|Member 3|Member 4,spotify_000133,2025-11-17T02:43:33.074680,2025-11-17T02:43:33.074681
+art_000134,Skies D,metal|pop|alternative,66.9,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074686,2025-11-17T02:43:33.074686
+art_000135,Stars E,funk|alternative,18.38,2001-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000135,2025-11-17T02:43:33.074692,2025-11-17T02:43:33.074692
+art_000136,The Tigers F,blues|funk,25.25,1967-12-02,Member 1|Member 2,spotify_000136,2025-11-17T02:43:33.074697,2025-11-17T02:43:33.074697
+art_000137,Electric Dragons G,metal|electronic,24.69,1990-11-26,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074703,2025-11-17T02:43:33.074703
+art_000138,Electric Flames H,electronic|metal|funk,48.0,1970-12-01,Member 1|Member 2|Member 3,spotify_000138,2025-11-17T02:43:33.074708,2025-11-17T02:43:33.074708
+art_000139,Midnight Rivers I,grunge|latin,58.14,1994-11-25,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074716,2025-11-17T02:43:33.074716
+art_000140,Flames J,folk|soul,49.05,1965-12-02,Member 1,spotify_000140,2025-11-17T02:43:33.074722,2025-11-17T02:43:33.074722
+art_000141,Golden Tigers K,metal|alternative|disco,30.14,1965-12-02,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074727,2025-11-17T02:43:33.074727
+art_000142,Suns L,country,54.75,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000142,2025-11-17T02:43:33.074732,2025-11-17T02:43:33.074733
+art_000143,Velvet Stars M,punk|hip hop,35.36,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074738,2025-11-17T02:43:33.074738
+art_000144,Oceans N,funk,75.02,2009-11-21,Member 1|Member 2|Member 3|Member 4,spotify_000144,2025-11-17T02:43:33.074744,2025-11-17T02:43:33.074744
+art_000145,Iron Dreams O,pop|disco|funk,24.77,2014-11-20,Member 1|Member 2|Member 3,spotify_000145,2025-11-17T02:43:33.074750,2025-11-17T02:43:33.074750
+art_000146,Storms P,r&b|reggae|blues,68.55,2010-11-21,Member 1|Member 2,spotify_000146,2025-11-17T02:43:33.074756,2025-11-17T02:43:33.074756
+art_000147,Rivers Q,pop|hip hop|disco,70.36,2007-11-22,Member 1|Member 2|Member 3,spotify_000147,2025-11-17T02:43:33.074761,2025-11-17T02:43:33.074761
+art_000148,Mountains R,folk,63.04,2005-11-22,Member 1,spotify_000148,2025-11-17T02:43:33.074766,2025-11-17T02:43:33.074766
+art_000149,Diamond Dreams S,funk|classical,47.12,1979-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074772,2025-11-17T02:43:33.074772
+art_000150,Electric Eagles T,punk|latin,84.32,1980-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000150,2025-11-17T02:43:33.074777,2025-11-17T02:43:33.074778
+art_000151,Wolves U,soul|metal|r&b,61.57,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074783,2025-11-17T02:43:33.074783
+art_000152,Flames V,disco,40.94,1971-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074788,2025-11-17T02:43:33.074788
+art_000153,The Valleys W,funk|r&b,40.3,2003-11-23,Member 1|Member 2|Member 3,spotify_000153,2025-11-17T02:43:33.074794,2025-11-17T02:43:33.074794
+art_000154,Steel Moons X,electronic,38.49,1995-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074799,2025-11-17T02:43:33.074799
+art_000155,Electric Winds Y,metal|folk|rock,51.94,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074805,2025-11-17T02:43:33.074805
+art_000156,Valleys Z,electronic,84.84,2015-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000156,2025-11-17T02:43:33.074810,2025-11-17T02:43:33.074811
+art_000157,Dragons A,reggae|metal,32.99,1993-11-25,Member 1,,2025-11-17T02:43:33.074816,2025-11-17T02:43:33.074816
+art_000158,The Thunder B,latin|soul,47.36,2010-11-21,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000158,2025-11-17T02:43:33.074821,2025-11-17T02:43:33.074821
+art_000159,Midnight Flames C,disco,38.59,2002-11-23,Member 1|Member 2,spotify_000159,2025-11-17T02:43:33.074826,2025-11-17T02:43:33.074827
+art_000160,Crystal Waves D,r&b|indie,76.33,1989-11-26,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.074832,2025-11-17T02:43:33.074832
+art_000161,Ravens E,indie|classical,56.1,1962-12-03,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.074839,2025-11-17T02:43:33.074839
+art_000162,Dreams F,disco|rock|soul,20.47,1995-11-25,Member 1,,2025-11-17T02:43:33.074844,2025-11-17T02:43:33.074845
+art_000163,Diamond Thunder G,rock,71.42,1995-11-25,Member 1|Member 2,,2025-11-17T02:43:33.074850,2025-11-17T02:43:33.074850
+art_000164,Golden Phoenix H,blues,41.01,1977-11-29,Member 1|Member 2|Member 3|Member 4,spotify_000164,2025-11-17T02:43:33.074855,2025-11-17T02:43:33.074856
+art_000165,Stars I,electronic,33.33,1986-11-27,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074860,2025-11-17T02:43:33.074860
+art_000166,Phoenix J,jazz|grunge,43.9,1986-11-27,Member 1,spotify_000166,2025-11-17T02:43:33.074866,2025-11-17T02:43:33.074866
+art_000167,Echoes K,electronic|soul,44.84,1960-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000167,2025-11-17T02:43:33.074871,2025-11-17T02:43:33.074871
+art_000168,The Echoes L,punk|alternative|electronic,23.44,1977-11-29,Member 1,spotify_000168,2025-11-17T02:43:33.074876,2025-11-17T02:43:33.074876
+art_000169,Tigers M,soul|country|latin,14.99,2001-11-23,Member 1|Member 2,spotify_000169,2025-11-17T02:43:33.074882,2025-11-17T02:43:33.074882
+art_000170,Golden Phoenix N,folk|r&b,71.99,2006-11-22,Member 1|Member 2,spotify_000170,2025-11-17T02:43:33.074887,2025-11-17T02:43:33.074887
+art_000171,Crystal Stars O,hip hop|rock,53.14,1984-11-27,Member 1|Member 2|Member 3,spotify_000171,2025-11-17T02:43:33.074892,2025-11-17T02:43:33.074893
+art_000172,Midnight Moons P,indie,97.06,2015-11-20,Member 1,spotify_000172,2025-11-17T02:43:33.074898,2025-11-17T02:43:33.074898
+art_000173,Moons Q,soul|funk|disco,26.76,1988-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.074905,2025-11-17T02:43:33.074905
+art_000174,Velvet Wolves R,grunge|metal|alternative,80.11,1970-12-01,Member 1|Member 2,,2025-11-17T02:43:33.074911,2025-11-17T02:43:33.074911
+art_000175,Steel Valleys S,punk|r&b|pop,70.25,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074917,2025-11-17T02:43:33.074917
+art_000176,Wolves T,reggae|r&b,72.95,1993-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000176,2025-11-17T02:43:33.074923,2025-11-17T02:43:33.074923
+art_000177,Legends U,electronic,31.27,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000177,2025-11-17T02:43:33.074928,2025-11-17T02:43:33.074929
+art_000178,Cosmic Waves V,country|indie,58.6,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000178,2025-11-17T02:43:33.074934,2025-11-17T02:43:33.074934
+art_000179,Silver Valleys W,punk|classical,60.25,1978-11-29,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.074940,2025-11-17T02:43:33.074940
+art_000180,Suns X,funk|alternative,15.76,1986-11-27,Member 1|Member 2|Member 3,spotify_000180,2025-11-17T02:43:33.074945,2025-11-17T02:43:33.074945
+art_000181,Neon Dreams Y,r&b,17.44,2011-11-21,Member 1|Member 2|Member 3,spotify_000181,2025-11-17T02:43:33.074951,2025-11-17T02:43:33.074951
+art_000182,Winds Z,punk|jazz|country,32.68,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000182,2025-11-17T02:43:33.074956,2025-11-17T02:43:33.074956
+art_000183,Golden Moons A,country,58.75,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000183,2025-11-17T02:43:33.074962,2025-11-17T02:43:33.074962
+art_000184,Cosmic Echoes B,r&b,18.1,1962-12-03,Member 1,,2025-11-17T02:43:33.074968,2025-11-17T02:43:33.074968
+art_000185,The Moons C,electronic|folk,42.77,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000185,2025-11-17T02:43:33.074975,2025-11-17T02:43:33.074975
+art_000186,Neon Mountains D,country|pop,39.31,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.074980,2025-11-17T02:43:33.074980
+art_000187,Velvet Oceans E,grunge|metal,62.04,1984-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000187,2025-11-17T02:43:33.074986,2025-11-17T02:43:33.074986
+art_000188,Horizons F,r&b|country|electronic,46.36,1997-11-24,Member 1|Member 2|Member 3,spotify_000188,2025-11-17T02:43:33.074992,2025-11-17T02:43:33.074993
+art_000189,Midnight Skies G,country|hip hop|reggae,56.46,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000189,2025-11-17T02:43:33.074999,2025-11-17T02:43:33.074999
+art_000190,Crystal Ravens H,reggae|funk,41.19,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000190,2025-11-17T02:43:33.075005,2025-11-17T02:43:33.075005
+art_000191,Silver Wolves I,country|punk|alternative,59.52,2020-11-18,Member 1|Member 2,,2025-11-17T02:43:33.075010,2025-11-17T02:43:33.075011
+art_000192,Waves J,funk,53.42,1975-11-30,Member 1|Member 2,,2025-11-17T02:43:33.075016,2025-11-17T02:43:33.075016
+art_000193,Legends K,disco|electronic,70.3,1960-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000193,2025-11-17T02:43:33.075021,2025-11-17T02:43:33.075021
+art_000194,The Rivers L,latin,44.56,1973-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000194,2025-11-17T02:43:33.075026,2025-11-17T02:43:33.075026
+art_000195,Neon Waves M,soul,53.86,1961-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000195,2025-11-17T02:43:33.075032,2025-11-17T02:43:33.075032
+art_000196,Eagles N,r&b,33.14,1978-11-29,Member 1,,2025-11-17T02:43:33.075037,2025-11-17T02:43:33.075037
+art_000197,Midnight Waves O,grunge|alternative,42.3,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000197,2025-11-17T02:43:33.075042,2025-11-17T02:43:33.075043
+art_000198,Diamond Shadows P,electronic|grunge,59.98,1999-11-24,Member 1|Member 2,spotify_000198,2025-11-17T02:43:33.075048,2025-11-17T02:43:33.075048
+art_000199,Electric Legends Q,latin,93.09,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.075054,2025-11-17T02:43:33.075054
+art_000200,Iron Mountains R,jazz,13.3,1989-11-26,Member 1|Member 2,spotify_000200,2025-11-17T02:43:33.075059,2025-11-17T02:43:33.075059
+art_000201,Golden Legends S,disco|soul|r&b,66.75,2018-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000201,2025-11-17T02:43:33.075065,2025-11-17T02:43:33.075065
+art_000202,Cosmic Echoes T,r&b,11.5,2014-11-20,Member 1|Member 2,spotify_000202,2025-11-17T02:43:33.075070,2025-11-17T02:43:33.075070
+art_000203,Cosmic Tigers U,alternative|latin|metal,46.4,1972-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000203,2025-11-17T02:43:33.075076,2025-11-17T02:43:33.075076
+art_000204,Velvet Oceans V,reggae|soul,48.81,1969-12-01,Member 1|Member 2,spotify_000204,2025-11-17T02:43:33.075081,2025-11-17T02:43:33.075082
+art_000205,Velvet Suns W,country,50.85,1961-12-03,Member 1,spotify_000205,2025-11-17T02:43:33.075087,2025-11-17T02:43:33.075087
+art_000206,Velvet Tigers X,latin|rock|pop,53.36,1983-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000206,2025-11-17T02:43:33.075094,2025-11-17T02:43:33.075094
+art_000207,Neon Moons Y,country|pop|disco,61.24,2004-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000207,2025-11-17T02:43:33.075101,2025-11-17T02:43:33.075101
+art_000208,Golden Eagles Z,grunge|pop|blues,75.95,1960-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000208,2025-11-17T02:43:33.075107,2025-11-17T02:43:33.075108
+art_000209,Mountains A,country|hip hop|indie,8.11,2014-11-20,Member 1,spotify_000209,2025-11-17T02:43:33.075113,2025-11-17T02:43:33.075113
+art_000210,Silver Shadows B,jazz,66.05,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000210,2025-11-17T02:43:33.075118,2025-11-17T02:43:33.075119
+art_000211,Velvet Stars C,classical|hip hop|reggae,52.55,2017-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000211,2025-11-17T02:43:33.075124,2025-11-17T02:43:33.075124
+art_000212,Crystal Lightning D,indie,20.26,1984-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.075130,2025-11-17T02:43:33.075130
+art_000213,Winds E,soul,50.97,2004-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000213,2025-11-17T02:43:33.075135,2025-11-17T02:43:33.075136
+art_000214,Velvet Winds F,classical|electronic|country,53.57,1988-11-26,Member 1|Member 2,spotify_000214,2025-11-17T02:43:33.075141,2025-11-17T02:43:33.075141
+art_000215,Cosmic Suns G,disco|rock,65.25,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000215,2025-11-17T02:43:33.075147,2025-11-17T02:43:33.075147
+art_000216,The Moons H,electronic|latin|indie,27.36,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.075153,2025-11-17T02:43:33.075153
+art_000217,Iron Storms I,country|jazz,39.65,1971-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000217,2025-11-17T02:43:33.075159,2025-11-17T02:43:33.075159
+art_000218,Diamond Moons J,disco,59.18,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000218,2025-11-17T02:43:33.075165,2025-11-17T02:43:33.075165
+art_000219,Oceans K,electronic,54.24,1969-12-01,Member 1|Member 2,spotify_000219,2025-11-17T02:43:33.075170,2025-11-17T02:43:33.075170
+art_000220,Diamond Valleys L,grunge|country,45.3,1973-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000220,2025-11-17T02:43:33.075175,2025-11-17T02:43:33.075175
+art_000221,Moons M,latin,96.14,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000221,2025-11-17T02:43:33.075181,2025-11-17T02:43:33.075181
+art_000222,Horizons N,punk|jazz|rock,27.73,1982-11-28,Member 1|Member 2,,2025-11-17T02:43:33.075186,2025-11-17T02:43:33.075186
+art_000223,Neon Winds O,hip hop|metal,73.81,1963-12-03,Member 1,spotify_000223,2025-11-17T02:43:33.075192,2025-11-17T02:43:33.075192
+art_000224,Golden Winds P,electronic|soul|alternative,60.86,2008-11-21,Member 1,spotify_000224,2025-11-17T02:43:33.075197,2025-11-17T02:43:33.075197
+art_000225,Wolves Q,soul|electronic|blues,43.11,2005-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000225,2025-11-17T02:43:33.075203,2025-11-17T02:43:33.075203
+art_000226,Moons R,country,58.16,2005-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000226,2025-11-17T02:43:33.075209,2025-11-17T02:43:33.075209
+art_000227,Lightning S,punk|alternative|hip hop,67.06,1973-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000227,2025-11-17T02:43:33.075215,2025-11-17T02:43:33.075215
+art_000228,Horizons T,folk|punk,52.37,1986-11-27,Member 1,,2025-11-17T02:43:33.075221,2025-11-17T02:43:33.075221
+art_000229,Diamond Stars U,pop|classical|reggae,73.41,1964-12-02,Member 1|Member 2|Member 3|Member 4,spotify_000229,2025-11-17T02:43:33.075226,2025-11-17T02:43:33.075226
+art_000230,Rivers V,blues|reggae,19.8,1968-12-01,Member 1|Member 2,,2025-11-17T02:43:33.075231,2025-11-17T02:43:33.075231
+art_000231,Velvet Mountains W,indie,70.65,1965-12-02,Member 1|Member 2|Member 3|Member 4,spotify_000231,2025-11-17T02:43:33.075237,2025-11-17T02:43:33.075237
+art_000232,Cosmic Legends X,hip hop,67.61,2016-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.075243,2025-11-17T02:43:33.075243
+art_000233,Silver Stars Y,latin|blues|electronic,13.85,1981-11-28,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075248,2025-11-17T02:43:33.075248
+art_000234,Legends Z,alternative|disco,58.53,2005-11-22,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075254,2025-11-17T02:43:33.075254
+art_000235,Eagles A,soul|hip hop|punk,37.61,2011-11-21,Member 1,spotify_000235,2025-11-17T02:43:33.075259,2025-11-17T02:43:33.075259
+art_000236,The Echoes B,funk,46.0,1987-11-27,Member 1|Member 2|Member 3,spotify_000236,2025-11-17T02:43:33.075264,2025-11-17T02:43:33.075264
+art_000237,Phoenix C,grunge,31.65,1967-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000237,2025-11-17T02:43:33.075271,2025-11-17T02:43:33.075271
+art_000238,Stars D,folk|blues|pop,51.74,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000238,2025-11-17T02:43:33.075277,2025-11-17T02:43:33.075277
+art_000239,Neon Ravens E,metal,45.17,1961-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000239,2025-11-17T02:43:33.075284,2025-11-17T02:43:33.075284
+art_000240,Legends F,r&b|reggae,57.41,1963-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000240,2025-11-17T02:43:33.075290,2025-11-17T02:43:33.075290
+art_000241,Wolves G,blues|grunge|reggae,17.18,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000241,2025-11-17T02:43:33.075295,2025-11-17T02:43:33.075295
+art_000242,Midnight Rivers H,classical|electronic,70.08,1998-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.075301,2025-11-17T02:43:33.075301
+art_000243,Silver Eagles I,rock,39.11,2008-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000243,2025-11-17T02:43:33.075307,2025-11-17T02:43:33.075307
+art_000244,Midnight Legends J,grunge,21.23,2002-11-23,Member 1|Member 2|Member 3,spotify_000244,2025-11-17T02:43:33.075313,2025-11-17T02:43:33.075313
+art_000245,Crystal Stars K,blues,13.93,2001-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000245,2025-11-17T02:43:33.075319,2025-11-17T02:43:33.075319
+art_000246,Waves L,reggae|rock|classical,11.62,1971-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075324,2025-11-17T02:43:33.075324
+art_000247,Flames M,pop|country|soul,38.79,1971-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000247,2025-11-17T02:43:33.075330,2025-11-17T02:43:33.075330
+art_000248,Moons N,reggae|funk|blues,18.92,1972-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000248,2025-11-17T02:43:33.075337,2025-11-17T02:43:33.075338
+art_000249,Cosmic Rivers O,hip hop|folk|punk,35.65,1976-11-29,Member 1|Member 2|Member 3,spotify_000249,2025-11-17T02:43:33.075344,2025-11-17T02:43:33.075344
+art_000250,Electric Lightning P,funk,41.47,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.075350,2025-11-17T02:43:33.075350
+art_000251,Phoenix Q,electronic,16.28,1988-11-26,Member 1,spotify_000251,2025-11-17T02:43:33.075356,2025-11-17T02:43:33.075356
+art_000252,Wolves R,metal|punk|soul,50.87,2002-11-23,Member 1,,2025-11-17T02:43:33.075362,2025-11-17T02:43:33.075362
+art_000253,Tigers S,funk,55.71,2010-11-21,Member 1,spotify_000253,2025-11-17T02:43:33.075369,2025-11-17T02:43:33.075369
+art_000254,Midnight Skies T,grunge,91.87,2005-11-22,Member 1,spotify_000254,2025-11-17T02:43:33.075374,2025-11-17T02:43:33.075374
+art_000255,Echoes U,country|funk,27.79,1987-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000255,2025-11-17T02:43:33.075380,2025-11-17T02:43:33.075380
+art_000256,Waves V,pop|reggae|latin,49.2,1978-11-29,Member 1|Member 2,,2025-11-17T02:43:33.075385,2025-11-17T02:43:33.075386
+art_000257,Winds W,r&b,22.21,1995-11-25,Member 1|Member 2,spotify_000257,2025-11-17T02:43:33.075391,2025-11-17T02:43:33.075391
+art_000258,Silver Phoenix X,hip hop|blues|punk,51.64,1994-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000258,2025-11-17T02:43:33.075397,2025-11-17T02:43:33.075397
+art_000259,Velvet Waves Y,disco|hip hop|metal,43.19,1981-11-28,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075404,2025-11-17T02:43:33.075404
+art_000260,Electric Waves Z,electronic|funk,21.25,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000260,2025-11-17T02:43:33.075412,2025-11-17T02:43:33.075412
+art_000261,The Echoes A,hip hop|disco,34.45,2003-11-23,Member 1|Member 2|Member 3,spotify_000261,2025-11-17T02:43:33.075418,2025-11-17T02:43:33.075418
+art_000262,Valleys B,country,41.11,1991-11-26,Member 1,spotify_000262,2025-11-17T02:43:33.075423,2025-11-17T02:43:33.075423
+art_000263,Legends C,reggae|blues|funk,34.3,1971-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075428,2025-11-17T02:43:33.075428
+art_000264,Storms D,electronic,51.04,1991-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000264,2025-11-17T02:43:33.075433,2025-11-17T02:43:33.075434
+art_000265,Mountains E,reggae|rock,31.85,1991-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000265,2025-11-17T02:43:33.075439,2025-11-17T02:43:33.075439
+art_000266,Iron Dreams F,classical,87.0,1961-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000266,2025-11-17T02:43:33.075445,2025-11-17T02:43:33.075445
+art_000267,Crystal Oceans G,electronic|funk|reggae,97.81,1978-11-29,Member 1|Member 2,,2025-11-17T02:43:33.075450,2025-11-17T02:43:33.075451
+art_000268,Midnight Thunder H,funk|indie,83.47,1979-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000268,2025-11-17T02:43:33.075458,2025-11-17T02:43:33.075458
+art_000269,Cosmic Lightning I,alternative,71.8,2017-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000269,2025-11-17T02:43:33.075491,2025-11-17T02:43:33.075491
+art_000270,Crystal Eagles J,hip hop|country,55.36,2012-11-20,Member 1|Member 2|Member 3|Member 4,spotify_000270,2025-11-17T02:43:33.075498,2025-11-17T02:43:33.075498
+art_000271,Crystal Suns K,soul,40.81,1996-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000271,2025-11-17T02:43:33.075506,2025-11-17T02:43:33.075506
+art_000272,Mountains L,punk,72.14,1990-11-26,Member 1|Member 2|Member 3,spotify_000272,2025-11-17T02:43:33.075512,2025-11-17T02:43:33.075512
+art_000273,Steel Flames M,hip hop|indie,69.35,1997-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000273,2025-11-17T02:43:33.075518,2025-11-17T02:43:33.075518
+art_000274,Neon Echoes N,punk|jazz,39.1,1991-11-26,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075523,2025-11-17T02:43:33.075523
+art_000275,Tigers O,folk|jazz,46.13,1960-12-03,Member 1,,2025-11-17T02:43:33.075529,2025-11-17T02:43:33.075529
+art_000276,Mountains P,r&b|funk,43.36,1969-12-01,Member 1|Member 2,spotify_000276,2025-11-17T02:43:33.075534,2025-11-17T02:43:33.075534
+art_000277,Velvet Ravens Q,reggae|blues|hip hop,57.32,1983-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000277,2025-11-17T02:43:33.075540,2025-11-17T02:43:33.075540
+art_000278,Tigers R,latin|reggae|pop,70.76,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000278,2025-11-17T02:43:33.075545,2025-11-17T02:43:33.075545
+art_000279,Cosmic Moons S,funk|alternative|metal,47.93,1977-11-29,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075552,2025-11-17T02:43:33.075552
+art_000280,Phoenix T,pop|electronic,52.6,1978-11-29,Member 1,spotify_000280,2025-11-17T02:43:33.075557,2025-11-17T02:43:33.075557
+art_000281,Electric Dragons U,hip hop,46.84,1972-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000281,2025-11-17T02:43:33.075563,2025-11-17T02:43:33.075563
+art_000282,The Phoenix V,indie|punk|classical,47.94,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000282,2025-11-17T02:43:33.075568,2025-11-17T02:43:33.075568
+art_000283,Oceans W,funk|hip hop,43.15,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.075574,2025-11-17T02:43:33.075574
+art_000284,Skies X,metal|grunge,21.48,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000284,2025-11-17T02:43:33.075580,2025-11-17T02:43:33.075580
+art_000285,Electric Mountains Y,electronic|metal|punk,57.94,1976-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000285,2025-11-17T02:43:33.075586,2025-11-17T02:43:33.075586
+art_000286,Electric Dragons Z,alternative|reggae|country,73.6,1960-12-03,Member 1|Member 2|Member 3,spotify_000286,2025-11-17T02:43:33.075592,2025-11-17T02:43:33.075592
+art_000287,Iron Valleys A,jazz,48.18,2012-11-20,Member 1|Member 2|Member 3,spotify_000287,2025-11-17T02:43:33.075597,2025-11-17T02:43:33.075597
+art_000288,Phoenix B,disco|punk,45.61,1998-11-24,Member 1|Member 2,spotify_000288,2025-11-17T02:43:33.075603,2025-11-17T02:43:33.075603
+art_000289,Phoenix C,classical|jazz,18.3,2018-11-19,Member 1|Member 2,spotify_000289,2025-11-17T02:43:33.075608,2025-11-17T02:43:33.075608
+art_000290,Rivers D,r&b|metal|punk,59.22,2009-11-21,Member 1|Member 2,spotify_000290,2025-11-17T02:43:33.075614,2025-11-17T02:43:33.075615
+art_000291,Diamond Thunder E,pop|folk|punk,76.74,1979-11-29,Member 1,spotify_000291,2025-11-17T02:43:33.075622,2025-11-17T02:43:33.075622
+art_000292,Horizons F,r&b,1.95,1961-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000292,2025-11-17T02:43:33.075631,2025-11-17T02:43:33.075631
+art_000293,Flames G,metal|reggae,78.26,2011-11-21,Member 1|Member 2|Member 3,spotify_000293,2025-11-17T02:43:33.075639,2025-11-17T02:43:33.075639
+art_000294,Diamond Stars H,folk|metal|country,40.59,1964-12-02,Member 1|Member 2|Member 3|Member 4,spotify_000294,2025-11-17T02:43:33.075645,2025-11-17T02:43:33.075645
+art_000295,Electric Tigers I,funk|latin|hip hop,94.49,1987-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000295,2025-11-17T02:43:33.075652,2025-11-17T02:43:33.075652
+art_000296,Crystal Rivers J,country|reggae|jazz,69.85,2010-11-21,Member 1,spotify_000296,2025-11-17T02:43:33.075658,2025-11-17T02:43:33.075658
+art_000297,Legends K,disco|country|classical,47.5,1975-11-30,Member 1|Member 2,spotify_000297,2025-11-17T02:43:33.075664,2025-11-17T02:43:33.075664
+art_000298,Electric Storms L,hip hop|punk,36.17,1977-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000298,2025-11-17T02:43:33.075670,2025-11-17T02:43:33.075671
+art_000299,Moons M,country|funk,51.81,1975-11-30,Member 1,spotify_000299,2025-11-17T02:43:33.075678,2025-11-17T02:43:33.075678
+art_000300,Golden Dragons N,soul|rock|jazz,57.62,1962-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000300,2025-11-17T02:43:33.075684,2025-11-17T02:43:33.075684
+art_000301,Cosmic Echoes O,latin|country|funk,63.1,1973-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000301,2025-11-17T02:43:33.075691,2025-11-17T02:43:33.075691
+art_000302,Rivers P,pop,53.76,1982-11-28,Member 1|Member 2,spotify_000302,2025-11-17T02:43:33.075697,2025-11-17T02:43:33.075697
+art_000303,The Dreams Q,rock,12.06,1960-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000303,2025-11-17T02:43:33.075703,2025-11-17T02:43:33.075703
+art_000304,Electric Legends R,funk|indie,38.91,1972-11-30,Member 1|Member 2,spotify_000304,2025-11-17T02:43:33.075709,2025-11-17T02:43:33.075709
+art_000305,Horizons S,disco|pop|electronic,47.71,1995-11-25,Member 1|Member 2,spotify_000305,2025-11-17T02:43:33.075716,2025-11-17T02:43:33.075716
+art_000306,Silver Moons T,r&b|funk|pop,53.8,2002-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.075722,2025-11-17T02:43:33.075722
+art_000307,Silver Waves U,classical|pop|r&b,44.12,2010-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000307,2025-11-17T02:43:33.075729,2025-11-17T02:43:33.075729
+art_000308,Midnight Waves V,electronic|reggae|hip hop,90.18,1964-12-02,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075735,2025-11-17T02:43:33.075735
+art_000309,Cosmic Ravens W,grunge|indie,94.92,2007-11-22,Member 1,,2025-11-17T02:43:33.075741,2025-11-17T02:43:33.075741
+art_000310,Steel Ravens X,pop,54.32,1971-12-01,Member 1,spotify_000310,2025-11-17T02:43:33.075747,2025-11-17T02:43:33.075747
+art_000311,Neon Suns Y,alternative,83.09,2015-11-20,Member 1,spotify_000311,2025-11-17T02:43:33.075753,2025-11-17T02:43:33.075753
+art_000312,Cosmic Waves Z,r&b|hip hop|indie,70.31,2017-11-19,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075759,2025-11-17T02:43:33.075759
+art_000313,Golden Thunder A,punk|rock,33.7,1982-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000313,2025-11-17T02:43:33.075765,2025-11-17T02:43:33.075765
+art_000314,The Waves B,hip hop,48.54,2012-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000314,2025-11-17T02:43:33.075772,2025-11-17T02:43:33.075772
+art_000315,Moons C,hip hop|jazz,71.37,1993-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.075780,2025-11-17T02:43:33.075780
+art_000316,Eagles D,metal,37.65,1996-11-24,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075786,2025-11-17T02:43:33.075786
+art_000317,Diamond Stars E,blues|jazz,32.63,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000317,2025-11-17T02:43:33.075792,2025-11-17T02:43:33.075792
+art_000318,Rivers F,pop|alternative,88.15,1974-11-30,Member 1,spotify_000318,2025-11-17T02:43:33.075798,2025-11-17T02:43:33.075798
+art_000319,Electric Tigers G,grunge,74.88,2004-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000319,2025-11-17T02:43:33.075804,2025-11-17T02:43:33.075804
+art_000320,Cosmic Storms H,blues|electronic|pop,10.36,1967-12-02,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075810,2025-11-17T02:43:33.075811
+art_000321,Legends I,latin|classical,42.53,1976-11-29,Member 1,spotify_000321,2025-11-17T02:43:33.075816,2025-11-17T02:43:33.075816
+art_000322,Electric Ravens J,disco|rock,20.58,1990-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000322,2025-11-17T02:43:33.075822,2025-11-17T02:43:33.075822
+art_000323,Dragons K,classical,19.83,1993-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000323,2025-11-17T02:43:33.075829,2025-11-17T02:43:33.075829
+art_000324,Neon Mountains L,punk|reggae,62.74,1975-11-30,Member 1|Member 2|Member 3,spotify_000324,2025-11-17T02:43:33.075835,2025-11-17T02:43:33.075835
+art_000325,Velvet Mountains M,pop,52.92,1980-11-28,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075841,2025-11-17T02:43:33.075841
+art_000326,Dragons N,jazz,81.06,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000326,2025-11-17T02:43:33.075848,2025-11-17T02:43:33.075848
+art_000327,Electric Flames O,jazz,57.27,2004-11-22,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075854,2025-11-17T02:43:33.075854
+art_000328,Electric Valleys P,hip hop|disco|reggae,5.25,2000-11-23,Member 1,,2025-11-17T02:43:33.075861,2025-11-17T02:43:33.075861
+art_000329,Cosmic Eagles Q,grunge,26.4,1961-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.075868,2025-11-17T02:43:33.075868
+art_000330,Velvet Horizons R,country|disco|blues,10.38,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000330,2025-11-17T02:43:33.075876,2025-11-17T02:43:33.075876
+art_000331,Suns S,electronic,60.55,1976-11-29,Member 1|Member 2,,2025-11-17T02:43:33.075882,2025-11-17T02:43:33.075882
+art_000332,Silver Oceans T,country|punk,24.79,2019-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000332,2025-11-17T02:43:33.075889,2025-11-17T02:43:33.075889
+art_000333,Velvet Valleys U,soul,60.68,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000333,2025-11-17T02:43:33.075895,2025-11-17T02:43:33.075895
+art_000334,Midnight Dreams V,grunge|rock|pop,12.85,1967-12-02,Member 1|Member 2|Member 3,spotify_000334,2025-11-17T02:43:33.075901,2025-11-17T02:43:33.075901
+art_000335,Diamond Dreams W,reggae,19.38,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000335,2025-11-17T02:43:33.075907,2025-11-17T02:43:33.075908
+art_000336,Cosmic Stars X,jazz|disco,52.07,1982-11-28,Member 1,,2025-11-17T02:43:33.075914,2025-11-17T02:43:33.075914
+art_000337,Velvet Lightning Y,funk|hip hop,15.8,1970-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.075920,2025-11-17T02:43:33.075920
+art_000338,Golden Skies Z,folk|classical,33.28,2019-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000338,2025-11-17T02:43:33.075928,2025-11-17T02:43:33.075928
+art_000339,The Waves A,latin,14.03,1971-12-01,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.075935,2025-11-17T02:43:33.075935
+art_000340,Dragons B,jazz|alternative|hip hop,52.16,1996-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000340,2025-11-17T02:43:33.075943,2025-11-17T02:43:33.075943
+art_000341,Waves C,soul|disco,9.03,2001-11-23,Member 1,,2025-11-17T02:43:33.075950,2025-11-17T02:43:33.075950
+art_000342,Midnight Shadows D,indie,51.78,1961-12-03,Member 1,,2025-11-17T02:43:33.075957,2025-11-17T02:43:33.075957
+art_000343,Diamond Phoenix E,r&b|pop,18.48,1991-11-26,Member 1,,2025-11-17T02:43:33.075962,2025-11-17T02:43:33.075962
+art_000344,Neon Horizons F,blues|r&b,23.81,1988-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000344,2025-11-17T02:43:33.075968,2025-11-17T02:43:33.075968
+art_000345,Crystal Echoes G,rock|indie|reggae,65.0,1973-11-30,Member 1|Member 2,,2025-11-17T02:43:33.075974,2025-11-17T02:43:33.075974
+art_000346,Steel Dragons H,country|jazz|punk,50.91,1983-11-28,Member 1|Member 2|Member 3,spotify_000346,2025-11-17T02:43:33.075981,2025-11-17T02:43:33.075981
+art_000347,Horizons I,electronic,32.43,1975-11-30,Member 1|Member 2|Member 3,spotify_000347,2025-11-17T02:43:33.075986,2025-11-17T02:43:33.075986
+art_000348,Phoenix J,reggae,64.05,2010-11-21,Member 1|Member 2|Member 3|Member 4,spotify_000348,2025-11-17T02:43:33.075992,2025-11-17T02:43:33.075992
+art_000349,Echoes K,folk|pop|punk,68.83,1984-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000349,2025-11-17T02:43:33.075998,2025-11-17T02:43:33.075998
+art_000350,Crystal Echoes L,folk|blues|disco,88.2,1986-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000350,2025-11-17T02:43:33.076005,2025-11-17T02:43:33.076005
+art_000351,Midnight Dreams M,classical|latin|pop,49.04,1966-12-02,Member 1,,2025-11-17T02:43:33.076011,2025-11-17T02:43:33.076011
+art_000352,The Mountains N,punk|metal|electronic,55.39,1984-11-27,Member 1|Member 2,spotify_000352,2025-11-17T02:43:33.076017,2025-11-17T02:43:33.076017
+art_000353,Ravens O,hip hop|indie|country,50.13,2010-11-21,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076024,2025-11-17T02:43:33.076024
+art_000354,Silver Mountains P,r&b,30.46,1977-11-29,Member 1,spotify_000354,2025-11-17T02:43:33.076030,2025-11-17T02:43:33.076030
+art_000355,Legends Q,classical|latin|indie,46.95,1987-11-27,Member 1|Member 2,spotify_000355,2025-11-17T02:43:33.076036,2025-11-17T02:43:33.076036
+art_000356,Lightning R,indie,4.36,1971-12-01,Member 1,spotify_000356,2025-11-17T02:43:33.076042,2025-11-17T02:43:33.076042
+art_000357,Diamond Suns S,funk|soul|disco,25.99,1981-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000357,2025-11-17T02:43:33.076048,2025-11-17T02:43:33.076048
+art_000358,Flames T,jazz|latin,49.23,2019-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000358,2025-11-17T02:43:33.076054,2025-11-17T02:43:33.076054
+art_000359,Ravens U,funk|soul|classical,69.23,1961-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000359,2025-11-17T02:43:33.076060,2025-11-17T02:43:33.076060
+art_000360,Eagles V,folk|reggae|jazz,8.96,1960-12-03,Member 1|Member 2,,2025-11-17T02:43:33.076066,2025-11-17T02:43:33.076066
+art_000361,Velvet Mountains W,latin|alternative|disco,37.93,1995-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000361,2025-11-17T02:43:33.076075,2025-11-17T02:43:33.076075
+art_000362,Steel Winds X,disco,63.52,1964-12-02,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076082,2025-11-17T02:43:33.076082
+art_000363,Electric Oceans Y,alternative|r&b,75.78,1981-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000363,2025-11-17T02:43:33.076089,2025-11-17T02:43:33.076089
+art_000364,Golden Stars Z,country|hip hop|folk,44.91,1995-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076095,2025-11-17T02:43:33.076095
+art_000365,Electric Skies A,country,71.06,1964-12-02,Member 1,spotify_000365,2025-11-17T02:43:33.076101,2025-11-17T02:43:33.076101
+art_000366,Cosmic Rivers B,disco|funk|pop,41.5,1994-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076108,2025-11-17T02:43:33.076108
+art_000367,Cosmic Lightning C,country|metal|pop,63.11,1996-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000367,2025-11-17T02:43:33.076116,2025-11-17T02:43:33.076116
+art_000368,The Flames D,reggae|folk,13.26,1960-12-03,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076123,2025-11-17T02:43:33.076123
+art_000369,Cosmic Storms E,indie|reggae,63.29,1988-11-26,Member 1|Member 2,spotify_000369,2025-11-17T02:43:33.076129,2025-11-17T02:43:33.076129
+art_000370,Electric Legends F,grunge|pop,24.13,2001-11-23,Member 1,spotify_000370,2025-11-17T02:43:33.076135,2025-11-17T02:43:33.076135
+art_000371,Flames G,grunge|alternative|latin,78.64,1980-11-28,Member 1|Member 2,spotify_000371,2025-11-17T02:43:33.076141,2025-11-17T02:43:33.076141
+art_000372,Velvet Oceans H,metal|alternative|reggae,43.36,1962-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000372,2025-11-17T02:43:33.076148,2025-11-17T02:43:33.076148
+art_000373,Horizons I,punk|blues|country,44.57,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000373,2025-11-17T02:43:33.076154,2025-11-17T02:43:33.076154
+art_000374,Rivers J,r&b,37.82,2018-11-19,Member 1,,2025-11-17T02:43:33.076160,2025-11-17T02:43:33.076160
+art_000375,Golden Suns K,pop|disco|country,81.75,2003-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000375,2025-11-17T02:43:33.076166,2025-11-17T02:43:33.076166
+art_000376,Wolves L,metal|classical,32.23,2010-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.076172,2025-11-17T02:43:33.076172
+art_000377,Lightning M,electronic,69.84,2007-11-22,Member 1,spotify_000377,2025-11-17T02:43:33.076178,2025-11-17T02:43:33.076179
+art_000378,The Skies N,hip hop|classical,50.26,1999-11-24,Member 1,,2025-11-17T02:43:33.076186,2025-11-17T02:43:33.076186
+art_000379,Velvet Phoenix O,indie|jazz|punk,18.51,1997-11-24,Member 1,spotify_000379,2025-11-17T02:43:33.076192,2025-11-17T02:43:33.076192
+art_000380,Skies P,r&b,39.08,1984-11-27,Member 1|Member 2|Member 3,spotify_000380,2025-11-17T02:43:33.076198,2025-11-17T02:43:33.076198
+art_000381,Electric Thunder Q,pop|funk|folk,27.07,2001-11-23,Member 1|Member 2,spotify_000381,2025-11-17T02:43:33.076205,2025-11-17T02:43:33.076205
+art_000382,Skies R,rock|punk|reggae,41.24,1993-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076211,2025-11-17T02:43:33.076211
+art_000383,Velvet Waves S,hip hop|latin|folk,42.73,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000383,2025-11-17T02:43:33.076218,2025-11-17T02:43:33.076218
+art_000384,Crystal Valleys T,disco,27.65,1965-12-02,Member 1|Member 2,spotify_000384,2025-11-17T02:43:33.076225,2025-11-17T02:43:33.076226
+art_000385,Electric Dreams U,rock|latin|metal,53.36,1967-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076232,2025-11-17T02:43:33.076232
+art_000386,Wolves V,punk|metal|alternative,52.18,2009-11-21,Member 1,spotify_000386,2025-11-17T02:43:33.076238,2025-11-17T02:43:33.076239
+art_000387,Neon Storms W,punk,58.93,1963-12-03,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076244,2025-11-17T02:43:33.076244
+art_000388,Neon Tigers X,metal|classical|grunge,54.71,1999-11-24,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076250,2025-11-17T02:43:33.076250
+art_000389,Cosmic Storms Y,classical|reggae,84.99,1999-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000389,2025-11-17T02:43:33.076257,2025-11-17T02:43:33.076257
+art_000390,Wolves Z,pop,29.23,2015-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000390,2025-11-17T02:43:33.076262,2025-11-17T02:43:33.076262
+art_000391,The Valleys A,country|hip hop,61.12,1997-11-24,Member 1|Member 2,,2025-11-17T02:43:33.076270,2025-11-17T02:43:33.076270
+art_000392,Diamond Dreams B,hip hop,59.45,2010-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000392,2025-11-17T02:43:33.076277,2025-11-17T02:43:33.076277
+art_000393,Storms C,country|metal|jazz,68.73,1990-11-26,Member 1|Member 2,spotify_000393,2025-11-17T02:43:33.076284,2025-11-17T02:43:33.076284
+art_000394,Cosmic Dreams D,folk,41.88,1975-11-30,Member 1,spotify_000394,2025-11-17T02:43:33.076290,2025-11-17T02:43:33.076290
+art_000395,Legends E,rock|metal,65.98,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000395,2025-11-17T02:43:33.076297,2025-11-17T02:43:33.076297
+art_000396,Steel Valleys F,grunge,64.06,1962-12-03,Member 1|Member 2|Member 3,spotify_000396,2025-11-17T02:43:33.076303,2025-11-17T02:43:33.076303
+art_000397,The Moons G,funk|soul,31.36,2001-11-23,Member 1|Member 2,spotify_000397,2025-11-17T02:43:33.076308,2025-11-17T02:43:33.076309
+art_000398,Crystal Horizons H,classical|alternative,84.19,1975-11-30,Member 1|Member 2,spotify_000398,2025-11-17T02:43:33.076315,2025-11-17T02:43:33.076315
+art_000399,Iron Tigers I,reggae|rock|hip hop,50.43,1992-11-25,Member 1,spotify_000399,2025-11-17T02:43:33.076321,2025-11-17T02:43:33.076321
+art_000400,Steel Horizons J,pop,37.87,2010-11-21,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076327,2025-11-17T02:43:33.076327
+art_000401,Iron Moons K,r&b,65.76,1979-11-29,Member 1|Member 2|Member 3|Member 4,spotify_000401,2025-11-17T02:43:33.076334,2025-11-17T02:43:33.076334
+art_000402,Electric Flames L,latin|blues,49.83,2015-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000402,2025-11-17T02:43:33.076340,2025-11-17T02:43:33.076340
+art_000403,Waves M,indie|electronic|hip hop,66.43,2010-11-21,Member 1|Member 2,spotify_000403,2025-11-17T02:43:33.076346,2025-11-17T02:43:33.076346
+art_000404,The Mountains N,jazz|hip hop,21.16,2014-11-20,Member 1|Member 2|Member 3|Member 4,spotify_000404,2025-11-17T02:43:33.076355,2025-11-17T02:43:33.076355
+art_000405,Cosmic Echoes O,funk|r&b,50.63,1968-12-01,Member 1,spotify_000405,2025-11-17T02:43:33.076361,2025-11-17T02:43:33.076361
+art_000406,Iron Legends P,electronic,69.82,1999-11-24,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076367,2025-11-17T02:43:33.076367
+art_000407,Cosmic Skies Q,disco|alternative,78.52,2010-11-21,Member 1|Member 2|Member 3,spotify_000407,2025-11-17T02:43:33.076376,2025-11-17T02:43:33.076376
+art_000408,Silver Mountains R,folk|pop,68.59,1995-11-25,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076382,2025-11-17T02:43:33.076383
+art_000409,Electric Mountains S,r&b|folk|reggae,47.05,1966-12-02,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076418,2025-11-17T02:43:33.076418
+art_000410,Horizons T,punk|pop,49.19,2008-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000410,2025-11-17T02:43:33.076424,2025-11-17T02:43:33.076425
+art_000411,Electric Shadows U,jazz|rock,54.29,2007-11-22,Member 1,,2025-11-17T02:43:33.076431,2025-11-17T02:43:33.076431
+art_000412,Tigers V,alternative,34.99,2004-11-22,Member 1|Member 2|Member 3,spotify_000412,2025-11-17T02:43:33.076437,2025-11-17T02:43:33.076437
+art_000413,Steel Echoes W,soul|latin|jazz,57.01,1997-11-24,Member 1,spotify_000413,2025-11-17T02:43:33.076443,2025-11-17T02:43:33.076443
+art_000414,Neon Wolves X,blues|latin,54.63,1963-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000414,2025-11-17T02:43:33.076452,2025-11-17T02:43:33.076452
+art_000415,Steel Valleys Y,classical,37.48,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000415,2025-11-17T02:43:33.076458,2025-11-17T02:43:33.076458
+art_000416,The Dragons Z,metal,56.75,1960-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.076465,2025-11-17T02:43:33.076465
+art_000417,Iron Flames A,electronic|alternative|country,63.51,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000417,2025-11-17T02:43:33.076471,2025-11-17T02:43:33.076471
+art_000418,Mountains B,metal,92.43,1974-11-30,Member 1|Member 2,spotify_000418,2025-11-17T02:43:33.076477,2025-11-17T02:43:33.076477
+art_000419,Rivers C,hip hop|metal|electronic,57.76,2003-11-23,Member 1|Member 2,,2025-11-17T02:43:33.076482,2025-11-17T02:43:33.076482
+art_000420,Velvet Ravens D,electronic|punk,34.01,2003-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000420,2025-11-17T02:43:33.076488,2025-11-17T02:43:33.076488
+art_000421,Eagles E,punk|disco|indie,29.7,2005-11-22,Member 1,,2025-11-17T02:43:33.076494,2025-11-17T02:43:33.076494
+art_000422,Moons F,pop|grunge,33.31,1977-11-29,Member 1,spotify_000422,2025-11-17T02:43:33.076499,2025-11-17T02:43:33.076499
+art_000423,Phoenix G,blues|punk|classical,35.12,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.076506,2025-11-17T02:43:33.076506
+art_000424,Midnight Shadows H,country|grunge|r&b,31.14,2016-11-19,Member 1,spotify_000424,2025-11-17T02:43:33.076511,2025-11-17T02:43:33.076512
+art_000425,Oceans I,classical,76.69,1960-12-03,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076517,2025-11-17T02:43:33.076517
+art_000426,Horizons J,jazz|soul,13.63,1962-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000426,2025-11-17T02:43:33.076524,2025-11-17T02:43:33.076524
+art_000427,Winds K,rock|indie,9.75,1991-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000427,2025-11-17T02:43:33.076532,2025-11-17T02:43:33.076532
+art_000428,Midnight Winds L,rock,39.46,1965-12-02,Member 1,,2025-11-17T02:43:33.076539,2025-11-17T02:43:33.076539
+art_000429,Legends M,classical,14.24,2004-11-22,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076545,2025-11-17T02:43:33.076545
+art_000430,Electric Valleys N,disco|grunge,77.98,2019-11-19,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076553,2025-11-17T02:43:33.076553
+art_000431,Ravens O,folk|disco|country,85.37,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076559,2025-11-17T02:43:33.076559
+art_000432,Neon Eagles P,jazz|blues|r&b,46.24,1976-11-29,Member 1,,2025-11-17T02:43:33.076565,2025-11-17T02:43:33.076565
+art_000433,Electric Winds Q,rock|alternative,91.89,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076571,2025-11-17T02:43:33.076571
+art_000434,Iron Moons R,classical,63.57,1965-12-02,Member 1,,2025-11-17T02:43:33.076577,2025-11-17T02:43:33.076577
+art_000435,Crystal Ravens S,metal|soul|pop,62.58,1966-12-02,Member 1|Member 2|Member 3,spotify_000435,2025-11-17T02:43:33.076583,2025-11-17T02:43:33.076583
+art_000436,Diamond Winds T,latin|alternative|r&b,49.9,1990-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000436,2025-11-17T02:43:33.076589,2025-11-17T02:43:33.076589
+art_000437,Iron Tigers U,indie|folk,60.46,2003-11-23,Member 1|Member 2,spotify_000437,2025-11-17T02:43:33.076595,2025-11-17T02:43:33.076595
+art_000438,Golden Flames V,r&b,63.41,1976-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000438,2025-11-17T02:43:33.076603,2025-11-17T02:43:33.076603
+art_000439,Ravens W,hip hop,20.98,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000439,2025-11-17T02:43:33.076610,2025-11-17T02:43:33.076610
+art_000440,Legends X,hip hop|classical|pop,63.84,1997-11-24,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076616,2025-11-17T02:43:33.076616
+art_000441,Phoenix Y,jazz|metal|classical,49.65,1991-11-26,Member 1|Member 2,,2025-11-17T02:43:33.076622,2025-11-17T02:43:33.076622
+art_000442,Iron Rivers Z,r&b|soul|punk,35.69,1985-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000442,2025-11-17T02:43:33.076630,2025-11-17T02:43:33.076630
+art_000443,Crystal Storms A,disco,18.61,1976-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000443,2025-11-17T02:43:33.076636,2025-11-17T02:43:33.076636
+art_000444,Cosmic Waves B,metal|folk|reggae,66.22,1977-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000444,2025-11-17T02:43:33.076642,2025-11-17T02:43:33.076642
+art_000445,Midnight Thunder C,alternative|folk,35.02,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000445,2025-11-17T02:43:33.076649,2025-11-17T02:43:33.076649
+art_000446,Tigers D,country|latin,58.38,1973-11-30,Member 1|Member 2,,2025-11-17T02:43:33.076654,2025-11-17T02:43:33.076654
+art_000447,Electric Dragons E,electronic,78.85,1994-11-25,Member 1|Member 2,,2025-11-17T02:43:33.076660,2025-11-17T02:43:33.076660
+art_000448,Dreams F,alternative,59.9,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000448,2025-11-17T02:43:33.076666,2025-11-17T02:43:33.076666
+art_000449,Velvet Suns G,metal|rock,46.68,1972-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000449,2025-11-17T02:43:33.076672,2025-11-17T02:43:33.076673
+art_000450,Steel Tigers H,latin|alternative|blues,68.62,2004-11-22,Member 1,spotify_000450,2025-11-17T02:43:33.076679,2025-11-17T02:43:33.076679
+art_000451,Silver Wolves I,electronic|punk,60.27,1969-12-01,Member 1|Member 2|Member 3,spotify_000451,2025-11-17T02:43:33.076685,2025-11-17T02:43:33.076685
+art_000452,Neon Storms J,blues|soul|jazz,41.33,2019-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076693,2025-11-17T02:43:33.076693
+art_000453,Shadows K,indie,35.08,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000453,2025-11-17T02:43:33.076699,2025-11-17T02:43:33.076699
+art_000454,Electric Valleys L,funk|pop,97.93,2007-11-22,Member 1,spotify_000454,2025-11-17T02:43:33.076707,2025-11-17T02:43:33.076707
+art_000455,Winds M,funk,67.84,1991-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000455,2025-11-17T02:43:33.076713,2025-11-17T02:43:33.076713
+art_000456,Electric Storms N,blues,73.67,1961-12-03,Member 1,spotify_000456,2025-11-17T02:43:33.076719,2025-11-17T02:43:33.076719
+art_000457,Suns O,latin|metal,50.84,1982-11-28,Member 1|Member 2,,2025-11-17T02:43:33.076725,2025-11-17T02:43:33.076725
+art_000458,Dragons P,funk|blues,53.21,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000458,2025-11-17T02:43:33.076731,2025-11-17T02:43:33.076731
+art_000459,Steel Moons Q,jazz,38.59,2004-11-22,Member 1,spotify_000459,2025-11-17T02:43:33.076737,2025-11-17T02:43:33.076737
+art_000460,Valleys R,jazz|classical,50.3,1977-11-29,Member 1,spotify_000460,2025-11-17T02:43:33.076743,2025-11-17T02:43:33.076743
+art_000461,Golden Suns S,folk|alternative,44.79,1982-11-28,Member 1|Member 2,spotify_000461,2025-11-17T02:43:33.076749,2025-11-17T02:43:33.076749
+art_000462,Velvet Tigers T,blues|hip hop,67.52,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076755,2025-11-17T02:43:33.076755
+art_000463,Steel Valleys U,grunge|blues|classical,7.24,2002-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000463,2025-11-17T02:43:33.076761,2025-11-17T02:43:33.076762
+art_000464,Valleys V,grunge|disco,35.45,1960-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.076768,2025-11-17T02:43:33.076768
+art_000465,Legends W,latin,49.95,2001-11-23,Member 1,spotify_000465,2025-11-17T02:43:33.076774,2025-11-17T02:43:33.076774
+art_000466,Diamond Rivers X,grunge,22.39,2012-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000466,2025-11-17T02:43:33.076780,2025-11-17T02:43:33.076780
+art_000467,The Valleys Y,classical|country|reggae,59.29,1967-12-02,Member 1|Member 2,,2025-11-17T02:43:33.076786,2025-11-17T02:43:33.076786
+art_000468,Waves Z,rock|grunge,48.98,2015-11-20,Member 1|Member 2,spotify_000468,2025-11-17T02:43:33.076791,2025-11-17T02:43:33.076792
+art_000469,Golden Stars A,rock,89.39,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000469,2025-11-17T02:43:33.076797,2025-11-17T02:43:33.076797
+art_000470,Steel Lightning B,classical,51.13,1967-12-02,Member 1|Member 2,,2025-11-17T02:43:33.076803,2025-11-17T02:43:33.076803
+art_000471,Midnight Ravens C,folk|rock|alternative,29.16,1986-11-27,Member 1|Member 2|Member 3,spotify_000471,2025-11-17T02:43:33.076809,2025-11-17T02:43:33.076809
+art_000472,Silver Thunder D,r&b|country,70.82,1981-11-28,Member 1|Member 2|Member 3,spotify_000472,2025-11-17T02:43:33.076816,2025-11-17T02:43:33.076816
+art_000473,Steel Phoenix E,classical,24.12,1968-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000473,2025-11-17T02:43:33.076822,2025-11-17T02:43:33.076822
+art_000474,Steel Horizons F,disco|jazz|indie,56.09,2016-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000474,2025-11-17T02:43:33.076829,2025-11-17T02:43:33.076829
+art_000475,Winds G,classical|disco,29.43,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000475,2025-11-17T02:43:33.076843,2025-11-17T02:43:33.076843
+art_000476,Steel Lightning H,pop|hip hop|rock,28.43,1979-11-29,Member 1|Member 2,,2025-11-17T02:43:33.076851,2025-11-17T02:43:33.076851
+art_000477,Oceans I,r&b,37.21,1991-11-26,Member 1,spotify_000477,2025-11-17T02:43:33.076857,2025-11-17T02:43:33.076857
+art_000478,Horizons J,punk|hip hop|blues,76.06,2019-11-19,Member 1|Member 2|Member 3,spotify_000478,2025-11-17T02:43:33.076863,2025-11-17T02:43:33.076863
+art_000479,Dreams K,r&b,28.95,1965-12-02,Member 1|Member 2,spotify_000479,2025-11-17T02:43:33.076869,2025-11-17T02:43:33.076869
+art_000480,Golden Eagles L,r&b|disco,8.79,1978-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000480,2025-11-17T02:43:33.076875,2025-11-17T02:43:33.076875
+art_000481,Crystal Winds M,punk|classical|funk,24.17,1975-11-30,Member 1,,2025-11-17T02:43:33.076881,2025-11-17T02:43:33.076881
+art_000482,Crystal Oceans N,pop,77.0,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.076887,2025-11-17T02:43:33.076887
+art_000483,Steel Tigers O,country|classical|funk,32.56,1979-11-29,Member 1|Member 2,,2025-11-17T02:43:33.076893,2025-11-17T02:43:33.076893
+art_000484,Cosmic Dreams P,funk|latin,47.98,1968-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000484,2025-11-17T02:43:33.076900,2025-11-17T02:43:33.076900
+art_000485,Velvet Shadows Q,folk|electronic|soul,13.9,1993-11-25,Member 1|Member 2,spotify_000485,2025-11-17T02:43:33.076909,2025-11-17T02:43:33.076909
+art_000486,Tigers R,grunge|r&b,40.88,1980-11-28,Member 1|Member 2,spotify_000486,2025-11-17T02:43:33.076914,2025-11-17T02:43:33.076915
+art_000487,Midnight Lightning S,funk,41.64,1988-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000487,2025-11-17T02:43:33.076921,2025-11-17T02:43:33.076921
+art_000488,Horizons T,pop|jazz|folk,74.66,1987-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000488,2025-11-17T02:43:33.076927,2025-11-17T02:43:33.076927
+art_000489,Horizons U,punk|jazz,91.46,2004-11-22,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.076934,2025-11-17T02:43:33.076934
+art_000490,Velvet Shadows V,indie,34.2,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000490,2025-11-17T02:43:33.076940,2025-11-17T02:43:33.076940
+art_000491,Golden Shadows W,pop|blues,54.36,1976-11-29,Member 1,spotify_000491,2025-11-17T02:43:33.076946,2025-11-17T02:43:33.076946
+art_000492,Steel Storms X,alternative|pop|metal,31.68,2013-11-20,Member 1|Member 2,spotify_000492,2025-11-17T02:43:33.076952,2025-11-17T02:43:33.076952
+art_000493,Crystal Suns Y,reggae,28.09,1960-12-03,Member 1|Member 2,spotify_000493,2025-11-17T02:43:33.076958,2025-11-17T02:43:33.076958
+art_000494,Golden Stars Z,punk,64.7,1994-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000494,2025-11-17T02:43:33.076964,2025-11-17T02:43:33.076964
+art_000495,Iron Phoenix A,classical|soul|jazz,56.33,1975-11-30,Member 1,spotify_000495,2025-11-17T02:43:33.076970,2025-11-17T02:43:33.076970
+art_000496,Suns B,folk,40.44,2002-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000496,2025-11-17T02:43:33.076976,2025-11-17T02:43:33.076977
+art_000497,Waves C,punk|r&b,83.9,2001-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000497,2025-11-17T02:43:33.076983,2025-11-17T02:43:33.076983
+art_000498,Stars D,punk|jazz|indie,3.0,1966-12-02,Member 1,,2025-11-17T02:43:33.076990,2025-11-17T02:43:33.076990
+art_000499,Steel Wolves E,alternative,46.45,1971-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.076996,2025-11-17T02:43:33.076996
+art_000500,Wolves F,hip hop|classical|blues,79.71,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.077002,2025-11-17T02:43:33.077002
+art_000501,Thunder G,electronic,52.59,2001-11-23,Member 1|Member 2|Member 3,spotify_000501,2025-11-17T02:43:33.077008,2025-11-17T02:43:33.077008
+art_000502,Stars H,r&b,36.71,1982-11-28,Member 1|Member 2,spotify_000502,2025-11-17T02:43:33.077013,2025-11-17T02:43:33.077013
+art_000503,The Rivers I,funk|classical,73.44,2008-11-21,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000503,2025-11-17T02:43:33.077019,2025-11-17T02:43:33.077019
+art_000504,Tigers J,metal,9.11,1967-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.077026,2025-11-17T02:43:33.077026
+art_000505,Rivers K,soul|indie,26.48,1977-11-29,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.077031,2025-11-17T02:43:33.077031
+art_000506,Diamond Skies L,reggae|metal|indie,78.92,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000506,2025-11-17T02:43:33.077037,2025-11-17T02:43:33.077037
+art_000507,Midnight Lightning M,funk|reggae|country,38.09,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000507,2025-11-17T02:43:33.077043,2025-11-17T02:43:33.077043
+art_000508,Lightning N,reggae,78.89,1999-11-24,Member 1|Member 2|Member 3,spotify_000508,2025-11-17T02:43:33.077048,2025-11-17T02:43:33.077048
+art_000509,Midnight Thunder O,funk,34.57,2018-11-19,Member 1|Member 2|Member 3,spotify_000509,2025-11-17T02:43:33.077054,2025-11-17T02:43:33.077054
+art_000510,Rivers P,latin|disco,80.69,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.077059,2025-11-17T02:43:33.077060
+art_000511,Valleys Q,hip hop,82.07,1972-11-30,Member 1,spotify_000511,2025-11-17T02:43:33.077065,2025-11-17T02:43:33.077065
+art_000512,Diamond Winds R,punk|electronic|indie,46.86,2004-11-22,Member 1|Member 2|Member 3,spotify_000512,2025-11-17T02:43:33.077072,2025-11-17T02:43:33.077072
+art_000513,Suns S,classical,60.85,2014-11-20,Member 1|Member 2|Member 3,spotify_000513,2025-11-17T02:43:33.077077,2025-11-17T02:43:33.077077
+art_000514,Winds T,funk|hip hop|reggae,32.74,1985-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000514,2025-11-17T02:43:33.077083,2025-11-17T02:43:33.077083
+art_000515,Electric Oceans U,funk|electronic,25.26,1986-11-27,Member 1|Member 2,,2025-11-17T02:43:33.077088,2025-11-17T02:43:33.077088
+art_000516,Iron Dreams V,electronic|r&b|alternative,38.85,1991-11-26,Member 1|Member 2|Member 3,spotify_000516,2025-11-17T02:43:33.077095,2025-11-17T02:43:33.077095
+art_000517,Eagles W,alternative|reggae,18.92,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000517,2025-11-17T02:43:33.077101,2025-11-17T02:43:33.077101
+art_000518,Velvet Stars X,electronic|folk|funk,85.66,2004-11-22,Member 1,spotify_000518,2025-11-17T02:43:33.077107,2025-11-17T02:43:33.077107
+art_000519,The Shadows Y,soul,89.12,2003-11-23,Member 1,spotify_000519,2025-11-17T02:43:33.077113,2025-11-17T02:43:33.077113
+art_000520,Horizons Z,disco|rock|classical,24.23,2014-11-20,Member 1,spotify_000520,2025-11-17T02:43:33.077118,2025-11-17T02:43:33.077119
+art_000521,Wolves A,hip hop|pop|disco,21.29,2008-11-21,Member 1|Member 2,spotify_000521,2025-11-17T02:43:33.077126,2025-11-17T02:43:33.077126
+art_000522,Iron Waves B,indie,54.05,1970-12-01,Member 1|Member 2,,2025-11-17T02:43:33.077132,2025-11-17T02:43:33.077132
+art_000523,Rivers C,hip hop,52.69,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000523,2025-11-17T02:43:33.077137,2025-11-17T02:43:33.077137
+art_000524,Winds D,folk,88.72,1971-12-01,Member 1|Member 2|Member 3,spotify_000524,2025-11-17T02:43:33.077143,2025-11-17T02:43:33.077143
+art_000525,Echoes E,classical|electronic,61.93,2008-11-21,Member 1|Member 2,spotify_000525,2025-11-17T02:43:33.077149,2025-11-17T02:43:33.077149
+art_000526,Iron Flames F,alternative,47.26,2009-11-21,Member 1|Member 2|Member 3,spotify_000526,2025-11-17T02:43:33.077155,2025-11-17T02:43:33.077155
+art_000527,Electric Tigers G,latin|soul,47.46,1973-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000527,2025-11-17T02:43:33.077160,2025-11-17T02:43:33.077160
+art_000528,Midnight Dreams H,electronic|soul|rock,51.77,1998-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000528,2025-11-17T02:43:33.077166,2025-11-17T02:43:33.077166
+art_000529,Midnight Dreams I,latin|reggae,59.5,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000529,2025-11-17T02:43:33.077172,2025-11-17T02:43:33.077172
+art_000530,Cosmic Stars J,latin|indie,16.54,1988-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000530,2025-11-17T02:43:33.077178,2025-11-17T02:43:33.077178
+art_000531,The Lightning K,pop|hip hop|latin,94.28,2020-11-18,Member 1|Member 2,spotify_000531,2025-11-17T02:43:33.077185,2025-11-17T02:43:33.077185
+art_000532,Eagles L,funk|pop,30.66,1998-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000532,2025-11-17T02:43:33.077191,2025-11-17T02:43:33.077191
+art_000533,Velvet Ravens M,funk|folk|latin,37.39,1961-12-03,Member 1|Member 2,spotify_000533,2025-11-17T02:43:33.077197,2025-11-17T02:43:33.077197
+art_000534,Stars N,reggae|funk|jazz,31.94,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.077202,2025-11-17T02:43:33.077202
+art_000535,Echoes O,hip hop,34.81,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000535,2025-11-17T02:43:33.077208,2025-11-17T02:43:33.077208
+art_000536,Midnight Eagles P,hip hop|classical,19.09,2010-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000536,2025-11-17T02:43:33.077214,2025-11-17T02:43:33.077214
+art_000537,Golden Echoes Q,reggae|metal,33.37,1962-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000537,2025-11-17T02:43:33.077220,2025-11-17T02:43:33.077220
+art_000538,Diamond Suns R,soul|country,69.15,1993-11-25,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.077225,2025-11-17T02:43:33.077226
+art_000539,Crystal Valleys S,indie,63.09,1970-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000539,2025-11-17T02:43:33.077231,2025-11-17T02:43:33.077231
+art_000540,Silver Skies T,metal,44.8,1991-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000540,2025-11-17T02:43:33.077237,2025-11-17T02:43:33.077237
+art_000541,Steel Shadows U,soul,8.97,1963-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000541,2025-11-17T02:43:33.077242,2025-11-17T02:43:33.077242
+art_000542,Skies V,metal|soul|r&b,26.48,2011-11-21,Member 1|Member 2,,2025-11-17T02:43:33.077249,2025-11-17T02:43:33.077249
+art_000543,Legends W,r&b|punk|blues,27.23,1979-11-29,Member 1|Member 2|Member 3,spotify_000543,2025-11-17T02:43:33.077255,2025-11-17T02:43:33.077255
+art_000544,Golden Mountains X,punk|classical|jazz,30.45,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.077261,2025-11-17T02:43:33.077261
+art_000545,Golden Dragons Y,funk|jazz,62.64,1990-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000545,2025-11-17T02:43:33.077267,2025-11-17T02:43:33.077267
+art_000546,Storms Z,funk|electronic|metal,67.1,1989-11-26,Member 1,spotify_000546,2025-11-17T02:43:33.077272,2025-11-17T02:43:33.077273
+art_000547,Velvet Horizons A,country,93.5,1963-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000547,2025-11-17T02:43:33.077279,2025-11-17T02:43:33.077279
+art_000548,Iron Shadows B,alternative|punk,60.1,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.077286,2025-11-17T02:43:33.077286
+art_000549,Suns C,soul,18.98,1968-12-01,Member 1,spotify_000549,2025-11-17T02:43:33.077713,2025-11-17T02:43:33.077713
+art_000550,Tigers D,jazz,44.12,2018-11-19,Member 1|Member 2,spotify_000550,2025-11-17T02:43:33.077721,2025-11-17T02:43:33.077721
+art_000551,Stars E,reggae,8.59,1963-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000551,2025-11-17T02:43:33.077727,2025-11-17T02:43:33.077727
+art_000552,Golden Shadows F,metal|folk,68.3,1989-11-26,Member 1|Member 2,,2025-11-17T02:43:33.077734,2025-11-17T02:43:33.077734
+art_000553,Thunder G,latin|alternative|jazz,48.59,1993-11-25,Member 1,spotify_000553,2025-11-17T02:43:33.077740,2025-11-17T02:43:33.077740
+art_000554,Crystal Wolves H,metal,53.32,2001-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.077747,2025-11-17T02:43:33.077747
+art_000555,Ravens I,folk,77.79,1967-12-02,Member 1,spotify_000555,2025-11-17T02:43:33.077753,2025-11-17T02:43:33.077753
+art_000556,Silver Waves J,indie|hip hop|jazz,13.77,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000556,2025-11-17T02:43:33.077759,2025-11-17T02:43:33.077759
+art_000557,Dreams K,electronic,28.0,2003-11-23,Member 1,spotify_000557,2025-11-17T02:43:33.077765,2025-11-17T02:43:33.077765
+art_000558,Golden Tigers L,blues|grunge|alternative,81.67,2013-11-20,Member 1|Member 2,spotify_000558,2025-11-17T02:43:33.077771,2025-11-17T02:43:33.077771
+art_000559,Thunder M,rock|r&b,26.31,1974-11-30,Member 1|Member 2|Member 3,spotify_000559,2025-11-17T02:43:33.077778,2025-11-17T02:43:33.077778
+art_000560,Dragons N,grunge,40.58,2016-11-19,Member 1|Member 2,spotify_000560,2025-11-17T02:43:33.077784,2025-11-17T02:43:33.077784
+art_000561,Neon Horizons O,reggae|grunge|funk,32.44,1977-11-29,Member 1|Member 2|Member 3,spotify_000561,2025-11-17T02:43:33.077790,2025-11-17T02:43:33.077790
+art_000562,Crystal Suns P,country,28.63,1981-11-28,Member 1|Member 2,spotify_000562,2025-11-17T02:43:33.077796,2025-11-17T02:43:33.077797
+art_000563,Crystal Oceans Q,reggae|jazz,46.12,1995-11-25,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.077804,2025-11-17T02:43:33.077804
+art_000564,Electric Winds R,latin,31.14,1979-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000564,2025-11-17T02:43:33.077810,2025-11-17T02:43:33.077811
+art_000565,Silver Rivers S,electronic|pop,39.27,1976-11-29,Member 1|Member 2|Member 3|Member 4,spotify_000565,2025-11-17T02:43:33.077818,2025-11-17T02:43:33.077818
+art_000566,Moons T,classical|jazz|folk,60.21,2003-11-23,Member 1|Member 2|Member 3,spotify_000566,2025-11-17T02:43:33.077824,2025-11-17T02:43:33.077825
+art_000567,Neon Thunder U,r&b,18.24,2020-11-18,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000567,2025-11-17T02:43:33.077831,2025-11-17T02:43:33.077831
+art_000568,Echoes V,country|indie,52.99,1991-11-26,Member 1|Member 2,spotify_000568,2025-11-17T02:43:33.077837,2025-11-17T02:43:33.077837
+art_000569,Suns W,disco|funk,83.52,1991-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000569,2025-11-17T02:43:33.077843,2025-11-17T02:43:33.077843
+art_000570,Thunder X,classical|grunge|electronic,36.64,1998-11-24,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.077849,2025-11-17T02:43:33.077849
+art_000571,Midnight Phoenix Y,reggae|soul,74.64,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.077855,2025-11-17T02:43:33.077855
+art_000572,Storms Z,folk|country,21.62,2013-11-20,Member 1|Member 2|Member 3,spotify_000572,2025-11-17T02:43:33.077862,2025-11-17T02:43:33.077862
+art_000573,Silver Moons A,rock,26.69,1991-11-26,Member 1,spotify_000573,2025-11-17T02:43:33.077868,2025-11-17T02:43:33.077868
+art_000574,Neon Thunder B,grunge|funk|indie,57.45,1997-11-24,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.077874,2025-11-17T02:43:33.077874
+art_000575,Lightning C,rock|grunge|r&b,58.15,2015-11-20,Member 1,spotify_000575,2025-11-17T02:43:33.077880,2025-11-17T02:43:33.077880
+art_000576,Horizons D,indie,74.2,1996-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000576,2025-11-17T02:43:33.077886,2025-11-17T02:43:33.077886
+art_000577,Rivers E,country|classical,61.23,2017-11-19,Member 1|Member 2,,2025-11-17T02:43:33.077892,2025-11-17T02:43:33.077892
+art_000578,Valleys F,metal|hip hop|jazz,54.09,1992-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000578,2025-11-17T02:43:33.077899,2025-11-17T02:43:33.077899
+art_000579,Golden Dreams G,blues,74.28,2000-11-23,Member 1,spotify_000579,2025-11-17T02:43:33.077906,2025-11-17T02:43:33.077906
+art_000580,Iron Suns H,rock|metal|grunge,19.26,1989-11-26,Member 1|Member 2|Member 3,spotify_000580,2025-11-17T02:43:33.077912,2025-11-17T02:43:33.077912
+art_000581,Golden Thunder I,grunge,30.56,1996-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000581,2025-11-17T02:43:33.077920,2025-11-17T02:43:33.077920
+art_000582,Diamond Tigers J,soul|metal|indie,74.02,1999-11-24,Member 1|Member 2,spotify_000582,2025-11-17T02:43:33.077926,2025-11-17T02:43:33.077926
+art_000583,The Horizons K,blues|rock|jazz,82.18,1987-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000583,2025-11-17T02:43:33.077933,2025-11-17T02:43:33.077933
+art_000584,Diamond Stars L,r&b,48.31,1969-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000584,2025-11-17T02:43:33.077939,2025-11-17T02:43:33.077939
+art_000585,Steel Eagles M,punk|disco,70.31,2010-11-21,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.077946,2025-11-17T02:43:33.077946
+art_000586,Silver Valleys N,indie,48.64,1969-12-01,Member 1|Member 2,spotify_000586,2025-11-17T02:43:33.077952,2025-11-17T02:43:33.077952
+art_000587,Echoes O,folk|disco|indie,4.7,2015-11-20,Member 1|Member 2,,2025-11-17T02:43:33.077957,2025-11-17T02:43:33.077957
+art_000588,Phoenix P,soul,10.51,1993-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000588,2025-11-17T02:43:33.077965,2025-11-17T02:43:33.077965
+art_000589,Lightning Q,alternative|r&b|blues,60.85,1975-11-30,Member 1,spotify_000589,2025-11-17T02:43:33.077971,2025-11-17T02:43:33.077972
+art_000590,Mountains R,alternative|blues,37.97,1971-12-01,Member 1|Member 2|Member 3,spotify_000590,2025-11-17T02:43:33.077978,2025-11-17T02:43:33.077978
+art_000591,Dragons S,classical,54.94,1995-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.077984,2025-11-17T02:43:33.077985
+art_000592,Crystal Lightning T,funk|rock|blues,51.31,2011-11-21,Member 1|Member 2|Member 3,spotify_000592,2025-11-17T02:43:33.077991,2025-11-17T02:43:33.077991
+art_000593,The Flames U,electronic|alternative|metal,69.66,2019-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000593,2025-11-17T02:43:33.077997,2025-11-17T02:43:33.077997
+art_000594,Echoes V,pop,74.12,1979-11-29,Member 1,spotify_000594,2025-11-17T02:43:33.078004,2025-11-17T02:43:33.078004
+art_000595,Velvet Waves W,country|folk|disco,70.45,1984-11-27,Member 1|Member 2|Member 3,spotify_000595,2025-11-17T02:43:33.078010,2025-11-17T02:43:33.078010
+art_000596,Golden Moons X,reggae|country,60.09,1963-12-03,Member 1,spotify_000596,2025-11-17T02:43:33.078016,2025-11-17T02:43:33.078016
+art_000597,Neon Storms Y,electronic|r&b,45.87,2011-11-21,Member 1|Member 2|Member 3,spotify_000597,2025-11-17T02:43:33.078022,2025-11-17T02:43:33.078022
+art_000598,Winds Z,rock|folk|jazz,79.55,1963-12-03,Member 1|Member 2,,2025-11-17T02:43:33.078028,2025-11-17T02:43:33.078028
+art_000599,Silver Dreams A,r&b,73.89,2019-11-19,Member 1|Member 2,spotify_000599,2025-11-17T02:43:33.078034,2025-11-17T02:43:33.078034
+art_000600,Echoes B,pop,82.67,2015-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000600,2025-11-17T02:43:33.078040,2025-11-17T02:43:33.078040
+art_000601,Cosmic Rivers C,disco|hip hop|soul,80.87,2002-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000601,2025-11-17T02:43:33.078046,2025-11-17T02:43:33.078046
+art_000602,Neon Ravens D,grunge|punk,76.7,2002-11-23,Member 1|Member 2,,2025-11-17T02:43:33.078052,2025-11-17T02:43:33.078052
+art_000603,Lightning E,folk|pop,36.85,1989-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000603,2025-11-17T02:43:33.078058,2025-11-17T02:43:33.078058
+art_000604,Midnight Stars F,punk|disco|indie,29.55,1976-11-29,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.078064,2025-11-17T02:43:33.078064
+art_000605,Storms G,folk,40.97,1970-12-01,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.078070,2025-11-17T02:43:33.078070
+art_000606,Golden Dreams H,grunge|soul|blues,78.61,2016-11-19,Member 1|Member 2,,2025-11-17T02:43:33.078076,2025-11-17T02:43:33.078076
+art_000607,Silver Lightning I,funk|metal,42.1,1996-11-24,Member 1,spotify_000607,2025-11-17T02:43:33.078083,2025-11-17T02:43:33.078083
+art_000608,Iron Lightning J,punk|pop,43.29,1981-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000608,2025-11-17T02:43:33.078090,2025-11-17T02:43:33.078090
+art_000609,Velvet Tigers K,reggae|grunge|folk,57.81,1969-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000609,2025-11-17T02:43:33.078098,2025-11-17T02:43:33.078098
+art_000610,Shadows L,blues|indie|rock,29.59,1968-12-01,Member 1,spotify_000610,2025-11-17T02:43:33.078104,2025-11-17T02:43:33.078105
+art_000611,Shadows M,punk,31.91,1981-11-28,Member 1|Member 2,spotify_000611,2025-11-17T02:43:33.078111,2025-11-17T02:43:33.078112
+art_000612,Golden Oceans N,classical|alternative|rock,13.76,1996-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000612,2025-11-17T02:43:33.078118,2025-11-17T02:43:33.078118
+art_000613,Suns O,punk|electronic,95.8,1973-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000613,2025-11-17T02:43:33.078124,2025-11-17T02:43:33.078124
+art_000614,Electric Winds P,latin|blues|classical,48.14,1968-12-01,Member 1,spotify_000614,2025-11-17T02:43:33.078130,2025-11-17T02:43:33.078130
+art_000615,Midnight Skies Q,disco|indie,69.14,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000615,2025-11-17T02:43:33.078137,2025-11-17T02:43:33.078137
+art_000616,Velvet Eagles R,grunge,13.12,1982-11-28,Member 1|Member 2,,2025-11-17T02:43:33.078142,2025-11-17T02:43:33.078142
+art_000617,Steel Thunder S,rock|indie|hip hop,51.55,2006-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000617,2025-11-17T02:43:33.078148,2025-11-17T02:43:33.078148
+art_000618,The Valleys T,disco|soul|country,26.79,2011-11-21,Member 1|Member 2|Member 3,spotify_000618,2025-11-17T02:43:33.078154,2025-11-17T02:43:33.078154
+art_000619,Golden Echoes U,alternative|funk|disco,93.1,1982-11-28,Member 1|Member 2|Member 3,spotify_000619,2025-11-17T02:43:33.078160,2025-11-17T02:43:33.078160
+art_000620,Silver Tigers V,metal,62.11,2017-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000620,2025-11-17T02:43:33.078167,2025-11-17T02:43:33.078167
+art_000621,Electric Tigers W,punk,13.62,1976-11-29,Member 1|Member 2,spotify_000621,2025-11-17T02:43:33.078172,2025-11-17T02:43:33.078172
+art_000622,Waves X,r&b|grunge|classical,38.48,1979-11-29,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.078178,2025-11-17T02:43:33.078178
+art_000623,Suns Y,disco|jazz|blues,12.12,2015-11-20,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.078183,2025-11-17T02:43:33.078183
+art_000624,Iron Shadows Z,jazz|reggae,45.47,2012-11-20,Member 1|Member 2|Member 3,spotify_000624,2025-11-17T02:43:33.078189,2025-11-17T02:43:33.078189
+art_000625,Velvet Rivers A,reggae,34.22,1997-11-24,Member 1,spotify_000625,2025-11-17T02:43:33.078195,2025-11-17T02:43:33.078195
+art_000626,Silver Dragons B,reggae|funk,77.41,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000626,2025-11-17T02:43:33.078201,2025-11-17T02:43:33.078201
+art_000627,Steel Skies C,hip hop,46.91,1998-11-24,Member 1,,2025-11-17T02:43:33.078206,2025-11-17T02:43:33.078206
+art_000628,Eagles D,blues|r&b|hip hop,37.01,1963-12-03,Member 1,spotify_000628,2025-11-17T02:43:33.078212,2025-11-17T02:43:33.078212
+art_000629,Velvet Tigers E,hip hop|alternative|grunge,81.88,2001-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000629,2025-11-17T02:43:33.078218,2025-11-17T02:43:33.078218
+art_000630,Steel Tigers F,alternative,54.95,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.078223,2025-11-17T02:43:33.078223
+art_000631,Echoes G,country|rock|funk,88.93,2005-11-22,Member 1|Member 2|Member 3,spotify_000631,2025-11-17T02:43:33.078229,2025-11-17T02:43:33.078229
+art_000632,Midnight Ravens H,disco,30.38,1984-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000632,2025-11-17T02:43:33.078236,2025-11-17T02:43:33.078236
+art_000633,Neon Flames I,funk|jazz,21.81,2001-11-23,Member 1|Member 2,spotify_000633,2025-11-17T02:43:33.078242,2025-11-17T02:43:33.078242
+art_000634,Midnight Moons J,blues|grunge|alternative,18.52,2001-11-23,Member 1|Member 2|Member 3,spotify_000634,2025-11-17T02:43:33.078249,2025-11-17T02:43:33.078249
+art_000635,Eagles K,classical|blues|punk,56.48,1995-11-25,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.078254,2025-11-17T02:43:33.078254
+art_000636,Oceans L,blues|pop|folk,13.14,1963-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000636,2025-11-17T02:43:33.078260,2025-11-17T02:43:33.078260
+art_000637,Cosmic Oceans M,latin,54.13,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.078265,2025-11-17T02:43:33.078266
+art_000638,The Winds N,rock,61.6,1982-11-28,Member 1|Member 2|Member 3,spotify_000638,2025-11-17T02:43:33.078271,2025-11-17T02:43:33.078271
+art_000639,Electric Moons O,blues|classical|alternative,52.56,2015-11-20,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.078276,2025-11-17T02:43:33.078277
+art_000640,Steel Winds P,metal,61.55,2015-11-20,Member 1|Member 2,spotify_000640,2025-11-17T02:43:33.078283,2025-11-17T02:43:33.078284
+art_000641,Wolves Q,pop|r&b|punk,91.17,2002-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000641,2025-11-17T02:43:33.078290,2025-11-17T02:43:33.078290
+art_000642,Silver Storms R,latin|electronic,23.89,1993-11-25,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.078296,2025-11-17T02:43:33.078296
+art_000643,Phoenix S,folk|alternative,58.52,1971-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000643,2025-11-17T02:43:33.078301,2025-11-17T02:43:33.078301
+art_000644,Mountains T,r&b|indie|jazz,12.84,2006-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000644,2025-11-17T02:43:33.078307,2025-11-17T02:43:33.078307
+art_000645,Electric Shadows U,soul,59.94,2010-11-21,Member 1|Member 2,spotify_000645,2025-11-17T02:43:33.078313,2025-11-17T02:43:33.078313
+art_000646,Silver Storms V,punk|indie|rock,53.85,1971-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000646,2025-11-17T02:43:33.078321,2025-11-17T02:43:33.078321
+art_000647,Stars W,indie|latin,52.21,2007-11-22,Member 1|Member 2|Member 3,spotify_000647,2025-11-17T02:43:33.078328,2025-11-17T02:43:33.078328
+art_000648,Winds X,classical,64.54,2015-11-20,Member 1|Member 2|Member 3,spotify_000648,2025-11-17T02:43:33.078335,2025-11-17T02:43:33.078335
+art_000649,Velvet Waves Y,indie|blues|classical,78.95,1960-12-03,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.078341,2025-11-17T02:43:33.078341
+art_000650,Oceans Z,classical|jazz|rock,46.39,1986-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000650,2025-11-17T02:43:33.078348,2025-11-17T02:43:33.078348
+art_000651,Rivers A,classical|country,66.37,1998-11-24,Member 1,spotify_000651,2025-11-17T02:43:33.078354,2025-11-17T02:43:33.078354
+art_000652,Neon Stars B,alternative,57.86,2017-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.078360,2025-11-17T02:43:33.078360
+art_000653,Cosmic Echoes C,alternative|classical|pop,63.6,1980-11-28,Member 1|Member 2,spotify_000653,2025-11-17T02:43:33.078366,2025-11-17T02:43:33.078366
+art_000654,Oceans D,folk|blues,48.27,2002-11-23,Member 1,,2025-11-17T02:43:33.078372,2025-11-17T02:43:33.078372
+art_000655,Velvet Waves E,blues|country,14.28,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000655,2025-11-17T02:43:33.078378,2025-11-17T02:43:33.078378
+art_000656,Neon Eagles F,r&b,50.51,2001-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000656,2025-11-17T02:43:33.078386,2025-11-17T02:43:33.078386
+art_000657,Tigers G,blues,43.86,1968-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000657,2025-11-17T02:43:33.078392,2025-11-17T02:43:33.078392
+art_000658,Electric Flames H,latin|hip hop,59.21,1962-12-03,Member 1|Member 2|Member 3,spotify_000658,2025-11-17T02:43:33.078398,2025-11-17T02:43:33.078398
+art_000659,Iron Winds I,indie,54.04,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.078404,2025-11-17T02:43:33.078405
+art_000660,Tigers J,electronic|jazz,66.34,1984-11-27,Member 1,spotify_000660,2025-11-17T02:43:33.078411,2025-11-17T02:43:33.078411
+art_000661,Midnight Lightning K,soul|funk,47.98,1980-11-28,Member 1|Member 2,,2025-11-17T02:43:33.078417,2025-11-17T02:43:33.078417
+art_000662,Velvet Thunder L,blues|soul,75.71,1979-11-29,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.078422,2025-11-17T02:43:33.078423
+art_000663,Legends M,electronic|grunge,82.7,1996-11-24,Member 1,,2025-11-17T02:43:33.078428,2025-11-17T02:43:33.078428
+art_000664,Waves N,country,28.55,1971-12-01,Member 1|Member 2,spotify_000664,2025-11-17T02:43:33.078434,2025-11-17T02:43:33.078434
+art_000665,Cosmic Oceans O,jazz|punk,28.22,1969-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000665,2025-11-17T02:43:33.078440,2025-11-17T02:43:33.078440
+art_000666,The Moons P,latin|blues|disco,27.98,1989-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000666,2025-11-17T02:43:33.078447,2025-11-17T02:43:33.078447
+art_000667,Golden Thunder Q,blues|r&b,9.82,1977-11-29,Member 1|Member 2|Member 3|Member 4,spotify_000667,2025-11-17T02:43:33.078455,2025-11-17T02:43:33.078455
+art_000668,Velvet Moons R,rock|folk,46.15,1973-11-30,Member 1,spotify_000668,2025-11-17T02:43:33.078461,2025-11-17T02:43:33.078461
+art_000669,Wolves S,soul|rock|hip hop,51.66,2010-11-21,Member 1|Member 2|Member 3|Member 4,spotify_000669,2025-11-17T02:43:33.078467,2025-11-17T02:43:33.078467
+art_000670,Steel Skies T,indie,82.49,1981-11-28,Member 1,,2025-11-17T02:43:33.078473,2025-11-17T02:43:33.078473
+art_000671,Golden Legends U,indie|electronic,55.08,1993-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000671,2025-11-17T02:43:33.078480,2025-11-17T02:43:33.078480
+art_000672,Neon Tigers V,alternative,52.17,2012-11-20,Member 1,spotify_000672,2025-11-17T02:43:33.078486,2025-11-17T02:43:33.078486
+art_000673,Electric Moons W,punk,48.01,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000673,2025-11-17T02:43:33.078492,2025-11-17T02:43:33.078492
+art_000674,Horizons X,electronic|funk,54.97,1990-11-26,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.078498,2025-11-17T02:43:33.078499
+art_000675,Thunder Y,grunge,42.21,1985-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.078504,2025-11-17T02:43:33.078504
+art_000676,Neon Horizons Z,blues|folk|latin,36.29,1978-11-29,Member 1|Member 2,spotify_000676,2025-11-17T02:43:33.078511,2025-11-17T02:43:33.078511
+art_000677,Electric Waves A,punk|hip hop,13.93,1997-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000677,2025-11-17T02:43:33.078517,2025-11-17T02:43:33.078517
+art_000678,Diamond Ravens B,alternative|jazz|country,69.75,2001-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000678,2025-11-17T02:43:33.078523,2025-11-17T02:43:33.078524
+art_000679,Suns C,latin,35.89,2006-11-22,Member 1,spotify_000679,2025-11-17T02:43:33.078529,2025-11-17T02:43:33.078529
+art_000680,Steel Flames D,punk,54.6,1980-11-28,Member 1|Member 2,spotify_000680,2025-11-17T02:43:33.078535,2025-11-17T02:43:33.078535
+art_000681,Mountains E,classical,51.74,1985-11-27,Member 1|Member 2,spotify_000681,2025-11-17T02:43:33.078542,2025-11-17T02:43:33.078542
+art_000682,Eagles F,country|soul|hip hop,5.1,2013-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000682,2025-11-17T02:43:33.078548,2025-11-17T02:43:33.078549
+art_000683,Electric Horizons G,country|grunge|electronic,51.82,2013-11-20,Member 1|Member 2|Member 3|Member 4,spotify_000683,2025-11-17T02:43:33.078555,2025-11-17T02:43:33.078555
+art_000684,Diamond Wolves H,alternative|grunge,46.19,1990-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.078561,2025-11-17T02:43:33.078562
+art_000685,Steel Legends I,blues|hip hop|reggae,79.42,1991-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000685,2025-11-17T02:43:33.078568,2025-11-17T02:43:33.078568
+art_000686,Iron Echoes J,indie|pop,85.16,2017-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000686,2025-11-17T02:43:33.078574,2025-11-17T02:43:33.078574
+art_000687,Electric Dragons K,hip hop|electronic|jazz,28.7,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.078581,2025-11-17T02:43:33.078581
+art_000688,The Tigers L,grunge|disco,26.74,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000688,2025-11-17T02:43:33.078587,2025-11-17T02:43:33.078587
+art_000689,Electric Tigers M,disco|punk|r&b,46.85,2002-11-23,Member 1,,2025-11-17T02:43:33.084248,2025-11-17T02:43:33.084248
+art_000690,Steel Stars N,metal,77.82,1999-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000690,2025-11-17T02:43:33.084261,2025-11-17T02:43:33.084261
+art_000691,Neon Rivers O,folk|soul|blues,62.73,2003-11-23,Member 1|Member 2,spotify_000691,2025-11-17T02:43:33.084269,2025-11-17T02:43:33.084270
+art_000692,Moons P,reggae,45.16,2007-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000692,2025-11-17T02:43:33.084277,2025-11-17T02:43:33.084277
+art_000693,Silver Suns Q,disco|reggae|punk,20.3,2012-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.084284,2025-11-17T02:43:33.084284
+art_000694,Electric Oceans R,classical|latin,32.55,2008-11-21,Member 1,,2025-11-17T02:43:33.084291,2025-11-17T02:43:33.084291
+art_000695,Cosmic Legends S,folk|reggae,52.15,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084298,2025-11-17T02:43:33.084298
+art_000696,Dreams T,disco|reggae|r&b,69.21,2009-11-21,Member 1|Member 2|Member 3|Member 4,spotify_000696,2025-11-17T02:43:33.084305,2025-11-17T02:43:33.084305
+art_000697,Crystal Flames U,rock|punk|folk,20.49,2007-11-22,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000697,2025-11-17T02:43:33.084311,2025-11-17T02:43:33.084311
+art_000698,Diamond Winds V,country|latin,15.93,1996-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000698,2025-11-17T02:43:33.084317,2025-11-17T02:43:33.084317
+art_000699,Electric Waves W,punk,50.08,2009-11-21,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084324,2025-11-17T02:43:33.084324
+art_000700,Iron Horizons X,punk|indie,55.65,1990-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000700,2025-11-17T02:43:33.084330,2025-11-17T02:43:33.084330
+art_000701,Crystal Thunder Y,alternative,70.4,1999-11-24,Member 1|Member 2|Member 3,spotify_000701,2025-11-17T02:43:33.084336,2025-11-17T02:43:33.084336
+art_000702,Diamond Shadows Z,funk|folk|reggae,51.76,1994-11-25,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084342,2025-11-17T02:43:33.084342
+art_000703,Golden Mountains A,alternative|funk,22.21,1980-11-28,Member 1,,2025-11-17T02:43:33.084348,2025-11-17T02:43:33.084348
+art_000704,Phoenix B,rock|metal,48.19,2003-11-23,Member 1,spotify_000704,2025-11-17T02:43:33.084353,2025-11-17T02:43:33.084353
+art_000705,Silver Rivers C,classical|soul,59.89,1965-12-02,Member 1|Member 2|Member 3,spotify_000705,2025-11-17T02:43:33.084358,2025-11-17T02:43:33.084359
+art_000706,Silver Dragons D,indie|soul|country,66.98,1984-11-27,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084364,2025-11-17T02:43:33.084364
+art_000707,Velvet Winds E,indie|latin,93.54,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000707,2025-11-17T02:43:33.084370,2025-11-17T02:43:33.084370
+art_000708,Silver Wolves F,metal|folk|r&b,61.74,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084376,2025-11-17T02:43:33.084376
+art_000709,Crystal Flames G,funk,39.88,2015-11-20,Member 1|Member 2,spotify_000709,2025-11-17T02:43:33.084382,2025-11-17T02:43:33.084382
+art_000710,Waves H,reggae,66.48,2014-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000710,2025-11-17T02:43:33.084387,2025-11-17T02:43:33.084387
+art_000711,The Dragons I,indie|electronic|soul,81.36,1977-11-29,Member 1|Member 2|Member 3,spotify_000711,2025-11-17T02:43:33.084393,2025-11-17T02:43:33.084393
+art_000712,Neon Lightning J,reggae|hip hop|funk,25.01,2007-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084400,2025-11-17T02:43:33.084400
+art_000713,Oceans K,country|pop,60.19,1982-11-28,Member 1|Member 2,spotify_000713,2025-11-17T02:43:33.084405,2025-11-17T02:43:33.084405
+art_000714,Diamond Mountains L,disco,76.22,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000714,2025-11-17T02:43:33.084410,2025-11-17T02:43:33.084410
+art_000715,The Moons M,disco|pop|latin,41.64,1969-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000715,2025-11-17T02:43:33.084416,2025-11-17T02:43:33.084416
+art_000716,Neon Flames N,alternative|grunge|hip hop,46.98,1973-11-30,Member 1|Member 2,,2025-11-17T02:43:33.084422,2025-11-17T02:43:33.084422
+art_000717,Diamond Horizons O,soul,44.39,1980-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000717,2025-11-17T02:43:33.084427,2025-11-17T02:43:33.084427
+art_000718,Wolves P,country|rock,77.28,1995-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000718,2025-11-17T02:43:33.084433,2025-11-17T02:43:33.084433
+art_000719,Horizons Q,grunge|punk|r&b,36.23,1963-12-03,Member 1|Member 2,spotify_000719,2025-11-17T02:43:33.084438,2025-11-17T02:43:33.084438
+art_000720,Oceans R,jazz|country|blues,69.75,1989-11-26,Member 1|Member 2,,2025-11-17T02:43:33.084443,2025-11-17T02:43:33.084443
+art_000721,Iron Skies S,funk,53.25,1985-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084449,2025-11-17T02:43:33.084449
+art_000722,Steel Valleys T,country|soul|funk,23.29,2004-11-22,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.084454,2025-11-17T02:43:33.084454
+art_000723,Golden Horizons U,r&b|country|reggae,43.11,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000723,2025-11-17T02:43:33.084460,2025-11-17T02:43:33.084460
+art_000724,Oceans V,punk,35.08,1969-12-01,Member 1,,2025-11-17T02:43:33.084465,2025-11-17T02:43:33.084465
+art_000725,Steel Dreams W,alternative|metal|reggae,66.78,1988-11-26,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.084470,2025-11-17T02:43:33.084470
+art_000726,Shadows X,country|classical,31.82,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000726,2025-11-17T02:43:33.084476,2025-11-17T02:43:33.084476
+art_000727,Winds Y,jazz,23.52,1992-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000727,2025-11-17T02:43:33.084482,2025-11-17T02:43:33.084482
+art_000728,Dragons Z,blues|funk,9.88,2018-11-19,Member 1,spotify_000728,2025-11-17T02:43:33.084487,2025-11-17T02:43:33.084487
+art_000729,Iron Phoenix A,latin|reggae,61.45,1984-11-27,Member 1,,2025-11-17T02:43:33.084493,2025-11-17T02:43:33.084493
+art_000730,Suns B,folk|jazz,70.06,1973-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000730,2025-11-17T02:43:33.084498,2025-11-17T02:43:33.084498
+art_000731,Eagles C,folk,22.97,1963-12-03,Member 1|Member 2,,2025-11-17T02:43:33.084503,2025-11-17T02:43:33.084503
+art_000732,Wolves D,r&b|disco|classical,50.54,1960-12-03,Member 1|Member 2,,2025-11-17T02:43:33.084508,2025-11-17T02:43:33.084509
+art_000733,Wolves E,pop|blues,24.57,2008-11-21,Member 1,spotify_000733,2025-11-17T02:43:33.084514,2025-11-17T02:43:33.084514
+art_000734,Cosmic Winds F,disco|latin|rock,30.29,2013-11-20,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084519,2025-11-17T02:43:33.084519
+art_000735,Winds G,rock,33.45,1992-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084529,2025-11-17T02:43:33.084529
+art_000736,Golden Valleys H,metal|hip hop|pop,93.99,1967-12-02,Member 1,spotify_000736,2025-11-17T02:43:33.084534,2025-11-17T02:43:33.084534
+art_000737,Iron Winds I,r&b|hip hop|indie,24.71,1964-12-02,Member 1,spotify_000737,2025-11-17T02:43:33.084540,2025-11-17T02:43:33.084540
+art_000738,Oceans J,latin|classical,30.43,2000-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000738,2025-11-17T02:43:33.084545,2025-11-17T02:43:33.084545
+art_000739,Cosmic Wolves K,country|alternative,77.75,1963-12-03,Member 1|Member 2,spotify_000739,2025-11-17T02:43:33.084551,2025-11-17T02:43:33.084551
+art_000740,Waves L,hip hop|jazz|funk,16.8,2019-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.084557,2025-11-17T02:43:33.084557
+art_000741,Silver Skies M,electronic|pop,64.93,2005-11-22,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084563,2025-11-17T02:43:33.084563
+art_000742,Echoes N,reggae,40.78,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084568,2025-11-17T02:43:33.084568
+art_000743,Midnight Ravens O,folk|soul,85.45,1968-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.084574,2025-11-17T02:43:33.084574
+art_000744,Wolves P,blues|pop|r&b,29.63,2019-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084579,2025-11-17T02:43:33.084579
+art_000745,Iron Tigers Q,disco,57.34,1990-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000745,2025-11-17T02:43:33.084586,2025-11-17T02:43:33.084586
+art_000746,The Storms R,alternative|disco|country,28.18,1989-11-26,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084591,2025-11-17T02:43:33.084591
+art_000747,Midnight Horizons S,grunge|pop,15.54,2016-11-19,Member 1|Member 2,spotify_000747,2025-11-17T02:43:33.084597,2025-11-17T02:43:33.084597
+art_000748,Electric Winds T,electronic|indie|r&b,59.27,2004-11-22,Member 1,spotify_000748,2025-11-17T02:43:33.084603,2025-11-17T02:43:33.084603
+art_000749,Storms U,jazz,11.96,1987-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000749,2025-11-17T02:43:33.084608,2025-11-17T02:43:33.084608
+art_000750,Electric Lightning V,punk|disco,12.12,1993-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000750,2025-11-17T02:43:33.084614,2025-11-17T02:43:33.084614
+art_000751,Golden Suns W,indie|jazz|r&b,25.67,1969-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000751,2025-11-17T02:43:33.084619,2025-11-17T02:43:33.084619
+art_000752,Diamond Echoes X,alternative|jazz,67.04,1991-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084626,2025-11-17T02:43:33.084626
+art_000753,Shadows Y,reggae|blues,92.4,1995-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000753,2025-11-17T02:43:33.084631,2025-11-17T02:43:33.084631
+art_000754,Electric Stars Z,indie|classical|jazz,57.49,2009-11-21,Member 1|Member 2,spotify_000754,2025-11-17T02:43:33.084638,2025-11-17T02:43:33.084638
+art_000755,Silver Shadows A,classical|blues|electronic,25.0,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000755,2025-11-17T02:43:33.084643,2025-11-17T02:43:33.084643
+art_000756,Silver Storms B,grunge|disco,56.03,1974-11-30,Member 1,spotify_000756,2025-11-17T02:43:33.084649,2025-11-17T02:43:33.084649
+art_000757,Electric Dragons C,alternative,48.51,1964-12-02,Member 1,,2025-11-17T02:43:33.084654,2025-11-17T02:43:33.084654
+art_000758,Moons D,disco|blues,49.17,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000758,2025-11-17T02:43:33.084659,2025-11-17T02:43:33.084659
+art_000759,Dragons E,blues|funk|folk,14.24,1988-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000759,2025-11-17T02:43:33.084665,2025-11-17T02:43:33.084665
+art_000760,Dragons F,r&b|punk,86.6,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000760,2025-11-17T02:43:33.084671,2025-11-17T02:43:33.084671
+art_000761,Valleys G,alternative|classical|funk,54.77,1962-12-03,Member 1|Member 2|Member 3,spotify_000761,2025-11-17T02:43:33.084676,2025-11-17T02:43:33.084676
+art_000762,Flames H,r&b|rock,78.28,1966-12-02,Member 1,spotify_000762,2025-11-17T02:43:33.084682,2025-11-17T02:43:33.084682
+art_000763,Valleys I,pop|electronic|hip hop,63.86,2016-11-19,Member 1,spotify_000763,2025-11-17T02:43:33.084687,2025-11-17T02:43:33.084687
+art_000764,Golden Tigers J,jazz,73.63,2003-11-23,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084692,2025-11-17T02:43:33.084692
+art_000765,Crystal Shadows K,soul|blues|reggae,88.38,2015-11-20,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.084698,2025-11-17T02:43:33.084698
+art_000766,Diamond Stars L,blues|punk,34.23,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000766,2025-11-17T02:43:33.084706,2025-11-17T02:43:33.084706
+art_000767,Steel Dreams M,jazz|funk|country,79.08,1971-12-01,Member 1|Member 2|Member 3,spotify_000767,2025-11-17T02:43:33.084712,2025-11-17T02:43:33.084712
+art_000768,Golden Stars N,jazz|latin|classical,70.33,1984-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000768,2025-11-17T02:43:33.084717,2025-11-17T02:43:33.084717
+art_000769,Cosmic Dreams O,punk|metal,54.97,1969-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000769,2025-11-17T02:43:33.084723,2025-11-17T02:43:33.084723
+art_000770,Velvet Eagles P,rock,45.47,1986-11-27,Member 1|Member 2,spotify_000770,2025-11-17T02:43:33.084728,2025-11-17T02:43:33.084729
+art_000771,Cosmic Phoenix Q,latin|classical,36.58,1979-11-29,Member 1|Member 2|Member 3|Member 4,spotify_000771,2025-11-17T02:43:33.084734,2025-11-17T02:43:33.084734
+art_000772,Steel Flames R,classical,20.97,2009-11-21,Member 1,spotify_000772,2025-11-17T02:43:33.084741,2025-11-17T02:43:33.084741
+art_000773,Dreams S,indie|jazz|r&b,89.23,1981-11-28,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.084746,2025-11-17T02:43:33.084746
+art_000774,Moons T,classical|electronic,63.16,2006-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000774,2025-11-17T02:43:33.084752,2025-11-17T02:43:33.084752
+art_000775,Iron Oceans U,classical,60.55,2004-11-22,Member 1,,2025-11-17T02:43:33.084757,2025-11-17T02:43:33.084757
+art_000776,Neon Dragons V,jazz,34.87,1962-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000776,2025-11-17T02:43:33.084762,2025-11-17T02:43:33.084762
+art_000777,Steel Lightning W,folk|indie,16.12,1995-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000777,2025-11-17T02:43:33.084767,2025-11-17T02:43:33.084768
+art_000778,Velvet Oceans X,latin,66.58,1993-11-25,Member 1|Member 2,spotify_000778,2025-11-17T02:43:33.084773,2025-11-17T02:43:33.084773
+art_000779,Golden Ravens Y,jazz|r&b|funk,12.07,2014-11-20,Member 1|Member 2|Member 3,spotify_000779,2025-11-17T02:43:33.084779,2025-11-17T02:43:33.084779
+art_000780,Valleys Z,reggae|indie|punk,55.4,1967-12-02,Member 1,spotify_000780,2025-11-17T02:43:33.084784,2025-11-17T02:43:33.084784
+art_000781,Rivers A,reggae|latin|soul,43.3,2006-11-22,Member 1|Member 2,spotify_000781,2025-11-17T02:43:33.084790,2025-11-17T02:43:33.084790
+art_000782,Steel Wolves B,indie|folk,50.49,2009-11-21,Member 1|Member 2,spotify_000782,2025-11-17T02:43:33.084795,2025-11-17T02:43:33.084795
+art_000783,Echoes C,punk|indie,44.34,1960-12-03,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.084801,2025-11-17T02:43:33.084801
+art_000784,Waves D,alternative|blues|latin,45.9,2010-11-21,Member 1,,2025-11-17T02:43:33.084806,2025-11-17T02:43:33.084806
+art_000785,Rivers E,grunge,60.9,1981-11-28,Member 1|Member 2,,2025-11-17T02:43:33.084811,2025-11-17T02:43:33.084811
+art_000786,Silver Ravens F,metal,29.42,1979-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000786,2025-11-17T02:43:33.084816,2025-11-17T02:43:33.084817
+art_000787,Thunder G,metal,30.55,1960-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000787,2025-11-17T02:43:33.084822,2025-11-17T02:43:33.084822
+art_000788,Waves H,jazz|grunge|disco,40.5,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.084827,2025-11-17T02:43:33.084827
+art_000789,Cosmic Suns I,funk|country|latin,25.83,1994-11-25,Member 1|Member 2,,2025-11-17T02:43:33.084833,2025-11-17T02:43:33.084833
+art_000790,Legends J,punk,78.05,2017-11-19,Member 1|Member 2,spotify_000790,2025-11-17T02:43:33.084838,2025-11-17T02:43:33.084838
+art_000791,Silver Wolves K,alternative|indie,75.23,2008-11-21,Member 1|Member 2,spotify_000791,2025-11-17T02:43:33.084843,2025-11-17T02:43:33.084844
+art_000792,Crystal Eagles L,alternative|country,22.3,1960-12-03,Member 1|Member 2|Member 3,spotify_000792,2025-11-17T02:43:33.084849,2025-11-17T02:43:33.084849
+art_000793,Crystal Storms M,blues,67.08,2016-11-19,Member 1|Member 2,spotify_000793,2025-11-17T02:43:33.084854,2025-11-17T02:43:33.084854
+art_000794,Phoenix N,folk|classical|jazz,46.07,1978-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000794,2025-11-17T02:43:33.084860,2025-11-17T02:43:33.084860
+art_000795,Silver Moons O,punk,21.92,1975-11-30,Member 1|Member 2,,2025-11-17T02:43:33.084865,2025-11-17T02:43:33.084865
+art_000796,Velvet Flames P,pop|reggae,83.42,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000796,2025-11-17T02:43:33.084871,2025-11-17T02:43:33.084871
+art_000797,Electric Oceans Q,country|disco|latin,37.28,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000797,2025-11-17T02:43:33.084879,2025-11-17T02:43:33.084880
+art_000798,Rivers R,reggae|funk,56.38,2018-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000798,2025-11-17T02:43:33.084886,2025-11-17T02:43:33.084886
+art_000799,Steel Echoes S,reggae|soul|electronic,28.21,1985-11-27,Member 1,spotify_000799,2025-11-17T02:43:33.084891,2025-11-17T02:43:33.084892
+art_000800,Rivers T,reggae|soul|alternative,24.8,2001-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.084897,2025-11-17T02:43:33.084897
+art_000801,Stars U,hip hop|r&b|folk,25.85,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000801,2025-11-17T02:43:33.084903,2025-11-17T02:43:33.084903
+art_000802,Suns V,grunge|classical,50.97,1974-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000802,2025-11-17T02:43:33.084909,2025-11-17T02:43:33.084909
+art_000803,Storms W,disco,13.63,2002-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000803,2025-11-17T02:43:33.084914,2025-11-17T02:43:33.084914
+art_000804,Winds X,grunge|jazz,29.52,2011-11-21,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000804,2025-11-17T02:43:33.084920,2025-11-17T02:43:33.084920
+art_000805,Tigers Y,latin|rock|country,37.19,2013-11-20,Member 1|Member 2|Member 3,spotify_000805,2025-11-17T02:43:33.084925,2025-11-17T02:43:33.084925
+art_000806,Waves Z,alternative,27.5,1961-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000806,2025-11-17T02:43:33.084931,2025-11-17T02:43:33.084931
+art_000807,Iron Shadows A,latin,36.93,1995-11-25,Member 1|Member 2,spotify_000807,2025-11-17T02:43:33.084936,2025-11-17T02:43:33.084936
+art_000808,Winds B,pop|soul,82.59,1972-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000808,2025-11-17T02:43:33.084943,2025-11-17T02:43:33.084943
+art_000809,Thunder C,grunge|metal|country,69.94,1994-11-25,Member 1,spotify_000809,2025-11-17T02:43:33.084950,2025-11-17T02:43:33.084950
+art_000810,Mountains D,hip hop,19.13,2002-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000810,2025-11-17T02:43:33.084960,2025-11-17T02:43:33.084960
+art_000811,Iron Stars E,soul,28.21,1982-11-28,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.084967,2025-11-17T02:43:33.084967
+art_000812,Silver Skies F,metal|classical|funk,74.29,2014-11-20,Member 1,,2025-11-17T02:43:33.084974,2025-11-17T02:43:33.084974
+art_000813,Suns G,indie|country|funk,67.34,2003-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000813,2025-11-17T02:43:33.084980,2025-11-17T02:43:33.084980
+art_000814,The Phoenix H,latin|disco,46.02,2012-11-20,Member 1|Member 2|Member 3|Member 4,spotify_000814,2025-11-17T02:43:33.084988,2025-11-17T02:43:33.084988
+art_000815,Golden Suns I,alternative|rock,59.59,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000815,2025-11-17T02:43:33.084995,2025-11-17T02:43:33.084995
+art_000816,Electric Oceans J,punk|funk,20.61,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000816,2025-11-17T02:43:33.085002,2025-11-17T02:43:33.085002
+art_000817,Diamond Dreams K,r&b|disco|blues,10.25,1970-12-01,Member 1,spotify_000817,2025-11-17T02:43:33.085010,2025-11-17T02:43:33.085010
+art_000818,Golden Oceans L,grunge|reggae,82.73,1968-12-01,Member 1|Member 2|Member 3,spotify_000818,2025-11-17T02:43:33.085018,2025-11-17T02:43:33.085018
+art_000819,Silver Valleys M,country,81.39,1966-12-02,Member 1,spotify_000819,2025-11-17T02:43:33.085024,2025-11-17T02:43:33.085024
+art_000820,Oceans N,hip hop,56.8,1989-11-26,Member 1|Member 2,spotify_000820,2025-11-17T02:43:33.085030,2025-11-17T02:43:33.085030
+art_000821,Tigers O,disco|hip hop,48.2,1981-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000821,2025-11-17T02:43:33.085036,2025-11-17T02:43:33.085036
+art_000822,Winds P,alternative,29.35,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000822,2025-11-17T02:43:33.085043,2025-11-17T02:43:33.085043
+art_000823,Phoenix Q,r&b,60.61,1988-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000823,2025-11-17T02:43:33.085049,2025-11-17T02:43:33.085049
+art_000824,Golden Stars R,blues|folk|reggae,12.2,1998-11-24,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.085056,2025-11-17T02:43:33.085056
+art_000825,Dreams S,jazz|punk,60.16,1982-11-28,Member 1,spotify_000825,2025-11-17T02:43:33.085061,2025-11-17T02:43:33.085062
+art_000826,Rivers T,grunge|hip hop,56.48,1994-11-25,Member 1|Member 2,spotify_000826,2025-11-17T02:43:33.085067,2025-11-17T02:43:33.085067
+art_000827,Iron Tigers U,latin|funk,35.14,2000-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000827,2025-11-17T02:43:33.085106,2025-11-17T02:43:33.085106
+art_000828,Crystal Phoenix V,pop|classical,53.04,1962-12-03,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.085115,2025-11-17T02:43:33.085115
+art_000829,Cosmic Oceans W,classical,52.77,1990-11-26,Member 1|Member 2|Member 3,spotify_000829,2025-11-17T02:43:33.085121,2025-11-17T02:43:33.085121
+art_000830,Velvet Moons X,pop,57.24,1985-11-27,Member 1|Member 2,,2025-11-17T02:43:33.085127,2025-11-17T02:43:33.085127
+art_000831,Storms Y,metal|alternative,54.19,2018-11-19,Member 1,spotify_000831,2025-11-17T02:43:33.085133,2025-11-17T02:43:33.085133
+art_000832,Diamond Valleys Z,metal|hip hop,22.78,1989-11-26,Member 1|Member 2|Member 3,spotify_000832,2025-11-17T02:43:33.085139,2025-11-17T02:43:33.085139
+art_000833,Rivers A,soul|indie|classical,30.46,1996-11-24,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.085146,2025-11-17T02:43:33.085146
+art_000834,Waves B,jazz,50.52,1963-12-03,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.085151,2025-11-17T02:43:33.085151
+art_000835,Cosmic Valleys C,punk,35.17,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085157,2025-11-17T02:43:33.085157
+art_000836,Iron Lightning D,reggae|r&b,46.72,1972-11-30,Member 1|Member 2,spotify_000836,2025-11-17T02:43:33.085164,2025-11-17T02:43:33.085164
+art_000837,Diamond Skies E,alternative|metal|hip hop,52.24,1970-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000837,2025-11-17T02:43:33.085170,2025-11-17T02:43:33.085170
+art_000838,Midnight Echoes F,classical|reggae|indie,79.15,1989-11-26,Member 1|Member 2|Member 3,spotify_000838,2025-11-17T02:43:33.085177,2025-11-17T02:43:33.085177
+art_000839,Legends G,folk|indie,29.85,1978-11-29,Member 1|Member 2,spotify_000839,2025-11-17T02:43:33.085183,2025-11-17T02:43:33.085183
+art_000840,Steel Echoes H,pop|disco|soul,56.96,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085190,2025-11-17T02:43:33.085190
+art_000841,Midnight Echoes I,indie|latin|pop,78.91,2003-11-23,Member 1|Member 2|Member 3|Member 4,spotify_000841,2025-11-17T02:43:33.085197,2025-11-17T02:43:33.085197
+art_000842,Iron Flames J,jazz|folk|grunge,27.02,2006-11-22,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000842,2025-11-17T02:43:33.085205,2025-11-17T02:43:33.085205
+art_000843,Electric Dragons K,blues|latin,65.43,1995-11-25,Member 1,,2025-11-17T02:43:33.085211,2025-11-17T02:43:33.085211
+art_000844,Midnight Thunder L,blues,76.56,2018-11-19,Member 1|Member 2|Member 3,spotify_000844,2025-11-17T02:43:33.085219,2025-11-17T02:43:33.085219
+art_000845,Lightning M,country|metal|funk,35.81,1983-11-28,Member 1|Member 2,,2025-11-17T02:43:33.085225,2025-11-17T02:43:33.085225
+art_000846,Eagles N,r&b|alternative,56.46,2002-11-23,Member 1|Member 2|Member 3,spotify_000846,2025-11-17T02:43:33.085231,2025-11-17T02:43:33.085231
+art_000847,Suns O,metal|alternative|classical,61.92,1964-12-02,Member 1,spotify_000847,2025-11-17T02:43:33.085237,2025-11-17T02:43:33.085237
+art_000848,Silver Oceans P,classical,13.04,1987-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000848,2025-11-17T02:43:33.085243,2025-11-17T02:43:33.085243
+art_000849,Wolves Q,indie,43.34,1983-11-28,Member 1|Member 2|Member 3,spotify_000849,2025-11-17T02:43:33.085249,2025-11-17T02:43:33.085249
+art_000850,Wolves R,indie|metal|latin,82.07,1964-12-02,Member 1|Member 2,spotify_000850,2025-11-17T02:43:33.085255,2025-11-17T02:43:33.085255
+art_000851,Phoenix S,pop|indie|jazz,24.15,1984-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000851,2025-11-17T02:43:33.085262,2025-11-17T02:43:33.085262
+art_000852,Midnight Valleys T,alternative,49.25,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000852,2025-11-17T02:43:33.085268,2025-11-17T02:43:33.085268
+art_000853,Diamond Skies U,rock,25.79,1978-11-29,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000853,2025-11-17T02:43:33.085274,2025-11-17T02:43:33.085275
+art_000854,Oceans V,disco,59.4,1983-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085281,2025-11-17T02:43:33.085281
+art_000855,Winds W,jazz|alternative,44.61,1986-11-27,Member 1|Member 2|Member 3|Member 4,spotify_000855,2025-11-17T02:43:33.085287,2025-11-17T02:43:33.085287
+art_000856,Moons X,country|jazz,57.6,2010-11-21,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.085293,2025-11-17T02:43:33.085293
+art_000857,Neon Eagles Y,latin,37.01,2008-11-21,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085299,2025-11-17T02:43:33.085299
+art_000858,Winds Z,latin,84.24,2014-11-20,Member 1,spotify_000858,2025-11-17T02:43:33.085305,2025-11-17T02:43:33.085305
+art_000859,Diamond Mountains A,disco|electronic,48.97,2001-11-23,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.085313,2025-11-17T02:43:33.085313
+art_000860,Moons B,punk|electronic,17.59,1999-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000860,2025-11-17T02:43:33.085319,2025-11-17T02:43:33.085319
+art_000861,Steel Flames C,punk,94.89,1960-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000861,2025-11-17T02:43:33.085326,2025-11-17T02:43:33.085326
+art_000862,Cosmic Eagles D,blues,54.72,1988-11-26,Member 1|Member 2,spotify_000862,2025-11-17T02:43:33.085332,2025-11-17T02:43:33.085332
+art_000863,Diamond Ravens E,soul|metal|jazz,4.26,2016-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085338,2025-11-17T02:43:33.085339
+art_000864,Steel Shadows F,blues|hip hop,89.13,2017-11-19,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.085346,2025-11-17T02:43:33.085346
+art_000865,Tigers G,punk,56.96,2018-11-19,Member 1|Member 2,spotify_000865,2025-11-17T02:43:33.085352,2025-11-17T02:43:33.085352
+art_000866,Silver Phoenix H,indie,25.94,2019-11-19,Member 1|Member 2,spotify_000866,2025-11-17T02:43:33.085358,2025-11-17T02:43:33.085358
+art_000867,Lightning I,pop|indie|disco,54.41,2018-11-19,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.085364,2025-11-17T02:43:33.085364
+art_000868,Neon Moons J,classical,41.68,2006-11-22,Member 1|Member 2|Member 3,spotify_000868,2025-11-17T02:43:33.085370,2025-11-17T02:43:33.085370
+art_000869,Legends K,blues|funk|hip hop,76.72,1976-11-29,Member 1,spotify_000869,2025-11-17T02:43:33.085376,2025-11-17T02:43:33.085376
+art_000870,Cosmic Thunder L,r&b|alternative,31.59,1981-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000870,2025-11-17T02:43:33.085508,2025-11-17T02:43:33.085510
+art_000871,Wolves M,grunge|blues|disco,7.47,2018-11-19,Member 1,,2025-11-17T02:43:33.085529,2025-11-17T02:43:33.085530
+art_000872,Midnight Legends N,electronic|blues,37.08,2017-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085541,2025-11-17T02:43:33.085541
+art_000873,Midnight Ravens O,punk|grunge|blues,40.79,2019-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000873,2025-11-17T02:43:33.085550,2025-11-17T02:43:33.085551
+art_000874,Iron Shadows P,pop,33.39,1977-11-29,Member 1,spotify_000874,2025-11-17T02:43:33.085558,2025-11-17T02:43:33.085558
+art_000875,Rivers Q,pop|funk|country,70.78,1964-12-02,Member 1|Member 2,,2025-11-17T02:43:33.085565,2025-11-17T02:43:33.085565
+art_000876,Steel Moons R,rock,72.0,2003-11-23,Member 1,spotify_000876,2025-11-17T02:43:33.085572,2025-11-17T02:43:33.085572
+art_000877,Midnight Dragons S,funk,46.62,2014-11-20,Member 1|Member 2|Member 3|Member 4,spotify_000877,2025-11-17T02:43:33.085579,2025-11-17T02:43:33.085579
+art_000878,Winds T,folk|rock|metal,27.47,1964-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000878,2025-11-17T02:43:33.085585,2025-11-17T02:43:33.085585
+art_000879,Neon Shadows U,reggae|pop,29.95,1991-11-26,Member 1|Member 2,,2025-11-17T02:43:33.085592,2025-11-17T02:43:33.085592
+art_000880,Golden Suns V,soul|country|funk,36.49,1971-12-01,Member 1,spotify_000880,2025-11-17T02:43:33.085599,2025-11-17T02:43:33.085599
+art_000881,Iron Storms W,jazz|blues|rock,32.7,1972-11-30,Member 1|Member 2|Member 3,spotify_000881,2025-11-17T02:43:33.085606,2025-11-17T02:43:33.085606
+art_000882,Moons X,jazz,64.77,2015-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000882,2025-11-17T02:43:33.085613,2025-11-17T02:43:33.085613
+art_000883,Neon Waves Y,classical|hip hop|disco,29.73,1963-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.085619,2025-11-17T02:43:33.085620
+art_000884,Tigers Z,folk|latin,13.14,1992-11-25,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.085626,2025-11-17T02:43:33.085626
+art_000885,Electric Echoes A,electronic|pop|r&b,5.24,1972-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000885,2025-11-17T02:43:33.085633,2025-11-17T02:43:33.085634
+art_000886,Velvet Ravens B,jazz,68.16,1998-11-24,Member 1,spotify_000886,2025-11-17T02:43:33.085640,2025-11-17T02:43:33.085640
+art_000887,Storms C,funk|metal|folk,57.01,2010-11-21,Member 1,spotify_000887,2025-11-17T02:43:33.085652,2025-11-17T02:43:33.085652
+art_000888,Steel Ravens D,folk|disco|funk,6.24,2013-11-20,Member 1|Member 2|Member 3|Member 4,spotify_000888,2025-11-17T02:43:33.085661,2025-11-17T02:43:33.085661
+art_000889,Silver Suns E,disco,19.68,1961-12-03,Member 1|Member 2,,2025-11-17T02:43:33.085667,2025-11-17T02:43:33.085667
+art_000890,Electric Eagles F,grunge|hip hop|electronic,85.48,2008-11-21,Member 1|Member 2,spotify_000890,2025-11-17T02:43:33.085675,2025-11-17T02:43:33.085675
+art_000891,Winds G,metal|grunge,34.63,1968-12-01,Member 1|Member 2,,2025-11-17T02:43:33.085682,2025-11-17T02:43:33.085682
+art_000892,Rivers H,funk|electronic|rock,64.94,1980-11-28,Member 1|Member 2|Member 3,spotify_000892,2025-11-17T02:43:33.085688,2025-11-17T02:43:33.085688
+art_000893,Neon Wolves I,blues|folk,86.04,2003-11-23,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000893,2025-11-17T02:43:33.085695,2025-11-17T02:43:33.085695
+art_000894,Shadows J,folk|alternative,69.51,2000-11-23,Member 1,,2025-11-17T02:43:33.085701,2025-11-17T02:43:33.085701
+art_000895,Winds K,electronic,68.0,1983-11-28,Member 1,spotify_000895,2025-11-17T02:43:33.085707,2025-11-17T02:43:33.085707
+art_000896,Cosmic Ravens L,hip hop|metal,32.03,1990-11-26,Member 1|Member 2|Member 3|Member 4,spotify_000896,2025-11-17T02:43:33.085713,2025-11-17T02:43:33.085713
+art_000897,Skies M,disco,88.2,1993-11-25,Member 1|Member 2,spotify_000897,2025-11-17T02:43:33.085719,2025-11-17T02:43:33.085719
+art_000898,Diamond Phoenix N,country|r&b,56.23,1995-11-25,Member 1|Member 2,,2025-11-17T02:43:33.085725,2025-11-17T02:43:33.085725
+art_000899,Velvet Storms O,indie|country,60.11,1998-11-24,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.085731,2025-11-17T02:43:33.085731
+art_000900,Velvet Phoenix P,electronic,68.46,1982-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000900,2025-11-17T02:43:33.085738,2025-11-17T02:43:33.085738
+art_000901,Golden Dragons Q,folk|country|blues,62.72,2009-11-21,Member 1|Member 2|Member 3,spotify_000901,2025-11-17T02:43:33.085744,2025-11-17T02:43:33.085745
+art_000902,Neon Valleys R,metal,67.47,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000902,2025-11-17T02:43:33.085751,2025-11-17T02:43:33.085751
+art_000903,Lightning S,hip hop,55.93,1995-11-25,Member 1,spotify_000903,2025-11-17T02:43:33.085757,2025-11-17T02:43:33.085757
+art_000904,Steel Waves T,jazz|pop,36.57,1981-11-28,Member 1,spotify_000904,2025-11-17T02:43:33.085763,2025-11-17T02:43:33.085763
+art_000905,Midnight Mountains U,electronic,48.9,1995-11-25,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.085769,2025-11-17T02:43:33.085769
+art_000906,Golden Mountains V,grunge|classical,33.86,1986-11-27,Member 1,spotify_000906,2025-11-17T02:43:33.085776,2025-11-17T02:43:33.085776
+art_000907,The Mountains W,classical|electronic,34.03,1998-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000907,2025-11-17T02:43:33.085782,2025-11-17T02:43:33.085782
+art_000908,Neon Legends X,pop,86.58,2013-11-20,Member 1|Member 2,spotify_000908,2025-11-17T02:43:33.085789,2025-11-17T02:43:33.085789
+art_000909,Cosmic Lightning Y,indie|grunge,88.3,2003-11-23,Member 1,,2025-11-17T02:43:33.085794,2025-11-17T02:43:33.085795
+art_000910,Neon Winds Z,funk|disco|folk,33.02,2016-11-19,Member 1|Member 2,spotify_000910,2025-11-17T02:43:33.085801,2025-11-17T02:43:33.085801
+art_000911,Mountains A,grunge,23.57,1970-12-01,Member 1|Member 2,,2025-11-17T02:43:33.085807,2025-11-17T02:43:33.085807
+art_000912,Moons B,soul|latin|pop,53.14,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000912,2025-11-17T02:43:33.085816,2025-11-17T02:43:33.085816
+art_000913,The Dreams C,indie,75.9,1967-12-02,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000913,2025-11-17T02:43:33.085823,2025-11-17T02:43:33.085823
+art_000914,Ravens D,r&b,85.45,1968-12-01,Member 1,,2025-11-17T02:43:33.085830,2025-11-17T02:43:33.085830
+art_000915,Mountains E,r&b|soul|grunge,93.8,1972-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000915,2025-11-17T02:43:33.085836,2025-11-17T02:43:33.085837
+art_000916,Mountains F,metal|folk|blues,22.32,1981-11-28,Member 1|Member 2,spotify_000916,2025-11-17T02:43:33.085846,2025-11-17T02:43:33.085846
+art_000917,Midnight Dreams G,blues|alternative,43.86,1997-11-24,Member 1,,2025-11-17T02:43:33.085853,2025-11-17T02:43:33.085853
+art_000918,Ravens H,metal|blues,30.36,1991-11-26,Member 1,spotify_000918,2025-11-17T02:43:33.085859,2025-11-17T02:43:33.085859
+art_000919,Electric Legends I,country|classical|jazz,38.83,2019-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000919,2025-11-17T02:43:33.085883,2025-11-17T02:43:33.085883
+art_000920,Midnight Moons J,soul|punk,40.31,2010-11-21,Member 1|Member 2|Member 3,spotify_000920,2025-11-17T02:43:33.085899,2025-11-17T02:43:33.085899
+art_000921,Waves K,indie,59.83,2013-11-20,Member 1,spotify_000921,2025-11-17T02:43:33.085913,2025-11-17T02:43:33.085913
+art_000922,Steel Stars L,funk|indie,46.52,1963-12-03,Member 1|Member 2,,2025-11-17T02:43:33.085922,2025-11-17T02:43:33.085922
+art_000923,Golden Wolves M,latin,8.52,1997-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000923,2025-11-17T02:43:33.085930,2025-11-17T02:43:33.085930
+art_000924,Neon Phoenix N,reggae|blues|rock,73.82,1965-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000924,2025-11-17T02:43:33.085937,2025-11-17T02:43:33.085937
+art_000925,Neon Skies O,punk,42.25,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000925,2025-11-17T02:43:33.085945,2025-11-17T02:43:33.085945
+art_000926,Rivers P,funk|pop|soul,67.68,1969-12-01,Member 1,,2025-11-17T02:43:33.085951,2025-11-17T02:43:33.085951
+art_000927,Tigers Q,rock|jazz,56.71,1975-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000927,2025-11-17T02:43:33.085958,2025-11-17T02:43:33.085958
+art_000928,Tigers R,hip hop|soul,66.3,1966-12-02,Member 1|Member 2|Member 3|Member 4,spotify_000928,2025-11-17T02:43:33.085965,2025-11-17T02:43:33.085965
+art_000929,Diamond Legends S,jazz|hip hop,36.42,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000929,2025-11-17T02:43:33.085972,2025-11-17T02:43:33.085972
+art_000930,Legends T,funk|electronic|r&b,25.48,1971-12-01,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000930,2025-11-17T02:43:33.085978,2025-11-17T02:43:33.085978
+art_000931,Crystal Waves U,disco,56.28,2016-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.085985,2025-11-17T02:43:33.085985
+art_000932,Ravens V,grunge|blues|rock,71.82,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000932,2025-11-17T02:43:33.085992,2025-11-17T02:43:33.085992
+art_000933,Silver Skies W,electronic|soul,68.43,2009-11-21,Member 1,,2025-11-17T02:43:33.085998,2025-11-17T02:43:33.085999
+art_000934,Steel Echoes X,soul,57.04,1978-11-29,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000934,2025-11-17T02:43:33.086011,2025-11-17T02:43:33.086011
+art_000935,Electric Mountains Y,metal|rock|disco,33.44,1984-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000935,2025-11-17T02:43:33.086018,2025-11-17T02:43:33.086018
+art_000936,Steel Wolves Z,folk|reggae|pop,50.88,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000936,2025-11-17T02:43:33.086025,2025-11-17T02:43:33.086025
+art_000937,Moons A,funk|country|folk,38.19,1968-12-01,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.086031,2025-11-17T02:43:33.086032
+art_000938,Shadows B,soul|jazz|folk,11.98,2007-11-22,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.086038,2025-11-17T02:43:33.086038
+art_000939,Ravens C,classical|indie,51.12,1970-12-01,Member 1|Member 2|Member 3,spotify_000939,2025-11-17T02:43:33.086044,2025-11-17T02:43:33.086044
+art_000940,Legends D,alternative|electronic,68.43,1964-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000940,2025-11-17T02:43:33.086050,2025-11-17T02:43:33.086050
+art_000941,The Moons E,electronic|r&b|classical,46.39,2009-11-21,Member 1|Member 2|Member 3,spotify_000941,2025-11-17T02:43:33.086057,2025-11-17T02:43:33.086057
+art_000942,Crystal Phoenix F,rock|indie,70.65,1962-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000942,2025-11-17T02:43:33.086064,2025-11-17T02:43:33.086064
+art_000943,The Winds G,classical|disco|electronic,23.94,1972-11-30,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.086071,2025-11-17T02:43:33.086071
+art_000944,Cosmic Storms H,r&b|classical,71.23,2010-11-21,Member 1|Member 2|Member 3,spotify_000944,2025-11-17T02:43:33.086078,2025-11-17T02:43:33.086078
+art_000945,Flames I,country,70.47,1980-11-28,Member 1|Member 2|Member 3|Member 4,spotify_000945,2025-11-17T02:43:33.086084,2025-11-17T02:43:33.086084
+art_000946,Silver Winds J,pop|indie,37.38,2012-11-20,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.086091,2025-11-17T02:43:33.086091
+art_000947,Winds K,country|disco|rock,88.47,1980-11-28,Member 1|Member 2,,2025-11-17T02:43:33.086098,2025-11-17T02:43:33.086098
+art_000948,Dragons L,reggae|folk|blues,46.11,1966-12-02,Member 1,spotify_000948,2025-11-17T02:43:33.086104,2025-11-17T02:43:33.086104
+art_000949,Oceans M,reggae|grunge,35.02,1997-11-24,Member 1,spotify_000949,2025-11-17T02:43:33.086111,2025-11-17T02:43:33.086111
+art_000950,Dragons N,indie,46.38,1985-11-27,Member 1|Member 2|Member 3,spotify_000950,2025-11-17T02:43:33.086116,2025-11-17T02:43:33.086117
+art_000951,Echoes O,r&b|metal,75.01,1972-11-30,Member 1|Member 2|Member 3,spotify_000951,2025-11-17T02:43:33.086122,2025-11-17T02:43:33.086122
+art_000952,Eagles P,electronic,38.49,1971-12-01,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.086130,2025-11-17T02:43:33.086130
+art_000953,Steel Legends Q,alternative,53.77,1969-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000953,2025-11-17T02:43:33.086138,2025-11-17T02:43:33.086138
+art_000954,The Legends R,grunge|punk,56.05,1963-12-03,Member 1|Member 2,spotify_000954,2025-11-17T02:43:33.086145,2025-11-17T02:43:33.086145
+art_000955,Stars S,r&b,42.46,1986-11-27,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.086151,2025-11-17T02:43:33.086151
+art_000956,Crystal Thunder T,alternative|hip hop,78.66,1961-12-03,Member 1,,2025-11-17T02:43:33.086158,2025-11-17T02:43:33.086158
+art_000957,The Dragons U,country|classical,66.79,1980-11-28,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000957,2025-11-17T02:43:33.086165,2025-11-17T02:43:33.086165
+art_000958,Velvet Lightning V,indie|folk|grunge,37.44,1967-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.086172,2025-11-17T02:43:33.086172
+art_000959,Rivers W,latin,28.31,1975-11-30,Member 1|Member 2,spotify_000959,2025-11-17T02:43:33.086178,2025-11-17T02:43:33.086178
+art_000960,Wolves X,jazz,62.35,2004-11-22,Member 1|Member 2|Member 3|Member 4,spotify_000960,2025-11-17T02:43:33.086185,2025-11-17T02:43:33.086185
+art_000961,Golden Echoes Y,latin|punk,63.79,1997-11-24,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000961,2025-11-17T02:43:33.086191,2025-11-17T02:43:33.086191
+art_000962,The Shadows Z,r&b|funk|indie,36.23,1977-11-29,Member 1|Member 2|Member 3|Member 4,spotify_000962,2025-11-17T02:43:33.086198,2025-11-17T02:43:33.086198
+art_000963,Silver Eagles A,hip hop|punk|latin,36.22,2020-11-18,Member 1,spotify_000963,2025-11-17T02:43:33.086204,2025-11-17T02:43:33.086205
+art_000964,Suns B,rock|electronic|soul,53.91,1993-11-25,Member 1,,2025-11-17T02:43:33.086211,2025-11-17T02:43:33.086211
+art_000965,Tigers C,disco,17.25,1971-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000965,2025-11-17T02:43:33.086217,2025-11-17T02:43:33.086217
+art_000966,Waves D,r&b,60.52,1994-11-25,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000966,2025-11-17T02:43:33.086228,2025-11-17T02:43:33.086228
+art_000967,Crystal Mountains E,disco|country|metal,8.87,1968-12-01,Member 1|Member 2,spotify_000967,2025-11-17T02:43:33.086275,2025-11-17T02:43:33.086275
+art_000968,Moons F,pop,73.87,1970-12-01,Member 1|Member 2|Member 3|Member 4,spotify_000968,2025-11-17T02:43:33.086282,2025-11-17T02:43:33.086282
+art_000969,Steel Storms G,alternative,75.93,1968-12-01,Member 1,spotify_000969,2025-11-17T02:43:33.086289,2025-11-17T02:43:33.086289
+art_000970,Stars H,disco|latin,51.72,2002-11-23,Member 1|Member 2|Member 3,spotify_000970,2025-11-17T02:43:33.086295,2025-11-17T02:43:33.086295
+art_000971,Electric Oceans I,punk|rock|indie,50.92,1965-12-02,Member 1|Member 2|Member 3,spotify_000971,2025-11-17T02:43:33.086301,2025-11-17T02:43:33.086302
+art_000972,Electric Dragons J,funk|electronic,59.7,1970-12-01,Member 1,,2025-11-17T02:43:33.086308,2025-11-17T02:43:33.086308
+art_000973,Crystal Moons K,pop|rock,13.16,1975-11-30,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000973,2025-11-17T02:43:33.086315,2025-11-17T02:43:33.086315
+art_000974,Neon Phoenix L,classical,6.79,1988-11-26,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.086322,2025-11-17T02:43:33.086322
+art_000975,Oceans M,country,87.89,1995-11-25,Member 1|Member 2|Member 3|Member 4,spotify_000975,2025-11-17T02:43:33.086328,2025-11-17T02:43:33.086328
+art_000976,Ravens N,reggae,14.7,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.086334,2025-11-17T02:43:33.086334
+art_000977,Neon Echoes O,hip hop,76.41,2019-11-19,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.086340,2025-11-17T02:43:33.086340
+art_000978,Moons P,country|blues|classical,34.32,1994-11-25,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.086346,2025-11-17T02:43:33.086347
+art_000979,Steel Eagles Q,reggae|metal,19.62,1964-12-02,Member 1|Member 2|Member 3,spotify_000979,2025-11-17T02:43:33.086355,2025-11-17T02:43:33.086356
+art_000980,Crystal Moons R,classical|alternative,29.82,2019-11-19,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.086362,2025-11-17T02:43:33.086362
+art_000981,Velvet Wolves S,electronic,56.41,1981-11-28,Member 1|Member 2|Member 3|Member 4,,2025-11-17T02:43:33.086368,2025-11-17T02:43:33.086368
+art_000982,Steel Phoenix T,blues|hip hop|indie,93.32,1979-11-29,Member 1|Member 2|Member 3,spotify_000982,2025-11-17T02:43:33.086375,2025-11-17T02:43:33.086375
+art_000983,Velvet Eagles U,reggae,42.28,1966-12-02,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.086383,2025-11-17T02:43:33.086383
+art_000984,Horizons V,classical,45.71,2014-11-20,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000984,2025-11-17T02:43:33.086389,2025-11-17T02:43:33.086389
+art_000985,Storms W,reggae|soul,30.15,2017-11-19,Member 1|Member 2|Member 3|Member 4,spotify_000985,2025-11-17T02:43:33.086395,2025-11-17T02:43:33.086395
+art_000986,Steel Dreams X,classical|reggae|jazz,34.25,2009-11-21,Member 1|Member 2,spotify_000986,2025-11-17T02:43:33.086402,2025-11-17T02:43:33.086402
+art_000987,Electric Ravens Y,indie|hip hop,20.29,1962-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000987,2025-11-17T02:43:33.086408,2025-11-17T02:43:33.086408
+art_000988,Diamond Horizons Z,blues|disco|indie,66.17,2018-11-19,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000988,2025-11-17T02:43:33.086416,2025-11-17T02:43:33.086416
+art_000989,Golden Thunder A,punk|grunge|reggae,90.98,1968-12-01,Member 1|Member 2|Member 3,,2025-11-17T02:43:33.086423,2025-11-17T02:43:33.086423
+art_000990,Midnight Tigers B,funk|grunge|hip hop,18.17,1966-12-02,Member 1|Member 2,,2025-11-17T02:43:33.086429,2025-11-17T02:43:33.086429
+art_000991,Diamond Rivers C,folk|rock,35.55,1962-12-03,Member 1|Member 2|Member 3|Member 4|Member 5,spotify_000991,2025-11-17T02:43:33.086435,2025-11-17T02:43:33.086436
+art_000992,Cosmic Thunder D,blues|reggae,69.37,1972-11-30,Member 1|Member 2|Member 3|Member 4,spotify_000992,2025-11-17T02:43:33.086442,2025-11-17T02:43:33.086442
+art_000993,Dragons E,classical,35.83,1980-11-28,Member 1,,2025-11-17T02:43:33.086448,2025-11-17T02:43:33.086448
+art_000994,Stars F,country|electronic|hip hop,38.44,1961-12-03,Member 1|Member 2|Member 3|Member 4,spotify_000994,2025-11-17T02:43:33.086455,2025-11-17T02:43:33.086455
+art_000995,Velvet Legends G,hip hop|folk|alternative,62.3,1997-11-24,Member 1|Member 2|Member 3|Member 4,spotify_000995,2025-11-17T02:43:33.086461,2025-11-17T02:43:33.086461
+art_000996,Diamond Skies H,hip hop|folk,70.25,1987-11-27,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,spotify_000996,2025-11-17T02:43:33.086468,2025-11-17T02:43:33.086468
+art_000997,Dragons I,reggae|indie|soul,71.97,1986-11-27,Member 1|Member 2|Member 3|Member 4|Member 5,,2025-11-17T02:43:33.086474,2025-11-17T02:43:33.086475
+art_000998,Electric Tigers J,electronic,54.78,1989-11-26,Member 1|Member 2|Member 3|Member 4|Member 5|Member 6,,2025-11-17T02:43:33.086481,2025-11-17T02:43:33.086481
+art_000999,The Flames K,metal|punk,46.91,2013-11-20,Member 1,spotify_000999,2025-11-17T02:43:33.086487,2025-11-17T02:43:33.086487
+art_001000,Velvet Suns L,electronic,54.71,2020-11-18,Member 1,spotify_001000,2025-11-17T02:43:33.086493,2025-11-17T02:43:33.086493

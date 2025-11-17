@@ -286,11 +286,12 @@ Similar Artists to Arctic Monkeys:
 #### Step 3.1: Start Chatbot Service
 
 ```bash
-# Start chatbot API in background
-cd src/api
-python chatbot_api.py &
+# Start chatbot API in background (using helper script)
+./run_chatbot.sh &
 CHATBOT_PID=$!
-cd ../..
+
+# OR set PYTHONPATH manually:
+# PYTHONPATH=. python src/api/chatbot_api.py &
 
 # Verify service is running
 sleep 3
@@ -606,6 +607,12 @@ lsof -i :8000
 
 # Kill existing process
 kill -9 $(lsof -t -i :8000)
+
+# Start with proper PYTHONPATH
+./run_chatbot.sh
+
+# OR manually:
+PYTHONPATH=. python src/api/chatbot_api.py
 
 # Check Bedrock credentials
 aws bedrock list-foundation-models --region us-east-1

@@ -11,6 +11,7 @@ Ready to demonstrate the platform? **[See DEMO_README.md for complete demo guide
 Quick links:
 - **[Demo Execution Guide](docs/guides/DEMO_EXECUTION_GUIDE.md)** - Step-by-step demo instructions
 - **[Demo Scenarios](docs/guides/DEMO_SCENARIOS.md)** - 13 pre-configured scenarios
+- **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Common issues and solutions
 - **Quick Validation**: `python quick_system_validation.py`
 - **Interactive Demo**: `python demo_test_queries.py`
 

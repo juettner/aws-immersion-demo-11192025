@@ -8,11 +8,12 @@ import os
 import logging
 from pathlib import Path
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
+# Add project root to path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
 
-from services.redshift_service import RedshiftService
-from config.settings import get_settings
+from src.services.redshift_service import RedshiftService
+from src.config.settings import Settings
 
 # Configure logging
 logging.basicConfig(
@@ -26,15 +27,17 @@ def validate_configuration():
     """Validate that all required configuration is present."""
     logger.info("Validating configuration...")
     
-    settings = get_settings()
+    settings = Settings.from_env()
+    
+    # Check if we have Redshift host from environment
+    redshift_host = os.getenv('AWS_REDSHIFT_HOST')
     
     required_settings = {
-        'redshift_host': settings.redshift_host,
-        'redshift_port': settings.redshift_port,
-        'redshift_database': settings.redshift_database,
-        'redshift_user': settings.redshift_user,
-        'redshift_password': settings.redshift_password,
-        'aws_region': settings.aws_region
+        'redshift_host': redshift_host,
+        'redshift_database': settings.aws.redshift_database,
+        'redshift_user': settings.aws.redshift_user,
+        'redshift_password': settings.aws.redshift_password,
+        'aws_region': settings.aws.region
     }
     
     missing = [key for key, value in required_settings.items() if not value]
@@ -57,7 +60,8 @@ def initialize_schema():
     
     try:
         # Create service instance
-        redshift_service = RedshiftService()
+        settings = Settings.from_env()
+        redshift_service = RedshiftService(settings)
         
         # Initialize data warehouse
         logger.info("Creating schema, tables, and stored procedures...")

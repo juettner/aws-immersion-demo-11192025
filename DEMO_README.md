@@ -61,8 +61,11 @@ python train_demo_models.py
 
 ### 2. Start Services
 ```bash
-# Start chatbot API
-python src/api/chatbot_api.py &
+# Start chatbot API (use helper script)
+./run_chatbot.sh &
+
+# OR set PYTHONPATH manually:
+# PYTHONPATH=. python src/api/chatbot_api.py &
 
 # Start web interface
 cd web && npm run dev &
@@ -149,7 +152,7 @@ curl http://localhost:8000/health
 
 # Restart service
 pkill -f chatbot_api.py
-python src/api/chatbot_api.py &
+./run_chatbot.sh &
 ```
 
 ### No data in Redshift
